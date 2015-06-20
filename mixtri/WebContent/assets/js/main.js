@@ -432,30 +432,22 @@
 		    		       password: password
 		    		      
 		    	        },
-		    	  dataType: "json",      
+		    	        
 		    	  success: function (data, textStatus, jqXHR) {
-		    	  alert("IN method Success");
-		    	  //var responseCode = jQuery.parseJSON(jqXHR.status);
-		    	  alert("data"+data);
-		    	  alert("textStatus "+textStatus);
-		    	  alert("jqXHR: "+JSON.stringify(jqXHR));
-		    	  alert("Status: "+status);
-		    	  if(responseCode=='200'){
-		    		  
-		    		  alert("In success");
-		    		  
+		    	  
+		    	  if(jqXHR.status=='200'){
 		    		  $('#loginbox').hide();
 		    		   window.location.href = document.URL;
 		    		  
 		    	    }else{
 		    	    	
-		    	    	//window.location.href = "error.html";
+		    	    	window.location.href = "error.html";
 		    	    }
 		    	  },
 		      
 		    	  error: function (data, textStatus, jqXHR){
-		        	 $('#loginbox').hide();
-		    		 //window.location.href = "error.html";
+		    		 $('#loginbox').hide();
+		    		 window.location.href = "error.html";
 		         }
 		      });
 		      return false;

@@ -15,8 +15,6 @@ public class LoginDB {
 		dbConnection = dbConnection.getDBConnection();
 	
 	  //Code for Interaction with Database goes here with Query Retrive.
-		String username= userLoginBean.getUsername();
-		String password= userLoginBean.getPassword(); 
 		
 		//rs.getString(1);
 		

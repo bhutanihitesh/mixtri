@@ -24,10 +24,8 @@ import com.mixtri.login.UserLoginBean;
 public class Userlogin{
 
   
-  @POST
-  @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-  @Produces(MediaType.APPLICATION_JSON)
-  
+@POST
+@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 @Path("/login")  
 public String authenticate(@FormParam("username") String username, @FormParam("password")String password) {
 	
@@ -39,17 +37,20 @@ public String authenticate(@FormParam("username") String username, @FormParam("p
 	  String responseString=null;
 	 try{ 
 	  userLoginBean.setUsername(username);
-	  userLoginBean.setpassword(password);
+	  userLoginBean.setPassword(password);
 	  
 	  MixtriDAO mixtriDAO = new MixtriDAO();
 	  userLoginBean = mixtriDAO.retriveLoginInfo(userLoginBean);
 	  
-	  if(userLoginBean.getUsername()!=null && userLoginBean.getUsername().equalsIgnoreCase(username))
-	  {
-		  if(userLoginBean.getPassword()!=null && userLoginBean.getPassword().equalsIgnoreCase(password))
+	  if(userLoginBean.isUsernameAuthenticated()){
+	  
+		  if(userLoginBean.isPasswordAuthenticated()){
 			  responseString = userLoginBean.getUsername();
-		  else
+		  }
+			  
+		  else{
 			  responseString = "Invalid Password";
+		  }  
 	  }else{
 		   //Throw invalid password Exception
 		  responseString = "Invalid Username";

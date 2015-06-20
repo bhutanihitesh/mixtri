@@ -17,12 +17,17 @@ public class MixtriDAO {
 	try{
 		rs = loginDB.getLoginInfo(userLoginBean);
 		
-		if(rs!=null){
-			userLoginBean.setUsername(rs.getString(1));
-			userLoginBean.setpassword(rs.getString(2));
-		}else{
-			userLoginBean.setUsername(null);
-			userLoginBean.setpassword(null);
+		String usernameDB = rs.getString(1);
+		String passwordDB = rs.getString(2);
+		
+		if(rs!=null && userLoginBean.getUsername().equalsIgnoreCase(usernameDB)){
+			
+			userLoginBean.setUsernameAuthenticated(true);
+			
+			if(userLoginBean.getPassword().equalsIgnoreCase(passwordDB)){
+				userLoginBean.setPasswordAuthenticated(true);
+			}
+			
 		}
 		
 	}catch(SQLException exp){
