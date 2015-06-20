@@ -58,7 +58,7 @@ public String authenticate(@FormParam("username") String username, @FormParam("p
 	}catch(Exception exp){ 
 		System.out.println("Exception Occured UserLogin: authenticate method: "+exp);
 	}
-	 //TODO: Return a JSON Object
+	 
 	 return responseString;
  }
 	 

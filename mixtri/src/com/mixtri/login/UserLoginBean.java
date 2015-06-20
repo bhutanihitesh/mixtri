@@ -5,6 +5,7 @@ public class UserLoginBean {
 	private String username;
     private String password;
 	private boolean isUsernameAuthenticated;
+	private boolean isPasswordAuthenticated;
 	
 	public boolean isUsernameAuthenticated() {
 		return isUsernameAuthenticated;
@@ -18,7 +19,6 @@ public class UserLoginBean {
 	public void setPasswordAuthenticated(boolean isPasswordAuthenticated) {
 		this.isPasswordAuthenticated = isPasswordAuthenticated;
 	}
-	private boolean isPasswordAuthenticated;
 	
     public String getPassword() {
 		return password;

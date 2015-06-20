@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.mixtri.login.UserLoginBean;
-import com.mixtri.database.DBConnection;
+import com.mixtri.database.*;
 
 public class LoginDB {
 
@@ -14,7 +14,7 @@ public class LoginDB {
 		DBConnection dbConnection = new DBConnection();
 		dbConnection = dbConnection.getDBConnection();
 	
-	  //Code for Interaction with Database goes here with Query Retrive.
+	  //Code for Interaction with Database goes here with Query Retrival.
 		
 		//rs.getString(1);
 		

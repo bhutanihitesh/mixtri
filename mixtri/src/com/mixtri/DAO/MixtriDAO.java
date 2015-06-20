@@ -3,10 +3,8 @@ package com.mixtri.DAO;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.mixtri.login.UserLoginBean;
-import com.mixtri.login.LoginDB;
-import com.mixtri.signup.SignUpDB;
-import com.mixtri.signup.UserSignUpBean;
+import com.mixtri.login.*;
+import com.mixtri.signup.*;
 
 public class MixtriDAO {
 	
