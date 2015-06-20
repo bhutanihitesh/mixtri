@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Mixtri-Home</title>
+
+<!--=================================
+Meta tags
+=================================-->
+<meta name="description" content="">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta name="viewport"
+	content="minimum-scale=1.0, width=device-width, maximum-scale=1, user-scalable=no" />
+
+<!--=================================
+Style Sheets
+=================================-->
+<link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300'
+	rel='stylesheet' type='text/css'>
+<link
+	href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,700'
+	rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css"
+	href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="assets/css/flexslider.css">
+<link rel="stylesheet" type="text/css" href="assets/css/prettyPhoto.css">
+<link rel="stylesheet" type="text/css"
+	href="assets/css/jquery.vegas.css">
+<link rel="stylesheet" type="text/css"
+	href="assets/css/jquery.mCustomScrollbar.css">
+<link rel="stylesheet" href="assets/css/main.css">
+
+<!--<link rel="stylesheet" type="text/css" href="assets/css/blue.css">
+<link rel="stylesheet" type="text/css" href="assets/css/orange.css">
+<link rel="stylesheet" type="text/css" href="assets/css/red.css">
+<link rel="stylesheet" type="text/css" href="assets/css/green.css">
+<link rel="stylesheet" type="text/css" href="assets/css/purple.css">-->
+
+<script async src="assets/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+<script defer src="assets/js/jquery.js"></script>
+<script defer src="assets/js/ajaxify.min.js"></script>
+
+
+</head>
+<body>
+
+<div id="header"></div>
+	<!--=================================
+	Header
+	=================================-->
+	<!-- <header>
+		<div class="social-links">
+			<div class="container">
+				<ul class="social">
+					<li><a href="#"><span class="fa fa-facebook"></span></a></li>
+					<li><a href="#"><span class="fa fa-twitter"></span></a></li>
+					<li><a href="#"><span class="fa fa-pinterest"></span></a></li>
+					<li><a href="#"><span class="fa fa-instagram"></span></a></li>
+				</ul>
+				<div id="login" class = "login">
+				        <ul>
+		                     <li><a href="signup.html"><span class="fa fa-headphones"></span> Are you a Dj?</a></li>
+		                     <li><a href="#signupbox" data-toggle="modal">Sign Up</a></li>
+		                     <li><a href="#loginbox" data-toggle="modal">Login</a></li>
+		                     
+		                </ul>
+				</div>
+				<div id="welcomeLogin" class ="login" style="display: none;">
+				        <ul>
+		                     <li><a href="signup.html"><span class="fa fa-headphones"></span> Hello Dj</a></li>
+		                     <li><a href="#signupbox" data-toggle="modal">New Sign Up</a></li>
+		                     <li><a href="#loginbox" data-toggle="modal">Welcome Dj Heeths</a></li>
+		                     
+		                </ul>
+				</div>
+			</div>
+		</div>
+		<nav class="navbar yamm navbar-default">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle fa fa-navicon"></button>
+					<a class="navbar-brand" href="index.html"> <img
+						src="assets/img/basic/logo.png" alt="logo" />
+					</a>
+					<h5>India's first 24*7 Online Music Festival</h5>
+
+				</div>
+
+				<div class="nav_wrapper">
+					<div class="nav_scroll">
+						<div class="nav-search">
+							<form>
+								<input type="text" placeholder="Search a Favorite Dj or a Club" />
+								<button type="submit">
+									<i class="fa fa-search"></i>
+								</button>
+							</form>
+						</div>
+
+						<ul class="nav navbar-nav">
+							<li class="active dropdown"><a href="archives.html">Archived
+									Mixes<i class="fa fa-caret-right"></i>
+							</a></li>
+							<li class="yamm-fw dropdown"><a href="events.html">Upcoming
+									Events <i class="fa fa-caret-right"></i>
+							</a></li>
+							<li class="dropdown"><a href="blog-detail.html">Blog <i
+									class="fa fa-caret-right"></i></a></li>
+							<li class="yamm-fw dropdown"><a href="mydjs.html">My Djs
+									<i class="fa fa-caret-right"></i>
+							</a></li>
+							<li class="yamm-fw dropdown"><a href="#">Music Genres <i
+									class="fa fa-caret-right"></i></a></li>
+							<li><a href="contact.html">Contact</a></li>
+						</ul>
+					</div>
+					/.nav-collapse
+
+				</div>
+			</div>
+
+		</nav>
+		
+		
+	    ==============================================
+		  
+		  Login-SignUp form Start
+		    
+		===================================================
+	
+        <div id="loginbox" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2" >                    
+            <div class="panel panel-info" >
+                    <div class="panel-heading">
+                    
+                               <button
+									type="button" class="close" data-dismiss="modal"
+									aria-label="Close" onClick="$('#loginbox').hide();">
+									<span aria-hidden="true">×</span>
+								</button>
+                       <div class="panel-title">Log in</div>
+								<div style="float:right; font-size: 80%; position: relative; top:-10px">
+								<a href="#" onClick="$('#loginbox').hide(); $('#signupbox').show()" style="color: greenyellow;">Sign in</a></div>                        
+                    </div>     
+
+                    <div style="padding-top:30px" class="panel-body" >
+
+                        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+                            
+                        <form id="loginform" class="form-horizontal" role="form">
+                                    
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <div class="col-md-9" style="padding-left: 0px;">
+                                        <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="username or email">
+                                        </div>                                         
+                                    </div>
+                                
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        
+                                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                        <div class="col-md-9" style="padding-left: 0px;">
+                                        <input id="login-password" type="password" class="form-control" name="password" placeholder="password">
+                                        </div>
+                                    </div>
+                                 
+                               <div class="form-group">
+                                    <div class="col-md-offset-3 col-md-9">
+                                        <button id="btnlogin" type="button" class="btn btn-info" style="margin-left: 50px; padding-right: 20px;"><i class="icon-hand-right"></i> &nbsp Login</button>
+                                    </div>
+                                </div>
+                               
+                            <div class="input-group" style="padding-bottom: 10px;">
+                                      <div class="checkbox">
+                                        <label>
+                                          <input id="login-remember" type="checkbox" name="remember" value="1"> Remember me
+                                        </label>
+                                        &nbsp; &nbsp; &nbsp; &nbsp; 
+                                        <a href="#" style="color: #2a6496;">
+                                            Forgot password?
+                                        </a>
+                                      </div>
+                              </div>
+                              
+
+                                <div style="border-top: 1px solid #999; padding-top:30px"  class="form-group">
+                                    
+                                    <div class="col-md-offset-3 col-md-9" style="padding-left: 0px; padding-right: 0px;">
+                                        <button id="btn-fbsignup" style="margin-bottom: 10px;" type="button" class="btn btn-primary"><i class="icon-facebook"></i>   Log in with Facebook</button>
+                                        <button id="btn-fbsignup" style="margin-bottom: 10px;" type="button" class="btn btn-danger"><i class="icon-facebook"></i>   Log in with Google</button>
+                                    </div>
+                                    
+                                    <div style="padding-left: 130px;">By signing in, you accept our <a href="#" style="color: #2a6496;">Terms of Use</a> 
+                                    and <a href="aboutus.html" style="color: #2a6496;">Privacy Policy</a></div>                                           
+                                        
+                                </div>
+  
+                            </form>     
+
+
+
+                        </div>                     
+                    </div>  
+        </div>
+        <div id="signupbox" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                        <button
+									type="button" class="close" data-dismiss="modal"
+									aria-label="Close" onClick="$('#signupbox').hide();">
+									<span aria-hidden="true">×</span>
+						</button>
+                            <div class="panel-title">Get in your party shoes!</div>
+                            <div style="float:right; font-size: 85%; position: relative; top:-10px;">
+                            <a id="signinlink" href="#" onclick="$('#signupbox').hide(); $('#loginbox').show()" style=" color: greenyellow; font-size: small;">Log in</a></div>
+                        </div>  
+                        <div class="panel-body" >
+                            <form id="signupform" class="form-horizontal" role="form">
+                                
+                                <div id="signupalert" style="display:none" class="alert alert-danger">
+                                    <p>Error:</p>
+                                    <span></span>
+                                </div>
+                                    
+                                
+                                  
+                                <div class="form-group">
+                                    <label for="name" class="col-md-1 control-label">Name*</label>
+                                    <div class="col-md-5" style="padding-left: 25px;">
+                                        <input type="text" class="form-control" name="name" placeholder="Dj Name...">
+                                    </div>
+                                    
+                                </div>
+                                <div class="form-group">
+                                
+                                <label for="email" class="col-md-1 control-label">Email*</label>
+                                    <div class="col-md-5" style="padding-left: 25px;">
+                                        <input type="text" class="form-control" name="email" placeholder="Email Address">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="contact" class="col-md-1 control-label">Contact*</label>
+                                    <div class="col-md-5" style="padding-left: 25px;">
+                                        <input type="text" class="form-control" name="contact" placeholder="Fans may contact you to hire..." 
+                                        data-toggle="tooltip" title="Fans may contact you to hire...">
+                                    </div>
+                                    
+                                </div>
+                                
+                                <div class="form-group" style="padding-top: 5px;">
+                                
+                                    <div>
+                                    <label for="password" class="col-md-0 control-label" style="padding-left: 20px;">Password*</label>
+                                    <label for="re-enter password" class="col-md-0 control-label" style="padding-left: 190px;">Re-enter password*</label>
+                                    </div> 
+                                    <div class="col-md-5">
+                                        <input type="text" class="form-control" name="password" placeholder="Password">
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="text" class="form-control" name="re-enter password" placeholder="Re-enter password">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <div class="col-md-offset-3 col-md-9">
+                                        <button id="btn-signup" type="button" class="btn btn-info" style="margin-left: 50px;"><i class="icon-hand-right"></i> &nbsp Create account</button>
+                                    </div>
+                                </div>
+                                
+                                <div style="border-top: 1px solid #999; padding-top:20px"  class="form-group">
+                                    
+                                    <div class="col-md-offset-3 col-md-9" style="padding-left: 0px; padding-right: 0px;">
+                                        <button id="btn-fbsignup" style="margin-bottom: 10px;" type="button" class="btn btn-primary"><i class="icon-facebook"></i>   Sign Up with Facebook</button>
+                                        <button id="btn-fbsignup" style="margin-bottom: 10px;" type="button" class="btn btn-danger"><i class="icon-facebook"></i>   Sign Up with Google</button>
+                                    </div>
+                                    
+                                    <div style="padding-left: 150px;">By signing in, you accept our <a href="#" style="color: #2a6496;">Terms of Use</a> 
+                                    and <a href="aboutus.html" style="color: #2a6496;">Privacy Policy</a></div>                                           
+                                        
+                                </div>
+                                
+                                
+                                
+                            </form>
+                         </div>
+                    </div>
+               
+                
+         </div>
+       
+		
+		<!-- =================================================
+		
+		Login signup form End
+		
+		======================================================
+		
+	</header> -->
+	
+
+	<!--=================================
+Vegas Slider Images
+=================================-->
+
+	<ul class="vegas-slides hidden">
+		<li><img data-fade='2000' src="assets/img/BG/bg1.jpg" alt="" /></li>
+		<li><img data-fade='2000' src="assets/img/BG/bg2.jpg" alt="" /></li>
+		<li><img data-fade='2000' src="assets/img/BG/bg3.jpg" alt="" /></li>
+		<li><img data-fade='2000' src="assets/img/BG/bg4.jpg" alt="" /></li>
+	</ul>
+	<div id="ajaxArea">
+		<div class="pageContentArea">
+			<!--=================================
+      Home
+      =================================-->
+			<section id="home-slider">
+				<div class="container">		
+					<div class="home-inner">
+
+						<div id="homeSliderNav" class="slider-nav">
+							<a id="home-prev" href="#" class="prev fa fa-chevron-left"></a> <a
+								id="home-next" href="#" class="next fa fa-chevron-right"></a>
+						</div>
+						<!--sliderNav-->
+
+						<div id="flex-home" class="flexslider" data-animation="slide"
+							data-animationSpeed="1000" data-autoPlay="true"
+							data-slideshowSpeed="3000">
+							<ul class="slides">
+								<li><img src="assets/img/slider/slider.jpg" alt="">
+									<div class="flex-caption">
+										<h2>Live Djs from India and around the world</h2>
+									</div></li>
+								<li><img src="assets/img/slider/slider-1.jpg" alt="">
+									<div class="flex-caption">
+										<h2>Never ending music festival</h2>
+									</div></li>
+								<li><img src="assets/img/slider/slider-2.jpg" alt="">
+									<div class="flex-caption">
+										<h2>24*7 Bollywood, EDM, Trance and much more</h2>
+									</div></li>
+								<li><img src="assets/img/slider/slider-3.jpg" alt="">
+									<div class="flex-caption">
+										<h2>Party at your house with the best Djs</h2>
+									</div></li>
+								<li><img src="assets/img/slider/slider-4.jpg" alt="">
+									<div class="flex-caption">
+										<h2>Play live showcase your talent</h2>
+									</div></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--=================================
+      Upcoming events
+      =================================-->
+
+			<section id="upcomingEvents">
+
+				<div class="container">
+					<div class="container-all-live-djs">
+						<h1>Live Djs</h1>
+						<div class="row">
+
+							<!--latest events-->
+
+							<div class="col-lg-4 col-md-4 col-sm-4">
+								<div class="container-live-dj">
+									<div class="Live-Djs">
+
+										<a href="#"><img src="assets/img/news/1.jpg" alt="dummy"></a>
+
+
+									</div>
+
+									<div class="Live-Djs-Content">
+
+										<div class="Genre">Bollywood EDM</div>
+										<div class="Dj-name">
+											<a href="#">DJ NYK</a>
+										</div>
+										<div class="stream">
+											<a href="#">DJ NYK Non Stop Podcast 10</a>
+										</div>
+										<div class="stream-description">2 hrs of non-stop Bolloywood EDM!!!</div>
+											<div>
+										<ul>
+											<li class="Live-Djs-userIcon"><span class="fa fa-user"></span>
+												4</li>
+											<li class="Live-Djs-NowLive"><span class="fa fa-music"></span>
+												Now Live!</li>
+										</ul>
+									</div>
+									</div>
+									
+								</div>
+							</div>
+							<!--\\latest news-->
+
+							<div class="col-lg-4 col-md-4 col-sm-4">
+								<div class="container-live-dj">
+									<div class="Live-Djs">
+
+										<a href="#"><img src="assets/img/news/1.jpg" alt="dummy"></a>
+
+
+									</div>
+
+									<div class="Live-Djs-Content">
+
+										<div class="Genre">Bollywood EDM</div>
+										<div class="Dj-name">
+											<a href="#">DJ NYK</a>
+										</div>
+										<div class="stream">
+											<a href="#">DJ NYK Non Stop Podcast 10</a>
+										</div>
+										<div class="stream-description">2 hrs of non-stop
+											Bolloywood EDM!!!</div>
+									
+									<div>
+										<ul>
+											<li class="Live-Djs-userIcon"><span class="fa fa-user">
+													4</span></li>
+											<li class="Live-Djs-NowLive"><span class="fa fa-music"></span>
+												Now Live!</li>
+										</ul>
+									</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-lg-4 col-md-4 col-sm-4">
+
+								<div class="djsignup">
+
+									<ul class="sitemap">
+										<li><a href="signup.html">Are you a Dj? <span
+												class="fa fa-headphones"></span></a></li>
+										<li>Go Mobile <a href="#"><span class="fa fa-apple"></span></a>
+											<a href="#"><span class="fa fa-android"></span></a></li>
+										<li>Follow Us @ABC <a href="#"><span
+												class="fa fa-facebook"></span></a><a href="#"> <span
+												class="fa fa-twitter"></span></a></li>
+									</ul>
+								</div>
+								<!--\\latest news-->
+							</div>
+
+						</div>
+						<div class="row">
+
+							<!--latest events-->
+
+							<div class="col-lg-4 col-md-4 col-sm-4">
+								<div class="container-live-dj">
+									<div class="Live-Djs">
+
+										<a href="#"><img src="assets/img/news/1.jpg" alt="dummy"></a>
+
+
+									</div>
+
+									<div class="Live-Djs-Content">
+
+										<div class="Genre">Bollywood EDM</div>
+										<div class="Dj-name">
+											<a href="#">DJ NYK</a>
+										</div>
+										<div class="stream">
+											<a href="#">DJ NYK Non Stop Podcast 10</a>
+										</div>
+										<div class="stream-description">2 hrs of non-stop
+											Bolloywood EDM!!!</div>
+											<div>
+										<ul>
+											<li class="Live-Djs-userIcon"><span class="fa fa-user"></span>
+												4</li>
+											<li class="Live-Djs-NowLive"><span class="fa fa-music"></span>
+												Now Live!</li>
+										</ul>
+									</div>
+									</div>
+									
+								</div>
+							</div>
+							<!--\\latest news-->
+
+							<div class="col-lg-4 col-md-4 col-sm-4">
+								<div class="container-live-dj">
+									<div class="Live-Djs">
+
+										<a href="#"><img src="assets/img/news/1.jpg" alt="dummy"></a>
+
+
+									</div>
+
+									<div class="Live-Djs-Content">
+
+										<div class="Genre">Bollywood EDM</div>
+										<div class="Dj-name">
+											<a href="#">DJ NYK</a>
+										</div>
+										<div class="stream">
+											<a href="#">DJ NYK Non Stop Podcast 10</a>
+										</div>
+										<div class="stream-description">2 hrs of non-stop
+											Bolloywood EDM!!!</div>
+											
+											<div>
+										<ul>
+											<li class="Live-Djs-userIcon"><span class="fa fa-user">
+													4</span></li>
+											<li class="Live-Djs-NowLive"><span class="fa fa-music"></span>
+												Now Live!</li>
+										</ul>
+									</div>
+									</div>
+									
+								</div>
+							</div>
+						</div>
+						<div class="row">
+
+							<!--latest events-->
+
+							<div class="col-lg-4 col-md-4 col-sm-4">
+								<div class="container-live-dj">
+									<div class="Live-Djs">
+
+										<a href="#"><img src="assets/img/news/1.jpg" alt="dummy"></a>
+
+
+									</div>
+
+									<div class="Live-Djs-Content">
+
+										<div class="Genre">Bollywood EDM</div>
+										<div class="Dj-name">
+											<a href="#">DJ NYK</a>
+										</div>
+										<div class="stream">
+											<a href="#">DJ NYK Non Stop Podcast 10</a>
+										</div>
+										<div class="stream-description">2 hrs of non-stop
+											Bolloywood EDM!!!</div>
+											
+											<div>
+										<ul>
+											<li class="Live-Djs-userIcon"><span class="fa fa-user"></span>
+												4</li>
+											<li class="Live-Djs-NowLive"><span class="fa fa-music"></span>
+												Now Live!</li>
+										</ul>
+									</div>
+									</div>
+									
+								</div>
+							</div>
+							<!--\\latest news-->
+
+							<div class="col-lg-4 col-md-4 col-sm-4">
+								<div class="container-live-dj">
+									<div class="Live-Djs">
+
+										<a href="#"><img src="assets/img/news/1.jpg" alt="dummy"></a>
+
+
+									</div>
+
+									<div class="Live-Djs-Content">
+
+										<div class="Genre">Bollywood EDM</div>
+										<div class="Dj-name">
+											<a href="#">DJ NYK</a>
+										</div>
+										<div class="stream">
+											<a href="#">DJ NYK Non Stop Podcast 10</a>
+										</div>
+										<div class="stream-description">2 hrs of non-stop
+											Bolloywood EDM!!!</div>
+											
+											<div>
+										<ul>
+											<li class="Live-Djs-userIcon"><span class="fa fa-user">
+													4</span></li>
+											<li class="Live-Djs-NowLive"><span class="fa fa-music"></span>
+												Now Live!</li>
+										</ul>
+									</div>
+									</div>
+									
+								</div>
+							</div>
+						</div>
+						<div class="row">
+
+							<!--latest events-->
+
+							<div class="col-lg-4 col-md-4 col-sm-4">
+								<div class="container-live-dj">
+									<div class="Live-Djs">
+
+										<a href="#"><img src="assets/img/news/1.jpg" alt="dummy"></a>
+
+
+									</div>
+
+									<div class="Live-Djs-Content">
+
+										<div class="Genre">Bollywood EDM</div>
+										<div class="Dj-name">
+											<a href="#">DJ NYK</a>
+										</div>
+										<div class="stream">
+											<a href="#">DJ NYK Non Stop Podcast 10</a>
+										</div>
+										<div class="stream-description">2 hrs of non-stop
+											Bolloywood EDM!!!</div>
+											
+											<div>
+										<ul>
+											<li class="Live-Djs-userIcon"><span class="fa fa-user"></span>
+												4</li>
+											<li class="Live-Djs-NowLive"><span class="fa fa-music"></span>
+												Now Live!</li>
+										</ul>
+									</div>
+									</div>
+									
+								</div>
+							</div>
+							<!--\\latest news-->
+
+							<div class="col-lg-4 col-md-4 col-sm-4">
+								<div class="container-live-dj">
+									<div class="Live-Djs">
+
+										<a href="#"><img src="assets/img/news/1.jpg" alt="dummy"></a>
+
+
+									</div>
+
+									<div class="Live-Djs-Content">
+
+										<div class="Genre">Bollywood EDM</div>
+										<div class="Dj-name">
+											<a href="#">DJ NYK</a>
+										</div>
+										<div class="stream">
+											<a href="#">DJ NYK Non Stop Podcast 10</a>
+										</div>
+										<div class="stream-description">2 hrs of non-stop
+											Bolloywood EDM!!!</div>
+											
+											<div>
+										<ul>
+											<li class="Live-Djs-userIcon"><span class="fa fa-user">
+													4</span></li>
+											<li class="Live-Djs-NowLive"><span class="fa fa-music"></span>
+												Now Live!</li>
+										</ul>
+									</div>
+									</div>
+									
+								</div>
+							</div>
+						</div>
+						<!-- row ends -->
+					</div>
+					<ul class="sitemap">
+						<li><a href="events.html"><span class="fa fa-th"></span>
+								See All</a></li>
+					</ul>
+
+				</div>
+				<!-- Container -->
+			</section>
+		</div>
+		<!--pageContent-->
+	</div>
+	<!--ajaxwrap-->
+
+	<!--=================================
+	Latest blog
+	=================================-->
+	<section id="latest-blog">
+		<div class="container">
+			<div class="row">
+				<h1>latest from the blog</h1>
+				<div class="col-lg-4 col-md-4 col-sm-4">
+					<article class="blog-post">
+						<img src="assets/img/blog/1.jpg" alt="" />
+						<div class="hover">
+							<a href="blog-detail.html">
+								<h2>Miguel to Muse: the week in music</h2>
+								<p>'I use uncertainty as motivation and hopefully Rob uses
+									it as motivation as...</p>
+								<ul>
+									<li>Admin</li>
+									<li>5 hours ago</li>
+									<li>2 Comments</li>
+								</ul>
+							</a>
+						</div>
+					</article>
+				</div>
+				<!--\\blog-post-->
+
+				<div class="col-lg-4 col-md-4 col-sm-4">
+					<article class="blog-post">
+						<img src="assets/img/blog/2.jpg" alt="" />
+						<div class="hover">
+							<a href="blog-detail.html">
+								<h2>Kenny Chesney kicks off Austin’s country music</h2>
+								<p>'I use uncertainty as motivation and hopefully Rob uses
+									it as motivation as...</p>
+								<ul>
+									<li>Admin</li>
+									<li>5 hours ago</li>
+									<li>2 Comments</li>
+								</ul>
+							</a>
+						</div>
+					</article>
+				</div>
+				<!--\\blog-post-->
+
+				<div class="col-lg-4 col-md-4 col-sm-4">
+					<article class="blog-post">
+						<img src="assets/img/blog/3.jpg" alt="" />
+						<div class="hover">
+							<a href="blog-detail.html">
+								<h2>CHRISTIAN REY - LIVE MUSIC</h2>
+								<p>'I use uncertainty as motivation and hopefully Rob uses
+									it as motivation as...</p>
+								<ul>
+									<li>Admin</li>
+									<li>5 hours ago</li>
+									<li>2 Comments</li>
+								</ul>
+							</a>
+						</div>
+					</article>
+				</div>
+				<!--\\blog-post-->
+
+			</div>
+		</div>
+	</section>
+
+	<!--=================================
+	Footer
+	=================================-->
+	<div id="footer"></div>
+	
+	<!-- <footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-3 col-sm-3">
+					<h4>
+						<span class="fa fa-sitemap"></span>About Us
+					</h4>
+					<div class="row">
+						<div class="col-lg-6 col-md-6 col-sm-6">
+							<ul class="sitemap">
+								<li><a href="about.html">Our Company</a></li>
+								<li><a href="#">Team</a></li>
+								<li><a href="#">Careers</a></li>
+								<li><a href="#">Contact</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-3 col-sm-3">
+					<h4>
+						<span class="fa fa-sitemap"></span>ABC Mobile
+					</h4>
+					<div class="row">
+						<div class="col-lg-6 col-md-6 col-sm-6">
+							<ul class="sitemap">
+								<li><a href="#"><span class="fa fa-apple"> iOS</span></a></li>
+								<li><a href="#"><span class="fa fa-android">
+											Android</span></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				\\column
+				<div class="col-lg-3 col-md-3 col-sm-3">
+					<h4>
+						<span class="fa fa-sitemap"></span>Follow Us
+					</h4>
+					<div class="row">
+						<div class="col-lg-6 col-md-6 col-sm-6">
+							<ul class="sitemap">
+								<li><a href="#"><span class="fa fa-facebook">
+											Facebook</span></a></li>
+								<li><a href="#"><span class="fa fa-twitter">
+											Twitter</span></a></li>
+								<li><a href="#"><span class="fa fa-instagram">
+											Instagram</span></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				\\column
+				\\column
+
+				<div class="col-lg-3 col-md-3 col-sm-3">
+					<h4>
+						<span class="fa fa-envelope"></span>newsletter signup
+					</h4>
+					<form id="newsletter">
+						<input placeholder="Enter your email address here" />
+						<button class="submit-btn">submit</button>
+					</form>
+				</div>
+				\\column
+
+			</div>
+			\\row
+		</div>
+		\\container
+	</footer> -->
+
+<!--=================================
+Script Source
+=================================-->
+
+	 <script defer src="assets/js/bootstrap.min.js"></script>
+	<script defer src="assets/js/jquery.easing-1.3.pack.js"></script>
+	<script defer src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script defer src="assets/js/jquery.mousewheel.min.js"></script>
+	<script defer src="assets/js/jflickrfeed.min.js"></script>
+	<script defer src="assets/js/jquery.flexslider-min.js"></script>
+	<script defer src="assets/js/jquery.carouFredSel-6.2.1-packed.js"></script>
+	<script defer src="assets/js/tweetie.min.js"></script>
+	<script defer src="assets/js/jquery.prettyPhoto.js"></script>
+	<script defer src="assets/jPlayer/jquery.jplayer.min.js"></script>
+	<script defer src="assets/jPlayer/add-on/jplayer.playlist.min.js"></script>
+	<script defer src="assets/js/jquery.vegas.min.js"></script>
+	<script defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+	<script defer src="assets/js/jquery.calendar-widget.js"></script>
+	<script defer src="assets/js/isotope.js"></script>
+	<script defer src="assets/js/main.js"></script>
+
+	<script>/*Place Your Google Analytics code here*/</script>
+
+</body>
+</html>
