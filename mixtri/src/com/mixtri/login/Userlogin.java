@@ -1,12 +1,14 @@
 package com.mixtri.login;
 
+import java.sql.SQLException;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.FormParam;
-
+import org.apache.log4j.Logger;
+import com.mixtri.BusinessExceptions.ExceptionHttpStatusResolver;
 import com.mixtri.DAO.MixtriDAO;
 import com.mixtri.login.UserLoginBean;
 
@@ -23,6 +25,7 @@ import com.mixtri.login.UserLoginBean;
 @Path("/")
 public class Userlogin{
 
+	static Logger log = Logger.getLogger(Userlogin.class.getName());
   
 @POST
 @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -49,14 +52,24 @@ public String authenticate(@FormParam("username") String username, @FormParam("p
 		  }
 			  
 		  else{
-			  responseString = "Invalid Password";
-		  }  
+			   
+			  responseString = "Hey!!! Seems like you got a wrong password. Please try again";
+			}  
 	  }else{
-		   //Throw invalid password Exception
-		  responseString = "Invalid Username";
+		   
+		  
+		  responseString = ("Hey!!! Thats not your correct username. Please try again");		  
 	  }
-	}catch(Exception exp){ 
-		System.out.println("Exception Occured UserLogin: authenticate method: "+exp);
+	}catch(SQLException sqlExp){
+		log.error("SQL Exception Occured: "+sqlExp);
+		ExceptionHttpStatusResolver expHttpStatusResolver = new ExceptionHttpStatusResolver();
+		expHttpStatusResolver.toResponse(sqlExp);
+		
+	}
+	 catch(Exception exp){ 
+		 log.error("Exception Occured UserLogin: authenticate method: "+exp);
+		ExceptionHttpStatusResolver expHttpStatusResolver = new ExceptionHttpStatusResolver();
+		expHttpStatusResolver.toResponse(exp);
 	}
 	 
 	 return responseString;

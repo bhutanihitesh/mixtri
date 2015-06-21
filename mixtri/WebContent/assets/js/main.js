@@ -437,10 +437,15 @@
 		    	  
 		    	  if(jqXHR.status=='200'){
 		    		  $('#loginbox').hide();
+		    		   
+		    		   if (document.URL.indexOf("error.html") >= 0){
+		    			 window.location.href  = "index.html";
+		    		   }	   
+		    		   else{
 		    		   window.location.href = document.URL;
-		    		  
+		    		   }
+		    		   
 		    	    }else{
-		    	    	
 		    	    	window.location.href = "error.html";
 		    	    }
 		    	  },
