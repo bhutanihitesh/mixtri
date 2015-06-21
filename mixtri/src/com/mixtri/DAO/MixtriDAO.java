@@ -45,10 +45,9 @@ public class MixtriDAO {
 
 		ResultSet rs=null;
 		rs = signUpDB.createNewUser(userSignUpBean);
-		rs.getInt(1);
-
-		//If a valid ResultSet is return then setUsercreated = true; 		
-		if(rs.getString(1)!=null){
+		
+		//If a valid GUID is return then setUsercreated = true; 		
+		if(rs!=null){
 			userSignUpBean.setUsercreated(true);
 			log.debug("User created Successfully");
 		}	

@@ -27,18 +27,22 @@ public class UserSignUp {
 		boolean isUserCreated = false;
 		UserSignUpBean  userSignUpBean = new UserSignUpBean();
 		try{
+			//Encrypting the password with MD5 and salting.
+
+			String hashedPassword = SaltedMD5.generateSecurePassword(password,userSignUpBean);
+
 			userSignUpBean.setUsername(username);
-			userSignUpBean.setPassword(password);
+			userSignUpBean.setPassword(hashedPassword);
 			userSignUpBean.setEmailId(emailId);
 			userSignUpBean.setContact(contact);
 
 			MixtriDAO mixtriDAO = new MixtriDAO();
 			userSignUpBean = mixtriDAO.setSignUpInfo(userSignUpBean);
 			isUserCreated = userSignUpBean.isUsercreated();
-			
+
 			if(isUserCreated){
 				return userSignUpBean.getUsername();
-			
+
 			}   
 
 		}catch(SQLException sqlExp){
@@ -48,7 +52,7 @@ public class UserSignUp {
 
 		}
 		catch(Exception exp){ 
-			System.out.println("Exception Occured UserSignup: CreateUser method: "+exp);
+			log.error("Exception Occured UserSignup: CreateUser method: "+exp);
 			ExceptionHttpStatusResolver expHttpStatusResolver = new ExceptionHttpStatusResolver();
 			expHttpStatusResolver.toResponse(exp);
 		}

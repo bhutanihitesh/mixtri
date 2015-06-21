@@ -2,11 +2,9 @@ package com.mixtri.signup;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import org.apache.log4j.Logger;
-
 import com.mixtri.database.DBConnection;
-import com.mixtri.login.Userlogin;
+import java.util.UUID;
 
 
 public class SignUpDB {
@@ -18,14 +16,14 @@ public class SignUpDB {
 	DBConnection dbConnection = new DBConnection();
 	dbConnection = dbConnection.getDBConnection();
 	ResultSet rs=null;
+	String username = userSignUpBean.getUsername();
+	String password = userSignUpBean.getPassword();
+	String salt =userSignUpBean.getSalt();
+	int contact = userSignUpBean.getContact();
+	final String uuid = UUID.randomUUID().toString().replaceAll("-", "");
 	
+	//Connect to DB and Insert the Record
 	
-	userSignUpBean.getUsername();
-	userSignUpBean.getPassword();
-	userSignUpBean.getEmailId();
-	userSignUpBean.getPassword();
-	
-	//Connect to DB and Insert Record
 	return rs;
 	}
 

@@ -1,0 +1,7 @@
+Table name: Users
+1. String Unique id (unique guid)
+2. String username/emailId (unique)
+3. String password (not null)
+4. String salt
+5. String name
+6. int contact

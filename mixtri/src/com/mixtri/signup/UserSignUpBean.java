@@ -4,9 +4,24 @@ public class UserSignUpBean {
 	
 	private String username;
 	private String emailId;
-	private int contact;
+	private int    contact;
 	private String password;
+	private String salt;
+	
+	public String getSalt() {
+		return salt;
+	}
+	public void setSalt(String salt) {
+		this.salt = salt;
+	}
+	public String getGuid() {
+		return guid;
+	}
+	public void setGuid(String guid) {
+		this.guid = guid;
+	}
 	private boolean isUsercreated;
+	private String guid;
 	
 	public boolean isUsercreated() {
 		return isUsercreated;
