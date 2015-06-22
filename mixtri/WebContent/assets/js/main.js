@@ -86,6 +86,35 @@
 	/*============================
 	Jplayer
 	============================*/
+	(function($){
+		
+	console.log("he");
+    var strLocation=window.location.href;
+    var strPrevLocation='';
+    var archiveLocation='http://localhost:8080/mixtri/archives.html';
+    var intervalTime=100;
+    var checkLocation=function(){
+    	if(strLocation!=window.location.href){
+    		strPrevLocation=strLocation;
+    		strLocation=window.location.href;
+    		
+    	}
+    	
+    }
+//	$('header .choices').on('click','li a',function(e){
+//		//console.log(e);
+//		e.preventDefault();
+//		console.log(e.target.href);
+//		alert('hit');
+//	});
+	
+	
+		
+	})(jQuery);
+	
+
+	
+	
 	var werock,playlistScroller;
 	$('.playListTrigger > a').click(function(){
 		$('#audio-player').toggleClass('open');
@@ -128,18 +157,18 @@
 	============================*/
 	
 	
-		jQuery('#ajaxArea').ajaxify({requestDelay:2000,forms: false});
-		
-		
-		$(window).on('pronto.render', function(event, eventInfo){
-			werockApp();
-			$('#ajaxArea').removeClass('loading');
-		});
-		$(window).on('pronto.request', function(event, eventInfo){
-			$('#ajaxArea').addClass('loading');
-		})
-		
-		werockApp();
+//		jQuery('#ajaxArea').ajaxify({requestDelay:2000,forms: false});
+//		
+//		
+//		$(window).on('pronto.render', function(event, eventInfo){
+//			werockApp();
+//			$('#ajaxArea').removeClass('loading');
+//		});
+//		$(window).on('pronto.request', function(event, eventInfo){
+//			$('#ajaxArea').addClass('loading');
+//		})
+//		
+//		werockApp();
 		function werockApp(){
 		/*============================
 		1-PrettyPhoto
@@ -468,8 +497,15 @@
 window.onload = (function(){	  
 		$("#header").load("header.html");
 		$("#footer").load("footer.html");
+	
 		
 	});
+
+
+
+
+
+
 
 
 /*********************************************************/
