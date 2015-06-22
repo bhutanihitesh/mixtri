@@ -459,7 +459,22 @@ Script Source
 		$(document).ready(function(){
 			
 			//alert('ready');
-			
+			$(document).ready(function(){
+				
+				//alert('ready');
+				$.ajax({
+					type:"GET",
+					url:"rest/tracks"
+					
+				}).done(function(data){
+					console.log(data);
+				}).fail(function(error){
+					console.log("Error");
+					console.log(error);
+				});
+				
+				
+			});
 			
 		});
 		
