@@ -30,19 +30,19 @@ Meta tags
 					<li><a href="#"><span class="fa fa-pinterest"></span></a></li>
 					<li><a href="#"><span class="fa fa-instagram"></span></a></li>
 				</ul>
-				<div id="login" class = "login">
+				<div id="loginUser" class = "login">
 				        <ul>
-		                     <li><a href="signup.html"><span class="fa fa-headphones"></span> Are you a Dj?</a></li>
+		                     <li><a href="signup.jsp"><span class="fa fa-headphones"></span> Are you a Dj?</a></li>
 		                     <li><a href="#signupbox" data-toggle="modal">Sign Up</a></li>
 		                     <li><a href="#loginbox" data-toggle="modal">Login</a></li>
 		                     
 		                </ul>
 				</div>
-				<div id="welcomeLogin" class ="login" style="display: none;">
+				<div id="welcomeUser" class ="login hidden">
 				        <ul>
-		                     <li><a href="signup.html"><span class="fa fa-headphones"></span> Hello Dj</a></li>
-		                     <li><a href="#signupbox" data-toggle="modal">New Sign Up</a></li>
-		                     <li><a href="#loginbox" data-toggle="modal">Welcome Dj Heeths</a></li>
+		                     <li><a href="livestream.jsp"><span class="fa fa-calendar"></span> Live Stream!</a></li>
+		                     <li><a href="#"><span class="fa fa-upload"></span> Upload</a></li>
+		                     <li><a id="displayname" href="#"></a></li>
 		                     
 		                </ul>
 				</div>
@@ -52,7 +52,7 @@ Meta tags
 			<div class="container">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle fa fa-navicon"></button>
-					<a class="navbar-brand" href="index.html"> <img
+					<a class="navbar-brand" href="index.jsp"> <img
 						src="assets/img/basic/logo.png" alt="logo" />
 					</a>
 					<h5>India's first 24*7 Online Music Festival</h5>
@@ -70,21 +70,21 @@ Meta tags
 							</form>
 						</div>
 
-						<ul class="nav navbar-nav choices">
-							<li class="active dropdown"><a href="archives.html">Archived
+						<ul class="nav navbar-nav">
+							<li class="active dropdown"><a href="archives.jsp">Archived
 									Mixes<i class="fa fa-caret-right"></i>
 							</a></li>
-							<li class="yamm-fw dropdown"><a href="events.html">Upcoming
+							<li class="yamm-fw dropdown"><a href="events.jsp">Upcoming
 									Events <i class="fa fa-caret-right"></i>
 							</a></li>
-							<li class="dropdown"><a href="blog-detail.html">Blog <i
+							<li class="dropdown"><a href="#">Blog <i
 									class="fa fa-caret-right"></i></a></li>
-							<li class="yamm-fw dropdown"><a href="mydjs.html">My Djs
+							<li class="yamm-fw dropdown"><a href="mydjs.jsp">My Djs
 									<i class="fa fa-caret-right"></i>
 							</a></li>
 							<li class="yamm-fw dropdown"><a href="#">Music Genres <i
 									class="fa fa-caret-right"></i></a></li>
-							<li><a href="contact.html">Contact</a></li>
+							<li><a href="contact.jsp">Contact</a></li>
 						</ul>
 					</div>
 
@@ -99,7 +99,7 @@ Meta tags
 		  Login-SignUp form Start
 		    
 		=================================================== -->
-	
+	<div id=loginModal>
         <div id="loginbox" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2" >                    
             <div class="panel panel-info" >
                     <div class="panel-heading">
@@ -107,7 +107,7 @@ Meta tags
                                <button
 									type="button" class="close" data-dismiss="modal"
 									aria-label="Close" onClick="$('#loginbox').hide();">
-									<span aria-hidden="true">Ã—</span>
+									<span aria-hidden="true">x—</span>
 								</button>
                        <div class="panel-title">Log in</div>
 								<div style="float:right; font-size: 80%; position: relative; top:-10px">
@@ -164,7 +164,7 @@ Meta tags
                                     </div>
                                     
                                     <div style="padding-left: 130px;">By signing in, you accept our <a href="#" style="color: #2a6496;">Terms of Use</a> 
-                                    and <a href="aboutus.html" style="color: #2a6496;">Privacy Policy</a></div>                                           
+                                    and <a href="aboutus.jsp" style="color: #2a6496;">Privacy Policy</a></div>                                           
                                         
                                 </div>
   
@@ -181,7 +181,7 @@ Meta tags
                         <button
 									type="button" class="close" data-dismiss="modal"
 									aria-label="Close" onClick="$('#signupbox').hide();">
-									<span aria-hidden="true">Ã—</span>
+									<span aria-hidden="true">x—</span>
 						</button>
                             <div class="panel-title">Get in your party shoes!</div>
                             <div style="float:right; font-size: 85%; position: relative; top:-10px;">
@@ -249,7 +249,7 @@ Meta tags
                                     </div>
                                     
                                     <div style="padding-left: 150px;">By signing in, you accept our <a href="#" style="color: #2a6496;">Terms of Use</a> 
-                                    and <a href="aboutus.html" style="color: #2a6496;">Privacy Policy</a></div>                                           
+                                    and <a href="aboutus.jsp" style="color: #2a6496;">Privacy Policy</a></div>                                           
                                         
                                 </div>
                                 
@@ -261,7 +261,7 @@ Meta tags
                
                 
          </div>
-       
+    </div>   
 		
 		<!-- =================================================
 		

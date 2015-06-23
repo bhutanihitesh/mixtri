@@ -2,42 +2,54 @@ package com.mixtri.login;
 
 import java.sql.SQLException;
 
+import javax.annotation.Resource;
+import javax.jws.WebService;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.FormParam;
+import javax.xml.ws.WebServiceContext;
+import javax.xml.ws.WebServiceException;
+import javax.xml.ws.handler.MessageContext;
+
 import org.apache.log4j.Logger;
+
 import com.mixtri.BusinessExceptions.ExceptionHttpStatusResolver;
 import com.mixtri.DAO.MixtriDAO;
 import com.mixtri.login.UserLoginBean;
 
-// Plain old Java Object it does not extend as class or implements 
-// an interface
-
-// The class registers its methods for the HTTP GET request using the @GET annotation. 
-// Using the @Produces annotation, it defines that it can deliver several MIME types,
-// text, XML and HTML. 
-
-// The browser requests per default the HTML MIME type.
-
-
+@WebService
 @Path("/")
 public class Userlogin{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	static Logger log = Logger.getLogger(Userlogin.class.getName());
-  
+	//private WebServiceContext wsContext;
+@Context private HttpServletRequest request;	
+//@Resource	
 @POST
 @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-@Path("/login")  
+@Path("/login")
 public String authenticate(@FormParam("username") String username, @FormParam("password")String password) {
 	
+	/*MessageContext mc = wsContext.getMessageContext();    // Step 3
+    HttpSession session = ((javax.servlet.http.HttpServletRequest)mc.get(MessageContext.SERVLET_REQUEST)).getSession();
+    if (session == null)
+       throw new WebServiceException("No HTTP Session found");*/ 
+	
 	  //TODO: Encrypt password, Login Form Validations if the JS is turned off.
-	  System.out.println("plain text Success "+username);
-	  System.out.println("Password: "+password);
 	  
 	  UserLoginBean userLoginBean = new UserLoginBean();
-	  String responseString=null;
+	  String serverResponse=null;
+	  HttpSession session = request.getSession(true);
 	 try{ 
 	  userLoginBean.setUsername(username);
 	  userLoginBean.setPassword(password);
@@ -48,17 +60,19 @@ public String authenticate(@FormParam("username") String username, @FormParam("p
 	  if(userLoginBean.isUsernameAuthenticated()){
 	  
 		  if(userLoginBean.isPasswordAuthenticated()){
-			  responseString = userLoginBean.getUsername();
+			  serverResponse = userLoginBean.getDisplayName();
+			  session.setAttribute("displayname",serverResponse);
 		  }
 			  
 		  else{
 			   
-			  responseString = "Hey!!! Seems like you got a wrong password. Please try again";
+			  
+			  serverResponse = "Hey!!! Seems like you got a wrong password. Please try again";
+			  
 			}  
 	  }else{
-		   
-		  
-		  responseString = ("Hey!!! Thats not your correct username. Please try again");		  
+		    serverResponse = "Hey!!! Thats not your correct username. Please try again";
+		  	  		  
 	  }
 	}catch(SQLException sqlExp){
 		log.error("SQL Exception Occured: "+sqlExp);
@@ -72,7 +86,7 @@ public String authenticate(@FormParam("username") String username, @FormParam("p
 		expHttpStatusResolver.toResponse(exp);
 	}
 	 
-	 return responseString;
+	 return serverResponse;
  }
 	 
   

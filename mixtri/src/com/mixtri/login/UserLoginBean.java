@@ -6,7 +6,21 @@ public class UserLoginBean {
     private String password;
 	private boolean isUsernameAuthenticated;
 	private boolean isPasswordAuthenticated;
+	private String  displayName;
+	private String  sessionMessage;
 	
+	public String getSessionMessage() {
+		return sessionMessage;
+	}
+	public void setSessionMessage(String sessionMessage) {
+		this.sessionMessage = sessionMessage;
+	}
+	public String getDisplayName() {
+		return displayName;
+	}
+	public void setDisplayName(String displayName) {
+		this.displayName = displayName;
+	}
 	public boolean isUsernameAuthenticated() {
 		return isUsernameAuthenticated;
 	}

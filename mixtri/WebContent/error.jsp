@@ -52,17 +52,22 @@ Style Sheets
 	<!--=================================
 	Header
 	=================================-->
-	<header id="header"></header>
-	<div class="container" style="padding-bottom: 50px;" align="center">
-	<h2>Oops something wrong happened. Sorry, please try one more time!!!</h2>
+	<div id="header">
+		<%@include file="header.jsp"%>
 	</div>
-	<footer id="footer"></footer>
-	
-<!--=================================
+	<div class="container" style="padding-bottom: 50px;" align="center">
+		<h2>Oops something wrong happened. Sorry, please try one more
+			time!!!</h2>
+	</div>
+	<footer id="footer">
+		<%@include file="footer.jsp"%>
+	</footer>
+
+	<!--=================================
 Script Source
 =================================-->
 
-	 <script defer src="assets/js/bootstrap.min.js"></script>
+	<script defer src="assets/js/bootstrap.min.js"></script>
 	<script defer src="assets/js/jquery.easing-1.3.pack.js"></script>
 	<script defer src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
 	<script defer src="assets/js/jquery.mousewheel.min.js"></script>
@@ -74,13 +79,16 @@ Script Source
 	<script defer src="assets/jPlayer/jquery.jplayer.min.js"></script>
 	<script defer src="assets/jPlayer/add-on/jplayer.playlist.min.js"></script>
 	<script defer src="assets/js/jquery.vegas.min.js"></script>
-	<script defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+	<script defer
+		src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 	<script defer src="assets/js/jquery.calendar-widget.js"></script>
 	<script defer src="assets/js/isotope.js"></script>
 	<script defer src="assets/js/main.js"></script>
+	<script defer src="assets/js/jquery.cookie.js"></script>
+	<script>
+		/*Place Your Google Analytics code here*/
+	</script>
 
-	<script>/*Place Your Google Analytics code here*/</script>
 
-	
 </body>
 </html>

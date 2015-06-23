@@ -44,232 +44,9 @@ Style Sheets
 <!--=================================
 	Header
 	=================================-->
-<header>
-  <div class="social-links">
-    <div class="container">
-      <ul class="social">
-        <li><a href="#"><span class="fa fa-facebook"></span></a></li>
-        <li ><a href="#"><span class="fa fa-twitter"></span></a></li>
-        <li ><a href="#"><span class="fa fa-pinterest"></span></a></li>
-        <li ><a href="#"><span class="fa fa-linkedin"></span></a></li>
-        <li ><a href="#"><span class="fa fa-flickr"></span></a></li>
-        <li ><a href="#"><span class="fa fa-youtube"></span></a></li>
-        <li ><a href="#"><span class="fa fa-instagram"></span></a></li>
-      </ul>
-    </div>
-  </div>
-  <nav class="navbar yamm navbar-default">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle fa fa-navicon"></button>
-        <a class="navbar-brand" href="index.html">
-            <img src="assets/img/basic/logo.png" alt="logo" />
-        </a>
-      </div>
-      <div class="nav_wrapper">
-        <div class="nav_scroll">
-          <div class="nav-search">
-            <form>
-              <input type="text" placeholder="Search" />
-              <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
-          </div>
-          
-          <ul class="nav navbar-nav">
-            <li class="active dropdown"><a href="#">Home <i class="fa fa-caret-right"></i></a>
-              <ul class="dropdown-menu">
-              	
-                <li><a href="index.html">Home1</a></li>
-                <li><a href="home2.html">Home2</a> </li>
-              </ul>
-            </li>
-            <li class="yamm-fw dropdown"><a href="#" >Blog <i class="fa fa-caret-right"></i></a>
-              <ul class="dropdown-menu">
-              	
-                <li>
-                  <div class="yamm-content">
-                    <div class="row">
-                      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <div class="yamm-blog"> <img src="assets/img/news/blog1.png" alt="dummy">
-                          <h4><a href="blog-detail.html">Justin Timberlake Threw Himself 'Inside Llewyn Davis'</a></h4>
-                        </div>
-                        <!--yamm artist info--> 
-                        <a class="to-page" href="blog.html">View All posts</a> </div>
-                      <!--col-->
-                      
-                      <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                        <div class="row">
-                          <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                            <div class="yamm-blog-detail clearfix"> <img src="assets/img/news/h.png" alt="/">
-                              <h4><a href="blog-detail.html">Justin Timberlake</a></h4>
-                              <p>'I use uncertainty as motivation and hopefully Rob uses it as motivation.</p>
-                            </div>
-                          </div>
-                          <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                            <div class="yamm-blog-detail clearfix"> <img src="assets/img/news/c.png" alt="/">
-                              <h4><a href="blog-detail.html">Justin Timberlake</a></h4>
-                              <p>'I use uncertainty as motivation and hopefully Rob uses it as motivation.</p>
-                            </div>
-                          </div>
-                          <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                            <div class="yamm-blog-detail clearfix"> <img src="assets/img/news/d.png" alt="/">
-                              <h4><a href="blog-detail.html">Justin Timberlake</a></h4>
-                              <p>'I use uncertainty as motivation and hopefully Rob uses it as motivation.</p>
-                            </div>
-                          </div>
-                          <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                            <div class="yamm-blog-detail clearfix"> <img src="assets/img/news/e.png" alt="/">
-                              <h4><a href="blog-detail.html">Justin Timberlake</a></h4>
-                              <p>'I use uncertainty as motivation and hopefully Rob uses it as motivation.</p>
-                            </div>
-                          </div>
-                          <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                            <div class="yamm-blog-detail clearfix"> <img src="assets/img/news/f.png" alt="/">
-                              <h4><a href="blog-detail.html">Justin Timberlake</a></h4>
-                              <p>'I use uncertainty as motivation and hopefully Rob uses it as motivation.</p>
-                            </div>
-                          </div>
-                          <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                            <div class="yamm-blog-detail clearfix"> <img src="assets/img/news/g.png" alt="/">
-                              <h4><a href="blog-detail.html">Justin Timberlake</a></h4>
-                              <p>'I use uncertainty as motivation and hopefully Rob uses it as motivation.</p>
-                            </div>
-                          </div>
-                        </div>
-                        <!--row--> 
-                      </div>
-                      <!--col--> 
-                      
-                    </div>
-                    <!--row--> 
-                  </div>
-                  <!--yamm content--> 
-                </li>
-              </ul>
-            </li>
-            <li class="dropdown"><a href="#">Events <i class="fa fa-caret-right"></i></a>
-              <ul class="dropdown-menu">
-              	
-                <li><a href="events.html">Events</a> </li>
-                <li><a href="event-detail.html">Event Detail</a> </li>
-              </ul>
-            </li>
-            <li class="yamm-fw dropdown"><a href="#">Artist <i class="fa fa-caret-right"></i></a>
-              <ul class="dropdown-menu">
-              	
-                <li>
-                  <div class="yamm-content">
-                    <div class="row">
-                      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <div class="row">
-                          <div class="yamm-artist-info">
-                            <h2>featured artist</h2>
-                            <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12"> <img src="assets/img/artist/artist3.jpg" alt=""> </div>
-                            <div class="col-lg-7 col-md-6 col-sm-12 col-xs-12">
-                              <h4><a href="artist-detail.html">enrique iglesias</a></h4>
-                              <p>'I use uncertainty as motivation and hopefully Rob uses it as motivation.I use uncertainty as motivation and hopefully Rob uses it as motivation</p>
-                            </div>
-                            <!--col--> 
-                          </div>
-                          <!--yamm artist info--> 
-                        </div>
-                        <!--row--> 
-                      </div>
-                      <!--col-->
-                      
-                      <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
-                        <ul class="yamm-artist-name">
-                          <li><a href="artist-detail.html">enrique iglesias</a></li>
-                          <li> <a href="artist-detail.html">Justin Timberlake</a></li>
-                          <li><a href="artist-detail.html">Madonna</a></li>
-                          <li><a href="artist-detail.html">britney spears</a></li>
-                          <li class="to-page"><a href="artist.html">View All</a></li>
-                        </ul>
-                      </div>
-                      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                        <div class="yamm-artist-album">
-                          <h2>Top 5 album</h2>
-                          <a href="album-detail.html"><img src="assets/img/albums/10.jpg" alt=""></a> <a href="album-detail.html"><img src="assets/img/albums/11.jpg" alt=""></a> <a href="album-detail.html"><img src="assets/img/albums/12.jpg" alt=""></a> <a href="album-detail.html"><img src="assets/img/albums/13.jpg" alt=""></a> </div>
-                      </div>
-                      <!--yamm artist album--> 
-                      
-                    </div>
-                    <!--row--> 
-                  </div>
-                  <!--yamm content--> 
-                </li>
-              </ul>
-            </li>
-            <li class="dropdown"><a href="#">Albums <i class="fa fa-caret-right"></i></a>
-              <ul class="dropdown-menu">
-              	
-                <li><a href="album.html">Albums</a> </li>
-                <li><a href="album-detail.html">Album Detail</a> </li>
-              </ul>
-            </li>
-            <li class="yamm-fw dropdown"><a href="#" >Videos <i class="fa fa-caret-right"></i></a>
-              <ul class="dropdown-menu">
-              	
-                <li>
-                  <div class="yamm-content">
-                    <div class="row">
-                      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <div class="video-feed"> <img src="assets/img/videos/video1.jpg" alt=""/> <a href="#"><span class="fa fa-play"></span></a>
-                          <h5>Music Band Concert - 2013</h5>
-                        </div>
-                        <!--\\video-feed--> 
-                        <a class="to-page" href="videos.html">View All videos</a> </div>
-                      <!--col-->
-                      
-                      <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                        <div class="row">
-                          <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                            <div class="video-feed"> <img src="assets/img/videos/1.jpg" alt=""/> <a href="video-detail.html"><span class="fa fa-play"></span></a>
-                              <h6>1 week ago</h6>
-                            </div>
-                            <!--\\video-feed-->
-                            <h4>Enrique concert</h4>
-                            <p>I use uncertainty as motivation and hopefully Rob uses it as motivation.I use uncertainty as motivation and hopefully Rob uses it as motivationf</p>
-                          </div>
-                          <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                            <div class="video-feed"> <img src="assets/img/videos/2.jpg" alt=""/> <a href="video-detail.html"><span class="fa fa-play"></span></a>
-                              <h6>1 week ago</h6>
-                            </div>
-                            <!--\\video-feed-->
-                            <h4>Enrique concert</h4>
-                            <p>I use uncertainty as motivation and hopefully Rob uses it as motivation.I use uncertainty as motivation and hopefully Rob uses it as motivationf</p>
-                          </div>
-                          <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                            <div class="video-feed"> <img src="assets/img/videos/3.jpg" alt=""/> <a href="video-detail.html"><span class="fa fa-play"></span></a>
-                              <h6>1 week ago</h6>
-                            </div>
-                            <!--\\video-feed-->
-                            <h4>Enrique concert</h4>
-                            <p>I use uncertainty as motivation and hopefully Rob uses it as motivation.I use uncertainty as motivation and hopefully Rob uses it as motivationf</p>
-                          </div>
-                        </div>
-                        <!--row--> 
-                      </div>
-                      <!--col--> 
-                      
-                    </div>
-                    <!--row--> 
-                  </div>
-                  <!--yamm content--> 
-                </li>
-              </ul>
-            </li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="news.html">News</a></li>
-            <li><a href="contact.html" >Contact</a></li>
-          </ul>
-        </div>
-        <!--/.nav-collapse --> 
-        
-      </div>
-    </div>
-  </nav>
-</header>
+<div id="header">
+<%@include file="header.jsp" %>
+</div>
 
 <!--=================================
 Vegas Slider Images
@@ -482,7 +259,7 @@ JPlayer (Audio Player)
       <h1>latest from the blog</h1>
       <div class="col-lg-4 col-md-4 col-sm-4">
         <article class="blog-post"> <img src="assets/img/blog/1.jpg" alt=""/>
-          <div class="hover"> <a href="blog-detail.html">
+          <div class="hover"> <a href="blog-detail.jsp">
             <h2>Miguel to Muse: the week in music</h2>
             <p>'I use uncertainty as motivation and hopefully Rob uses it as motivation as...</p>
             <ul>
@@ -497,7 +274,7 @@ JPlayer (Audio Player)
       
       <div class="col-lg-4 col-md-4 col-sm-4">
         <article class="blog-post"> <img src="assets/img/blog/2.jpg" alt=""/>
-          <div class="hover"> <a href="blog-detail.html">
+          <div class="hover"> <a href="blog-detail.jsp">
             <h2>Kenny Chesney kicks off Austin’s country music</h2>
             <p>'I use uncertainty as motivation and hopefully Rob uses it as motivation as...</p>
             <ul>
@@ -512,7 +289,7 @@ JPlayer (Audio Player)
       
       <div class="col-lg-4 col-md-4 col-sm-4">
         <article class="blog-post"> <img src="assets/img/blog/3.jpg" alt=""/>
-          <div class="hover"> <a href="blog-detail.html">
+          <div class="hover"> <a href="blog-detail.jsp">
             <h2>CHRISTIAN REY - LIVE MUSIC</h2>
             <p>'I use uncertainty as motivation and hopefully Rob uses it as motivation as...</p>
             <ul>
@@ -532,57 +309,8 @@ JPlayer (Audio Player)
 <!--=================================
 	Footer
 	=================================-->
-<footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-3 col-md-3 col-sm-3">
-        <h4><span class="fa fa-sitemap"></span>browse around</h4>
-        <div class="row">
-          <div class="col-lg-6 col-md-6 col-sm-6">
-            <ul class="sitemap">
-              <li><a href="#">HOME</a></li>
-              <li><a href="#">NEWS</a></li>
-              <li><a href="#">events</a></li>
-              <li><a href="#">artists</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-6 col-md-6 col-sm-6">
-            <ul class="sitemap">
-              <li><a href="#">VIDEOS</a></li>
-              <li><a href="#">GALLERY</a></li>
-              <li><a href="#">CONTACT</a></li>
-              <li><a href="#">FEATURES</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <!--\\column-->
-      
-      <div class="col-lg-3 col-md-3 col-sm-3">
-        <h4><span class="fa fa-twitter"></span>Latest Tweet</h4>
-        <div class="latest-tweet" data-username="envato" data-limit="2"></div>
-      </div>
-      <!--\\column-->
-      
-      <div class="col-lg-3 col-md-3 col-sm-3">
-        <h4><span class="fa fa-flickr"></span>Flicker Feed</h4>
-        <ul id="flicker-feed" data-limit="6" data-userID="52617155@N08"></ul>
-      </div>
-      <!--\\column-->
-      
-      <div class="col-lg-3 col-md-3 col-sm-3">
-        <h4><span class="fa fa-envelope"></span>newsletter signup</h4>
-        <form id="newsletter">
-          <input placeholder="Enter your email address here" />
-          <button class="submit-btn">submit</button>
-        </form>
-      </div>
-      <!--\\column--> 
-      
-    </div>
-    <!--\\row--> 
-  </div>
-  <!--\\container--> 
+<footer id="footer">
+<%@include file="footer.jsp" %>
 </footer>
 
 <!--=================================
@@ -605,7 +333,7 @@ Script Source
 <script defer  src="assets/js/jquery.calendar-widget.js"></script> 
 <script defer  src="assets/js/isotope.js"></script>
 <script defer  src="assets/js/main.js"></script>   
-
+<script defer src="assets/js/jquery.cookie.js"></script>
 <script>/*Place Your Google Analytics code here*/</script>
 
 </body>

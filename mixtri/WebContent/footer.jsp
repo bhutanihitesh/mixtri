@@ -37,10 +37,10 @@ Meta tags
 					<div class="row">
 						<div class="col-lg-6 col-md-6 col-sm-6">
 							<ul class="sitemap">
-								<li><a href="about.html">Our Company</a></li>
+								<li><a href="about.jsp">Our Company</a></li>
 								<li><a href="#">Team</a></li>
 								<li><a href="#">Careers</a></li>
-								<li><a href="contact.html">Contact</a></li>
+								<li><a href="contact.jsp">Contact</a></li>
 							</ul>
 						</div>
 					</div>

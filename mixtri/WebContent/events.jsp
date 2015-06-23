@@ -52,7 +52,9 @@ Style Sheets
 	<!--=================================
 	Header
 	=================================-->
-	<header id="header"></header>
+	<div id="header">
+     <%@include file="header.jsp" %>
+	</div>
 
 	<div class="pageContentArea">
 		<!--=================================
@@ -434,93 +436,9 @@ Style Sheets
 	<!--=================================
 	Footer
 	=================================-->
-	<footer>
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3 col-md-3 col-sm-3">
-					<h4>
-						<span class="fa fa-sitemap"></span>About Us
-					</h4>
-					<div class="row">
-						<div class="col-lg-6 col-md-6 col-sm-6">
-							<ul class="sitemap">
-								<li><a href="#">Our Company</a></li>
-								<li><a href="#">Team</a></li>
-								<li><a href="#">Careers</a></li>
-								<li><a href="#">Contact</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-3 col-sm-3">
-					<h4>
-						<span class="fa fa-sitemap"></span>ABC Mobile
-					</h4>
-					<div class="row">
-						<div class="col-lg-6 col-md-6 col-sm-6">
-							<ul class="sitemap">
-								<li><a href="#"><span class="fa fa-apple"> iOS</span></a></li>
-								<li><a href="#"><span class="fa fa-android">
-											Android</span></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<!--\\column-->
-				<div class="col-lg-3 col-md-3 col-sm-3">
-					<h4>
-						<span class="fa fa-sitemap"></span>Follow Us
-					</h4>
-					<div class="row">
-						<div class="col-lg-6 col-md-6 col-sm-6">
-							<ul class="sitemap">
-								<li><a href="#"><span class="fa fa-facebook">
-											Facebook</span></a></li>
-								<li><a href="#"><span class="fa fa-twitter">
-											Twitter</span></a></li>
-								<li><a href="#"><span class="fa fa-instagram">
-											Instagram</span></a></li>
-								<!-- <li ><a href="#"><span class="fa fa-pinterest"></span></a></li>
-		        <li ><a href="#"><span class="fa fa-linkedin"></span></a></li>
-		        <li ><a href="#"><span class="fa fa-flickr"></span></a></li>
-		        <li ><a href="#"><span class="fa fa-youtube"></span></a></li> -->
-
-							</ul>
-						</div>
-					</div>
-				</div>
-				<!--\\column-->
-
-				<!--  <div class="col-lg-3 col-md-3 col-sm-3">
-        <h4><span class="fa fa-twitter"></span>Latest Tweet</h4>
-        <div class="latest-tweet" data-username="envato" data-limit="2"></div>
-      </div> -->
-				<!--\\column-->
-
-				<!--  <div class="col-lg-3 col-md-3 col-sm-3">
-        <h4><span class="fa fa-flickr"></span>Flicker Feed</h4>
-        <ul id="flicker-feed" data-limit="6" data-userID="52617155@N08"></ul>
-      </div> -->
-				<!--\\column-->
-
-				<div class="col-lg-3 col-md-3 col-sm-3">
-					<h4>
-						<span class="fa fa-envelope"></span>newsletter signup
-					</h4>
-					<form id="newsletter">
-						<input placeholder="Enter your email address here" />
-						<button class="submit-btn">submit</button>
-					</form>
-				</div>
-				<!--\\column-->
-
-			</div>
-			<!--\\row-->
-		</div>
-		<!--\\container-->
-	</footer>
-
+	<footer id="footer">
+<%@include file="footer.jsp" %>
+</footer>
 	<!--=================================
 Script Source
 =================================-->
@@ -541,7 +459,7 @@ Script Source
 	<script defer src="assets/js/jquery.calendar-widget.js"></script>
 	<script defer src="assets/js/isotope.js"></script>
 	<script defer src="assets/js/main.js"></script>
-
+    <script defer src="assets/js/jquery.cookie.js"></script>
 	<script>/*Place Your Google Analytics code here*/</script>
 
 </body>

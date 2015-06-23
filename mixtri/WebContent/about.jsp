@@ -45,7 +45,9 @@ Style Sheets
 <!--=================================
 	Header
 	=================================-->
-<header id="header"></header>
+<div id="header">
+<%@include file="header.jsp" %>
+</div>
 
 
 
@@ -231,7 +233,9 @@ Vegas Slider Images
 	<!--=================================
 	Footer
 	=================================-->
-<footer id="footer"></footer>
+<footer id="footer">
+<%@include file="footer.jsp" %>
+</footer>
 
 <!--=================================
 Script Source
@@ -252,7 +256,8 @@ Script Source
 <script defer  src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script> 
 <script defer  src="assets/js/jquery.calendar-widget.js"></script> 
 <script defer  src="assets/js/isotope.js"></script>
-<script defer  src="assets/js/main.js"></script>  
+<script defer  src="assets/js/main.js"></script>
+<script defer src="assets/js/jquery.cookie.js"></script>  
 
 <script>/*Place Your Google Analytics code here*/</script>
 

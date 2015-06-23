@@ -1,5 +1,6 @@
 package com.mixtri.DAO;
 
+import java.lang.reflect.Method;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -13,6 +14,7 @@ import com.mixtri.signup.UserSignUpBean;
 import com.mixtri.tracks.TrackBean;
 import com.mixtri.tracks.TrackDB;
 
+
 public class MixtriDAO {
 	static Logger log = Logger.getLogger(MixtriDAO.class.getName());
 
@@ -21,24 +23,41 @@ public class MixtriDAO {
 		LoginDB loginDB = new LoginDB();
 		ResultSet rs = null;
 		rs = loginDB.getLoginInfo(userLoginBean);
+        
+		//*********** For Testing without DB*****************//
+		  String usernameDB = "mixtri@gmail.com";
+		  String passwordDB = "admin123";
+		  
+		  if(userLoginBean.getUsername().equalsIgnoreCase(usernameDB) && userLoginBean.getPassword().equals(passwordDB)){
+              userLoginBean.setDisplayName("DjMixtri");
+              userLoginBean.setUsernameAuthenticated(true);
+              userLoginBean.setPasswordAuthenticated(true);
+		  }   
+		//**************************************************//
+		
+		/*String usernameDB = rs.getString("username");
+		String passwordDB = rs.getString("password");
+		String salt = rs.getString("salt");
+		String displayName = rs.getString("display name");
+		String pwdFromUI = userLoginBean.getPassword();
 
-		String usernameDB = rs.getString(1);
-		String passwordDB = rs.getString(2);
-
-		/*String usernameDB = "djheeths@gmail.com";
-		String passwordDB = "Cooper@85";*/
+		SaltedMD5 saltedMD5 = new SaltedMD5();
+		Method m = SaltedMD5.class.getDeclaredMethod("getSecurePassword");
+		m.setAccessible(true);
+		String hashedPassword = (String) m.invoke(saltedMD5, pwdFromUI,salt);
 
 		if(rs!=null && userLoginBean.getUsername().equalsIgnoreCase(usernameDB)){
 
 			userLoginBean.setUsernameAuthenticated(true);
-			log.debug("User Authenticated: "+usernameDB);
+			log.debug("Username Authenticated: "+usernameDB);
 
-			if(userLoginBean.getPassword().equals(passwordDB)){
+			if(hashedPassword.equals(passwordDB)){
 				userLoginBean.setPasswordAuthenticated(true);
-				log.debug("password is correct");
+				userLoginBean.setDisplayName(displayName);
+				log.debug("password authenticated");
 			}
 
-		}
+		}*/
 
 		return userLoginBean;
 	}
@@ -48,7 +67,7 @@ public class MixtriDAO {
 
 		ResultSet rs=null;
 		rs = signUpDB.createNewUser(userSignUpBean);
-		
+
 		//If a valid GUID is return then setUsercreated = true; 		
 		if(rs!=null){
 			userSignUpBean.setUsercreated(true);
@@ -57,7 +76,7 @@ public class MixtriDAO {
 		else{
 
 			userSignUpBean.setUsercreated(false);
-			log.debug("Error createing user");
+			log.debug("Error creating user");
 		}
 
 		return userSignUpBean;

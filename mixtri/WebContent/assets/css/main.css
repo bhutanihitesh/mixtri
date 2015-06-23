@@ -3304,8 +3304,10 @@ transition: opacity .25s ease-in-out;
 	display: table;
 	text-align: center;
 }
+
+
 .login li a {
-	color: #2a6496;
+	color: #e62948;
 	text-align: center;
 	font-size: 18px;
 	display: block;
@@ -3316,7 +3318,7 @@ transition: opacity .25s ease-in-out;
 	padding: 2.5px;
 }
 .login li:hover a {
-	color: #5a99d1;
+	color: #eb5c75;
 }
 
 .djSignUpMsg {
@@ -3458,7 +3460,7 @@ color: #e62948;
 	font-size: 13px;
 }
 
-#welcomelogin{
+.hidden{
 	
 	display:  none;
 }

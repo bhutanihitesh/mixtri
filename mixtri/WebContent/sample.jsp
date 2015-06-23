@@ -39,6 +39,10 @@ Style Sheets
 </head>
 <body>
 
+<div id="header">
+<%@include file="header.jsp" %>
+</div>
+
 <!--=================================
 Vegas Slider Images
 =================================-->
@@ -301,51 +305,8 @@ JPlayer (Audio Player)
 <!--=================================
 	Footer
 	=================================-->
-<footer>
-	<div class="container">
-    	<div class="row">
-        	<div class="col-lg-3 col-md-3 col-sm-3">
-            	<h4><span class="fa fa-sitemap"></span>browse around</h4>
-                <div class="row">
-                	<div class="col-lg-6 col-md-6 col-sm-6">
-                    	<ul class="sitemap">
-                        	<li><a href="#">HOME</a></li>
-                            <li><a href="#">NEWS</a></li>
-                            <li><a href="#">events</a></li>
-                            <li><a href="#">artists</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                    	<ul class="sitemap">
-                        	<li><a href="#">VIDEOS</a></li>
-                            <li><a href="#">GALLERY</a></li>
-                            <li><a href="#">CONTACT</a></li>
-                            <li><a href="#">FEATURES</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div><!--\\column-->
-            
-            <div class="col-lg-3 col-md-3 col-sm-3">
-            	<h4><span class="fa fa-twitter"></span>Latest Tweet</h4>
-                	<div class="latest-tweet" data-username="envato" data-limit="2"></div>
-            </div><!--\\column-->
-            
-            <div class="col-lg-3 col-md-3 col-sm-3">
-            	<h4><span class="fa fa-flickr"></span>Flicker Feed</h4>
-                	<ul id="flicker-feed" data-limit="6" data-userID="52617155@N08"></ul>
-            </div><!--\\column-->
-            
-            <div class="col-lg-3 col-md-3 col-sm-3">
-            	<h4><span class="fa fa-envelope"></span>newsletter signup</h4>
-                	<form id="newsletter">
-                        <input placeholder="Enter your email address here" />
-                        <button class="submit-btn">submit</button>
-                     </form>   
-            </div><!--\\column-->
-            
-        </div><!--\\row-->
-    </div><!--\\container-->
+<footer id="footer">
+<%@include file="footer.jsp" %>
 </footer>
 
 
@@ -369,7 +330,7 @@ Script Source
 <script defer  src="assets/js/jquery.calendar-widget.js"></script> 
 <script defer  src="assets/js/isotope.js"></script>
 <script defer  src="assets/js/main.js"></script>   
-
+<script defer src="assets/js/jquery.cookie.js"></script>
 <script>/*Place Your Google Analytics code here*/</script>
 
 </body>
