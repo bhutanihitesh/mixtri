@@ -40,9 +40,6 @@ Style Sheets
 <link rel="stylesheet" type="text/css" href="assets/css/green.css">
 <link rel="stylesheet" type="text/css" href="assets/css/purple.css">-->
 
-<script async src="assets/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-<script defer src="assets/js/jquery.js"></script>
-<script defer src="assets/js/ajaxify.min.js"></script>
 
 </head>
 <body>
@@ -438,23 +435,51 @@ Style Sheets
 Script Source
 =================================-->
 
-	<script defer src="assets/js/bootstrap.min.js"></script>
-	<script defer src="assets/js/jquery.easing-1.3.pack.js"></script>
-	<script defer src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
-	<script defer src="assets/js/jquery.mousewheel.min.js"></script>
-	<script defer src="assets/js/jflickrfeed.min.js"></script>
-	<script defer src="assets/js/jquery.flexslider-min.js"></script>
-	<script defer src="assets/js/jquery.carouFredSel-6.2.1-packed.js"></script>
-	<script defer src="assets/js/tweetie.min.js"></script>
-	<script defer src="assets/js/jquery.prettyPhoto.js"></script>
-	<script defer src="assets/jPlayer/jquery.jplayer.min.js"></script>
-	<script defer src="assets/jPlayer/add-on/jplayer.playlist.min.js"></script>
-	<script defer src="assets/js/jquery.vegas.min.js"></script>
-	<script defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-	<script defer src="assets/js/jquery.calendar-widget.js"></script>
-	<script defer src="assets/js/isotope.js"></script>
-	<script defer src="assets/js/main.js"></script>
+    <script src="assets/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <script src="assets/js/jquery.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/jquery.easing-1.3.pack.js"></script>
+	<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script src="assets/js/jquery.mousewheel.min.js"></script>
+	<script src="assets/js/jflickrfeed.min.js"></script>
+	<script src="assets/js/jquery.flexslider-min.js"></script>
+	<script src="assets/js/jquery.carouFredSel-6.2.1-packed.js"></script>
+	<script src="assets/js/tweetie.min.js"></script>
+	<script src="assets/js/jquery.prettyPhoto.js"></script>
+	<script src="assets/jPlayer/jquery.jplayer.min.js"></script>
+	<script src="assets/jPlayer/add-on/jplayer.playlist.min.js"></script>
+	<script src="assets/js/jquery.vegas.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+	<script src="assets/js/jquery.calendar-widget.js"></script>
+	<script src="assets/js/isotope.js"></script>
+	<script src="assets/js/main.js"></script>
     <script defer src="assets/js/jquery.cookie.js"></script>
+    <script>
+	(function($){
+		
+		$(document).ready(function(){
+			
+			//alert('ready');
+			$(document).ready(function(){
+				
+				$.ajax({
+					type:"GET",
+					url:"rest/tracks"
+					
+				}).done(function(data){
+					console.log(data);
+				}).fail(function(error){
+					console.log("Error");
+					console.log(error);
+				});
+				
+				
+			});
+			
+		});
+		
+	})(jQuery);
+	</script>
 	<script>/*Place Your Google Analytics code here*/</script>
 
 </body>

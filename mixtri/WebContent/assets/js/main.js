@@ -86,36 +86,6 @@
 	/*============================
 	Jplayer
 	============================*/
-	(function($){
-
-		console.log("he");
-		var strLocation=window.location.href;
-		var strPrevLocation='';
-		var archiveLocation ='/mixtri/archives.jsp';
-		//To Pratik: This needs to be a relative path and not absolute path.
-		//var archiveLocation='http://localhost:8080/mixtri/archives.html';
-		var intervalTime=100;
-		var checkLocation=function(){
-			if(strLocation!=window.location.href){
-				strPrevLocation=strLocation;
-				strLocation=window.location.href;
-
-			}
-
-		}
-//		$('header .choices').on('click','li a',function(e){
-//		//console.log(e);
-//		e.preventDefault();
-//		console.log(e.target.href);
-//		alert('hit');
-//		});
-
-
-
-	})(jQuery);
-
-
-
 
 	var werock,playlistScroller;
 	$('.playListTrigger > a').click(function(){
