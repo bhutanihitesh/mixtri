@@ -40,9 +40,8 @@ Style Sheets
 <link rel="stylesheet" type="text/css" href="assets/css/green.css">
 <link rel="stylesheet" type="text/css" href="assets/css/purple.css">-->
 
-<script async src="assets/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-<script defer src="assets/js/jquery.js"></script>
-<script defer src="assets/js/ajaxify.min.js"></script>
+
+<!-- <script defer src="assets/js/ajaxify.min.js"></script> -->
 
 
 </head>
@@ -516,7 +515,8 @@ Vegas Slider Images
 <!--=================================
 Script Source
 =================================-->
-
+	<script async src="assets/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+	<script defer src="assets/js/jquery.js"></script>
 	 <script defer src="assets/js/bootstrap.min.js"></script>
 	<script defer src="assets/js/jquery.easing-1.3.pack.js"></script>
 	<script defer src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>

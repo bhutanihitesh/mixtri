@@ -131,16 +131,15 @@
 
 //	jQuery('#ajaxArea').ajaxify({requestDelay:2000,forms: false});
 
+	$(window).on('pronto.render', function(event, eventInfo){
+	werockApp();
+	$('#ajaxArea').removeClass('loading');
+	});
+	$(window).on('pronto.request', function(event, eventInfo){
+	$('#ajaxArea').addClass('loading');
+	})
 
-//	$(window).on('pronto.render', function(event, eventInfo){
-//	werockApp();
-//	$('#ajaxArea').removeClass('loading');
-//	});
-//	$(window).on('pronto.request', function(event, eventInfo){
-//	$('#ajaxArea').addClass('loading');
-//	})
-
-//	werockApp();
+	werockApp();
 	function werockApp(){
 		/*============================
 		1-PrettyPhoto
