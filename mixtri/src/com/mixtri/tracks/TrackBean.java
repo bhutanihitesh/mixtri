@@ -31,7 +31,7 @@ public class TrackBean {
 	public long getTrackId() {
 		return trackId;
 	}
-	public void setTrackId(int trackId) {
+	public void setTrackId(long trackId) {
 		this.trackId = trackId;
 	}
 	public String getArtistImageSrc() {

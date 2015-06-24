@@ -15,10 +15,10 @@ public class TrackDB {
 	//Once the database is set up, actual queries will be placed here	
 		
 		List<TrackBean> trackList=new ArrayList<>();
-		TrackBean tb1=new TrackBean(1,"assets/img/artist/artist1.jpg",8,"Maroon 5 Move Like Jagger","4:05","Christina Aguilera","assets/audio/2.mp3");
-		TrackBean tb2=new TrackBean(2,"assets/img/artist/artist1.jpg",8,"Maroon 5 Move Like Jagger 2","4:05","Christina Aguilera 2","assets/audio/2.mp3");
-		TrackBean tb3=new TrackBean(3,"assets/img/artist/artist1.jpg",8,"Maroon 5 Move Like Jagger 3","4:05","Christina Aguilera 3","assets/audio/2.mp3");
-		TrackBean tb4=new TrackBean(4,"assets/img/artist/artist1.jpg",8,"Maroon 5 Move Like Jagger 4","4:05","Christina Aguilera 4","assets/audio/2.mp3");
+		TrackBean tb1=new TrackBean(1,"assets/img/artist/artist1.jpg",7,"Maroon 5 Move Like Jagger","4:05","Christina Aguilera","assets/audio/2.mp3");
+		TrackBean tb2=new TrackBean(2,"assets/img/artist/artist1.jpg",5,"Maroon 5 Move Like Jagger 2","4:05","Christina Aguilera 2","assets/audio/2.mp3");
+		TrackBean tb3=new TrackBean(3,"assets/img/artist/artist1.jpg",6,"Maroon 5 Move Like Jagger 3","4:05","Christina Aguilera 3","assets/audio/2.mp3");
+		TrackBean tb4=new TrackBean(4,"assets/img/artist/artist1.jpg",9,"Maroon 5 Move Like Jagger 4","4:05","Christina Aguilera 4","assets/audio/2.mp3");
 		
 		trackList.add(tb1);
 		trackList.add(tb2);

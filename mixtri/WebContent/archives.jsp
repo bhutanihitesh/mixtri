@@ -146,7 +146,7 @@ Style Sheets
 							</div>
 						</div>
 
-						<div class="row">
+						<div class="row theHeaders">
 							<div class="archivedTracks">
 								<ul>
 									<li class="track-head clearfix">
@@ -162,225 +162,7 @@ Style Sheets
 								</ul>
 							</div>
 						</div>
-						<!-- Dj-tracks Starts -->
-						<!--=================================
-						    	JPlayer (Audio Player)
-						=================================-->
-						<section id="audio-player" class="archive-audio-player">
-						<div id="player-instance" class="jp-jplayer"></div>
-							<div class="container-Dj-tracks">
-								<div class="row">
-									<div class="Dj-tracks">
-										<ul>
-											<li>
-												<div>
-													<img src="assets/img/artist/artist1.jpg">
-												</div> 
-												
-												<div class="rock-player-controls">
-													<div class="jp-play"></div>
-													<div class="jp-pause" style="display: none"></div>
-												</div>
-
-												<div></div>
-												<div class="track_popularity">
-													<ul>
-
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="inactive"></li>
-														<li class="inactive"></li>
-														<li class="inactive"></li>
-													</ul>
-												</div>
-
-											</li>
-										</ul>
-
-									</div>
-
-
-									<div class="player-status">
-										<h5 class="audio-title">DJ Nyk(Artiist) - DJ Nyk Podcast 10</h5>
-										<div class="audio-timer">
-											<span class="current-time jp-current-time">01:02</span> / <span
-												class="total-time jp-duration">4:05</span>
-										</div>
-										<div class="audio-progress">
-											<div class="jp-seek-bar">
-												<div class="audio-play-bar jp-play-bar" style="width: 20%;"></div>
-											</div>
-											<!--jp-seek-bar-->
-										</div>
-										<!--audio-progress-->
-									</div>
-									<!--player-status-->
-									<div class="audio-list">
-										<div class="jp-playlist">
-											<!--Add Songs In mp3 formate here-->
-											<ul class="mixes" id="mixes">
-												<li data-title=""
-													data-artist=""
-													data-mp3="http://192.168.0.6/1234.ogg"></li>
-											</ul>
-											<!--Playlist ends-->
-										</div>
-									</div>
-								</div>
-							</div>
-						</section>
-						<!-- Dj-tracks Ends -->
-
-						<!-- Dj-tracks Starts -->
-						<!--=================================
-							 JPlayer (Audio Player)
-						=================================-->
-						<section id="audio-player1" class="archive-audio-player">
-						<div id="player-instance1" class="jp-jplayer"></div>
-							<div class="container-Dj-tracks">
-								<div class="row">
-									<div class="Dj-tracks">
-										<ul>
-											<li>
-												<div>
-													<img src="assets/img/artist/artist1.jpg">
-												</div> 
-												<div class="rock-player-controls">
-													<div class="jp-play"></div>
-													<div class="jp-pause" style="display: none"></div>
-												</div>
-
-												<div></div>
-												<div class="track_popularity">
-													<ul>
-
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="inactive"></li>
-														<li class="inactive"></li>
-														<li class="inactive"></li>
-													</ul>
-												</div>
-
-											</li>
-										</ul>
-
-									</div>
-
-
-									<div class="player-status">
-										<h5 class="audio-title">Maroon 5 - Moves Like Jagger ft.
-											Christina Aguilera</h5>
-										<div class="audio-timer">
-											<span class="current-time jp-current-time">01:02</span> / <span
-												class="total-time jp-duration">4:05</span>
-										</div>
-										<div class="audio-progress">
-											<div class="jp-seek-bar">
-												<div class="audio-play-bar jp-play-bar" style="width: 20%;"></div>
-											</div>
-											<!--jp-seek-bar-->
-										</div>
-										<!--audio-progress-->
-									</div>
-									<!--player-status-->
-									<div class="audio-list">
-										<div class="jp-playlist">
-											<!--Add Songs In mp3 formate here-->
-											<ul class="hidden playlist-files">
-												<li data-title="Maroon 5 - Moves Like Jagger"
-													data-artist="ft. Christina"
-													data-mp3="http://www.jplayer.org/audio/mp3/TSP-01-Cro_magnon_man.mp3"></li>
-											</ul>
-											<!--Playlist ends-->
-										</div>
-									</div>
-								</div>
-							</div>
-						</section>
-						<!--=================================
-							JPlayer (Audio Player)
-						=================================-->
-												
-						<section id="audio-player2" class="archive-audio-player">
-						<div id="player-instance2" class="jp-jplayer"></div>
-							<div class="container-Dj-tracks">
-								<div class="row">
-									<div class="Dj-tracks">
-										<ul>
-											<li>
-												<div>
-													<img src="assets/img/artist/artist1.jpg">
-												</div> 
-												<div class="rock-player-controls">
-													<div class="jp-play"></div>
-													<div class="jp-pause" style="display: none"></div>
-												</div>
-
-												<div></div>
-												<div class="track_popularity">
-													<ul>
-
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="active"></li>
-														<li class="inactive"></li>
-														<li class="inactive"></li>
-														<li class="inactive"></li>
-													</ul>
-												</div>
-
-											</li>
-										</ul>
-
-									</div>
-
-
-									<div class="player-status">
-										<h5 class="audio-title">Maroon 5 - Moves Like Jagger ft.
-											Christina Aguilera</h5>
-										<div class="audio-timer">
-											<span class="current-time jp-current-time">01:02</span> / <span
-												class="total-time jp-duration">4:05</span>
-										</div>
-										<div class="audio-progress">
-											<div class="jp-seek-bar">
-												<div class="audio-play-bar jp-play-bar" style="width: 20%;"></div>
-											</div>
-											<!--jp-seek-bar-->
-										</div>
-										<!--audio-progress-->
-									</div>
-									<!--player-status-->
-									<div class="audio-list">
-										<div class="jp-playlist">
-											<!--Add Songs In mp3 formate here-->
-											<ul class="hidden playlist-files">
-												<li data-title="Maroon 5 - Moves Like Jagger"
-													data-artist="ft. Christina"
-													data-mp3="http://www.jplayer.org/audio/mp3/TSP-01-Cro_magnon_man.mp3"></li>
-											</ul>
-											<!--Playlist ends-->
-										</div>
-									</div>
-								</div>
-							</div>
-						</section>
-						<!-- Dj-tracks Ends -->
+						
 
 						
 						<!--artist tracks-->
@@ -456,8 +238,6 @@ Script Source
     <script defer src="assets/js/jquery.cookie.js"></script>
     <script>
 	(function($){
-		
-		$(document).ready(function(){
 			
 			//alert('ready');
 			$(document).ready(function(){
@@ -468,6 +248,7 @@ Script Source
 					
 				}).done(function(data){
 					console.log(data);
+					buildHtmlForTracks(data);
 				}).fail(function(error){
 					console.log("Error");
 					console.log(error);
@@ -476,7 +257,52 @@ Script Source
 				
 			});
 			
-		});
+			var buildHtmlForTracks=function(tracks){
+				
+				var html='';
+				
+				for(var i=0;i<tracks.length;i++){
+					
+					html+='<section id= audio-player'+tracks[i].trackId+' class="archive-audio-player">';
+					html+='<div id="player-instance" class="jp-jplayer">'+'</div>';
+					html+='<div class="container-Dj-tracks">';
+					html+='<div class="row">';
+					html+='<div class="Dj-tracks"> <ul> <li>';
+					html+='<div><img src='+tracks[i].artistImageSrc+'></div>';
+					html+='<div class="rock-player-controls"><div class="jp-play"></div><div class="jp-pause" style="display: none"></div></div>';
+					html+='<div></div>'
+					html+='<div class="track_popularity">'+buildPopularityHtml(tracks[i])+'</div></li></ul></div>';
+					html+='<div class="player-status">';
+					html+='<h5 class="audio-title">'+tracks[i].audioTitle+'</h5>';
+					html+='<div class="audio-timer"><span class="current-time jp-current-time">00:00</span> / <span class="total-time jp-duration">'+tracks[i].totalTime+'</span></div>';
+					html+='<div class="audio-progress"><div class="jp-seek-bar"><div class="audio-play-bar jp-play-bar" style="width: 20%;"></div></div></div></div>';
+					html+='<div class="audio-list"><div class="jp-playlist"><ul class="mixes" id="mixes"><li data-title='+tracks[i].audioTitle+' data-artist='+tracks[i].artist+' data-mp3='+tracks[i].audioSrc+'></li></ul></div></div></div></div></section>';
+                    
+				
+				}
+				
+				$('.theHeaders').append(html);
+				
+				
+			}
+			
+			var buildPopularityHtml=function(track){
+		
+				var html='<ul>';
+				var popCount=track.popularity;
+				for(var i=0;i<10;i++){
+					if(i<popCount)
+						html+='<li class="active"></li>';
+					else
+						html+='<li class="inactive"></li>';
+	
+					
+				}
+				html+='</ul>';
+				
+				return html;
+			}
+			
 		
 	})(jQuery);
 	</script>
