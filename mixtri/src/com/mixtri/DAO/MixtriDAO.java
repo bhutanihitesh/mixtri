@@ -28,11 +28,21 @@ public class MixtriDAO {
 		  String usernameDB = "mixtri@gmail.com";
 		  String passwordDB = "admin123";
 		  
-		  if(userLoginBean.getUsername().equalsIgnoreCase(usernameDB) && userLoginBean.getPassword().equals(passwordDB)){
-              userLoginBean.setDisplayName("DjMixtri");
-              userLoginBean.setUsernameAuthenticated(true);
-              userLoginBean.setPasswordAuthenticated(true);
-		  }   
+		  if(userLoginBean.getUsername().equalsIgnoreCase(usernameDB)){
+			  
+			  if(userLoginBean.getPassword().equals(passwordDB)){
+				  userLoginBean.setUsernameAuthenticated(true);
+	              userLoginBean.setPasswordAuthenticated(true);
+	              userLoginBean.setDisplayName("DjMixtri");
+			  }else{
+				  userLoginBean.setUsernameAuthenticated(true);
+				  userLoginBean.setPasswordAuthenticated(false);
+			  }
+              
+              
+		  }else{
+			  userLoginBean.setUsernameAuthenticated(false);
+		  }
 		//**************************************************//
 		
 		/*String usernameDB = rs.getString("username");

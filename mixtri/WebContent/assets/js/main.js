@@ -416,13 +416,11 @@
 		}	
 	}
 
-	$('#btnlogin').click(function(e){
-		e.preventDefault();
-
-		var loginForm = $('#loginform');
+	$('#loginform').submit(function(e){
+		
 		var username = $('#loginform').find('input[id="username"]').val();
 		var password = $('#loginform').find('input[id="password"]').val();
-
+        
 		$.ajax({
 			url: '/mixtri/rest/login',
 			method: 'POST',
@@ -432,31 +430,51 @@
 				password: password
 
 			},
-
+ 
 			success: function (data, textStatus, jqXHR) {
 				
 				if(jqXHR.status=='200'){
-					$.cookie("displayName", data,{ path: '/'});
+					
+					
+					if(data=='wrong username'){
+						
+						 var wrongUsername ='Hey!!! Thats not the email id. Please try again'
+						 
+						  
+						  $('#loginform').show();
+						  $('#login-alert').show();
+	           			  $('#login-alert').html(wrongUsername);
+					}else if(data=='wrong password'){
+						var wrongPassword ='This password does not match with the one we have. Please try again'
+							
+							$('#loginform').show();
+						  	$('#login-alert').show();
+						  	$('#login-alert').html(wrongPassword);
+													
+					}else{
+					   
+						$.cookie("displayName", data,{ path: '/'});
+						
+						//If the user has logged in successfully and is on error page then direct him to index.jsp 
+						if(document.URL.indexOf("error.jsp") >= 0){
+                            window.location.href  = "index.jsp";
+						}else{
+							//window.location.href = document.URL;
+							window.location.reload();
+						}
+						
+						$('#loginbox').hide();
+						$('#loginUser').hide();
+						$('.modal-backdrop').remove();
+						$('#welcomeUser').removeClass('hidden');
+						$('a#displayname').html($.cookie('displayName'));
+						
+					}
 
 				}		    	  
 			},
 
-			complete: function(data){
-                
-				//If the user has logged in successfully and is on error page then direct him to index.jsp 
-				if(document.URL.indexOf("error.jsp") >= 0){
-
-					window.location.href  = "index.jsp";
-				}
-				
-				$('#loginbox').hide();
-				$('#loginUser').hide();
-				$('.modal-backdrop').remove();
-				$('#welcomeUser').removeClass('hidden');
-				$('a#displayname').html($.cookie('displayName'));
-
-			},
-
+			
 			error: function (data, textStatus, jqXHR){
 				$('#loginbox').hide();
 				window.location.href = "error.jsp";
@@ -465,25 +483,27 @@
 
 
 	});
+	
+	$('#logout').click(function(){
+		$.removeCookie('displayName', { path: '/' });
+		$("#welcomeUser").addClass('hidden');
+		$('#loginUser').show();
+		window.location.href = document.URL;
+		
+	});
 
 })(jQuery);
 
-
-window.onload = (function(){
-
-	/*$("#header").load("header.html");
-	$("#footer").load("footer.html");*/
-
-	if( typeof $.cookie('displayName') != 'undefined'){
+$(document).ready(function(){
+	
+   if( typeof $.cookie('displayName') != 'undefined'){
 		$("#welcomeUser").removeClass('hidden');
-		$('#loginUser').remove();
+		$('#loginUser').addClass('hidden');
 		$('a#displayname').html($.cookie('displayName'));
 
 
 	}
-
 });
-
 
 
 

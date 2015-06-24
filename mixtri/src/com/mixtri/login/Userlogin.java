@@ -67,11 +67,11 @@ public String authenticate(@FormParam("username") String username, @FormParam("p
 		  else{
 			   
 			  
-			  serverResponse = "Hey!!! Seems like you got a wrong password. Please try again";
+			  serverResponse = "wrong password";
 			  
 			}  
 	  }else{
-		    serverResponse = "Hey!!! Thats not your correct username. Please try again";
+		    serverResponse = "wrong username";
 		  	  		  
 	  }
 	}catch(SQLException sqlExp){

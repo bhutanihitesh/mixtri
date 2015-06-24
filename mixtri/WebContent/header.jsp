@@ -40,6 +40,7 @@ Meta tags
 				</div>
 				<div id="welcomeUser" class ="login hidden">
 				        <ul>
+				             <li><a id="logout"href=#>Logout</a></li>
 		                     <li><a href="livestream.jsp"><span class="fa fa-calendar"></span> Live Stream!</a></li>
 		                     <li><a href="#"><span class="fa fa-upload"></span> Upload</a></li>
 		                     <li><a id="displayname" href="#"></a></li>
@@ -120,47 +121,42 @@ Meta tags
                         <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
                             
                         <form id="loginform" class="form-horizontal"  role="form">
-                                    
+                            <div class="form-group" style="margin-left: 2px;">         
                             <div style="margin-bottom: 25px" class="input-group">
-                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
                                         <div class="col-md-9" style="padding-left: 0px;">
-                                        <input id="username" type="text" class="form-control" name="username" value="" placeholder="username or email">
+                                        <input id="username" type="email" class="form-control" name="username" value="" placeholder="Email" required style="width: 403px;" required/>
                                         </div>                                         
-                                    </div>
+                               </div>
+                              </div>      
                                 
-                            <div style="margin-bottom: 25px" class="input-group">
+                                 <div style="margin-bottom: 25px" class="input-group">
                                         
                                         <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                                         <div class="col-md-9" style="padding-left: 0px;">
-                                        <input id="password" type="password" class="form-control" name="password" placeholder="password">
+                                        <input id="password" type="password" class="form-control" name="password" placeholder="password" required minlength=3 maxlength=15/>
                                         </div>
                                     </div>
                                  
                                <div class="form-group">
                                     <div class="col-md-offset-3 col-md-9">
-                                    <input type="submit" id="btnlogin" value="Login" class="btn btn-info" style="margin-left: 50px; padding-right: 20px;">
+                                    <input type="submit" id="btnlogin" value="Login" class="btn btn-info" style=" width: 141px; padding-right: 20px;">
                                         
                                     </div>
                                 </div>
                                
-                            <div class="input-group" style="padding-bottom: 10px;">
-                                      <div class="checkbox">
-                                        <label>
-                                          <input id="login-remember" type="checkbox" name="remember" value="1"> Remember me
-                                        </label>
-                                        &nbsp; &nbsp; &nbsp; &nbsp; 
-                                        <a href="#" style="color: #2a6496;">
-                                            Forgot password?
-                                        </a>
+                            		  <div>
+                                         <a href="#" style="color: #2a6496;">Forgot password?</a>
                                       </div>
+                                      
                               </div>
                               
 
                                 <div style="border-top: 1px solid #999; padding-top:30px"  class="form-group">
                                     
                                     <div class="col-md-offset-3 col-md-9" style="padding-left: 0px; padding-right: 0px;">
-                                        <button id="btn-fbsignup" style="margin-bottom: 10px;" type="button" class="btn btn-primary"><i class="icon-facebook"></i>   Log in with Facebook</button>
-                                        <button id="btn-fbsignup" style="margin-bottom: 10px;" type="button" class="btn btn-danger"><i class="icon-facebook"></i>   Log in with Google</button>
+                                        <button id="btn-fbsignup" style="margin-bottom: 10px;" type="button" class="btn btn-primary"><i class="icon-facebook"></i>Log in with Facebook</button>
+                                        <button id="btn-fbsignup" style="margin-bottom: 10px;" type="button" class="btn btn-danger"><i class="icon-facebook"></i>Log in with Google</button>
                                     </div>
                                     
                                     <div style="padding-left: 130px;">By signing in, you accept our <a href="#" style="color: #2a6496;">Terms of Use</a> 
@@ -244,8 +240,8 @@ Meta tags
                                 <div style="border-top: 1px solid #999; padding-top:20px"  class="form-group">
                                     
                                     <div class="col-md-offset-3 col-md-9" style="padding-left: 0px; padding-right: 0px;">
-                                        <button id="btn-fbsignup" style="margin-bottom: 10px;" type="button" class="btn btn-primary"><i class="icon-facebook"></i>   Sign Up with Facebook</button>
-                                        <button id="btn-fbsignup" style="margin-bottom: 10px;" type="button" class="btn btn-danger"><i class="icon-facebook"></i>   Sign Up with Google</button>
+                                        <button id="btn-fbsignup" style="margin-bottom: 10px;" type="button" class="btn btn-primary"><i class="icon-facebook"></i>Sign Up with Facebook</button>
+                                        <button id="btn-fbsignup" style="margin-bottom: 10px;" type="button" class="btn btn-danger"><i class="icon-facebook"></i>Sign Up with Google</button>
                                     </div>
                                     
                                     <div style="padding-left: 150px;">By signing in, you accept our <a href="#" style="color: #2a6496;">Terms of Use</a> 
@@ -271,9 +267,32 @@ Meta tags
 	</header>
 
 
- 
-
-<script>/*Place Your Google Analytics code here*/</script>
+    <script async src="assets/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <script src="assets/js/jquery-1.11.1.min.js"></script>
+    <!-- <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js"></script> -->
+    <script defer src="assets/js/jquery.mobile-1.4.5.min.js"></script>
+	<script defer src="assets/js/ajaxify.min.js"></script>
+    <script defer src="assets/js/bootstrap.min.js"></script>
+	<script defer src="assets/js/jquery.easing-1.3.pack.js"></script>
+	<script defer src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script defer src="assets/js/jquery.mousewheel.min.js"></script>
+	<script defer src="assets/js/jflickrfeed.min.js"></script>
+	<script defer src="assets/js/jquery.flexslider-min.js"></script>
+	<script defer src="assets/js/jquery.carouFredSel-6.2.1-packed.js"></script>
+	<script defer src="assets/js/tweetie.min.js"></script>
+	<script defer src="assets/js/jquery.prettyPhoto.js"></script>
+	<script defer src="assets/jPlayer/jquery.jplayer.min.js"></script>
+	<script defer src="assets/jPlayer/add-on/jplayer.playlist.min.js"></script>
+	<script defer src="assets/js/jquery.vegas.min.js"></script>
+	<script defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+	<script defer src="assets/js/jquery.calendar-widget.js"></script>
+	<script defer src="assets/js/isotope.js"></script>
+	<script defer src="assets/js/main.js"></script>
+    <script defer src="assets/js/jquery.cookie.js"></script>
+    <script>
+   			 
+    </script>
+	<script>/*Place Your Google Analytics code here*/</script>
 
 </body>
 </html>
