@@ -42,7 +42,8 @@ Style Sheets
 
 <!-- <script async src="assets/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 <script defer src="assets/js/jquery.js"></script>
- --><!--  <script defer src="assets/js/ajaxify.min.js"></script>-->
+ -->
+<!--  <script defer src="assets/js/ajaxify.min.js"></script>-->
 
 </head>
 <body>
@@ -53,7 +54,7 @@ Style Sheets
 	Header
 	=================================-->
 	<div id="header">
-     <%@include file="header.jsp" %>
+		<%@include file="header.jsp"%>
 	</div>
 
 	<div class="pageContentArea">
@@ -83,27 +84,27 @@ Style Sheets
 						<!--latest events-->
 
 						<div class="col-lg-4 col-md-4 col-sm-4">
-								<div class="container-live-dj">
-									<div class="Live-Djs">
+							<div class="container-live-dj">
+								<div class="Live-Djs">
 
-										<a href="#"><img src="assets/img/news/1.jpg" alt="dummy"></a>
+									<a href="#"><img src="assets/img/news/1.jpg" alt="dummy"></a>
 
 
+								</div>
+
+								<div class="Live-Djs-Content">
+
+									<div class="Genre">Bollywood EDM</div>
+									<div class="Dj-name">
+										<a href="#">DJ NYK</a>
 									</div>
+									<div class="stream">
+										<a href="#">DJ NYK Non Stop Podcast 10</a>
+									</div>
+									<div class="stream-description">2 hrs of non-stop
+										Bolloywood EDM!!!</div>
 
-									<div class="Live-Djs-Content">
-
-										<div class="Genre">Bollywood EDM</div>
-										<div class="Dj-name">
-											<a href="#">DJ NYK</a>
-										</div>
-										<div class="stream">
-											<a href="#">DJ NYK Non Stop Podcast 10</a>
-										</div>
-										<div class="stream-description">2 hrs of non-stop
-											Bolloywood EDM!!!</div>
-											
-											<div>
+									<div>
 										<ul>
 											<li class="Live-Djs-userIcon"><span class="fa fa-user">
 													4</span></li>
@@ -111,34 +112,34 @@ Style Sheets
 												Now Live!</li>
 										</ul>
 									</div>
-									</div>
-									
 								</div>
+
 							</div>
+						</div>
 						<!--\\latest news-->
 
 						<div class="col-lg-4 col-md-4 col-sm-4">
-								<div class="container-live-dj">
-									<div class="Live-Djs">
+							<div class="container-live-dj">
+								<div class="Live-Djs">
 
-										<a href="#"><img src="assets/img/news/1.jpg" alt="dummy"></a>
+									<a href="#"><img src="assets/img/news/1.jpg" alt="dummy"></a>
 
 
+								</div>
+
+								<div class="Live-Djs-Content">
+
+									<div class="Genre">Bollywood EDM</div>
+									<div class="Dj-name">
+										<a href="#">DJ NYK</a>
 									</div>
+									<div class="stream">
+										<a href="#">DJ NYK Non Stop Podcast 10</a>
+									</div>
+									<div class="stream-description">2 hrs of non-stop
+										Bolloywood EDM!!!</div>
 
-									<div class="Live-Djs-Content">
-
-										<div class="Genre">Bollywood EDM</div>
-										<div class="Dj-name">
-											<a href="#">DJ NYK</a>
-										</div>
-										<div class="stream">
-											<a href="#">DJ NYK Non Stop Podcast 10</a>
-										</div>
-										<div class="stream-description">2 hrs of non-stop
-											Bolloywood EDM!!!</div>
-											
-											<div>
+									<div>
 										<ul>
 											<li class="Live-Djs-userIcon"><span class="fa fa-user">
 													4</span></li>
@@ -146,10 +147,10 @@ Style Sheets
 												Now Live!</li>
 										</ul>
 									</div>
-									</div>
-									
 								</div>
+
 							</div>
+						</div>
 
 						<div class="col-lg-4 col-md-4 col-sm-4">
 
@@ -174,27 +175,27 @@ Style Sheets
 						<!--latest events-->
 
 						<div class="col-lg-4 col-md-4 col-sm-4">
-								<div class="container-live-dj">
-									<div class="Live-Djs">
+							<div class="container-live-dj">
+								<div class="Live-Djs">
 
-										<a href="#"><img src="assets/img/news/1.jpg" alt="dummy"></a>
+									<a href="#"><img src="assets/img/news/1.jpg" alt="dummy"></a>
 
 
+								</div>
+
+								<div class="Live-Djs-Content">
+
+									<div class="Genre">Bollywood EDM</div>
+									<div class="Dj-name">
+										<a href="#">DJ NYK</a>
 									</div>
+									<div class="stream">
+										<a href="#">DJ NYK Non Stop Podcast 10</a>
+									</div>
+									<div class="stream-description">2 hrs of non-stop
+										Bolloywood EDM!!!</div>
 
-									<div class="Live-Djs-Content">
-
-										<div class="Genre">Bollywood EDM</div>
-										<div class="Dj-name">
-											<a href="#">DJ NYK</a>
-										</div>
-										<div class="stream">
-											<a href="#">DJ NYK Non Stop Podcast 10</a>
-										</div>
-										<div class="stream-description">2 hrs of non-stop
-											Bolloywood EDM!!!</div>
-											
-											<div>
+									<div>
 										<ul>
 											<li class="Live-Djs-userIcon"><span class="fa fa-user">
 													4</span></li>
@@ -202,34 +203,34 @@ Style Sheets
 												Now Live!</li>
 										</ul>
 									</div>
-									</div>
-									
 								</div>
+
 							</div>
+						</div>
 						<!--\\latest news-->
 
 						<div class="col-lg-4 col-md-4 col-sm-4">
-								<div class="container-live-dj">
-									<div class="Live-Djs">
+							<div class="container-live-dj">
+								<div class="Live-Djs">
 
-										<a href="#"><img src="assets/img/news/1.jpg" alt="dummy"></a>
+									<a href="#"><img src="assets/img/news/1.jpg" alt="dummy"></a>
 
 
+								</div>
+
+								<div class="Live-Djs-Content">
+
+									<div class="Genre">Bollywood EDM</div>
+									<div class="Dj-name">
+										<a href="#">DJ NYK</a>
 									</div>
+									<div class="stream">
+										<a href="#">DJ NYK Non Stop Podcast 10</a>
+									</div>
+									<div class="stream-description">2 hrs of non-stop
+										Bolloywood EDM!!!</div>
 
-									<div class="Live-Djs-Content">
-
-										<div class="Genre">Bollywood EDM</div>
-										<div class="Dj-name">
-											<a href="#">DJ NYK</a>
-										</div>
-										<div class="stream">
-											<a href="#">DJ NYK Non Stop Podcast 10</a>
-										</div>
-										<div class="stream-description">2 hrs of non-stop
-											Bolloywood EDM!!!</div>
-											
-											<div>
+									<div>
 										<ul>
 											<li class="Live-Djs-userIcon"><span class="fa fa-user">
 													4</span></li>
@@ -237,11 +238,11 @@ Style Sheets
 												Now Live!</li>
 										</ul>
 									</div>
-									</div>
-									
 								</div>
+
 							</div>
-							<div class="col-lg-4 col-md-4 col-sm-4">
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-4">
 							<div class="genre-dropdown">
 								<button class="btn btn-default dropdown-toggle" type="button"
 									id="genre" data-toggle="dropdown">
@@ -258,34 +259,34 @@ Style Sheets
 										href="#">Trance</a></li>
 								</ul>
 							</div>
-							</div>
+						</div>
 					</div>
 					<div class="row">
 
 						<!--latest events-->
 
 						<div class="col-lg-4 col-md-4 col-sm-4">
-								<div class="container-live-dj">
-									<div class="Live-Djs">
+							<div class="container-live-dj">
+								<div class="Live-Djs">
 
-										<a href="#"><img src="assets/img/news/1.jpg" alt="dummy"></a>
+									<a href="#"><img src="assets/img/news/1.jpg" alt="dummy"></a>
 
 
+								</div>
+
+								<div class="Live-Djs-Content">
+
+									<div class="Genre">Bollywood EDM</div>
+									<div class="Dj-name">
+										<a href="#">DJ NYK</a>
 									</div>
+									<div class="stream">
+										<a href="#">DJ NYK Non Stop Podcast 10</a>
+									</div>
+									<div class="stream-description">2 hrs of non-stop
+										Bolloywood EDM!!!</div>
 
-									<div class="Live-Djs-Content">
-
-										<div class="Genre">Bollywood EDM</div>
-										<div class="Dj-name">
-											<a href="#">DJ NYK</a>
-										</div>
-										<div class="stream">
-											<a href="#">DJ NYK Non Stop Podcast 10</a>
-										</div>
-										<div class="stream-description">2 hrs of non-stop
-											Bolloywood EDM!!!</div>
-											
-											<div>
+									<div>
 										<ul>
 											<li class="Live-Djs-userIcon"><span class="fa fa-user">
 													4</span></li>
@@ -293,34 +294,34 @@ Style Sheets
 												Now Live!</li>
 										</ul>
 									</div>
-									</div>
-									
 								</div>
+
 							</div>
+						</div>
 						<!--\\latest news-->
 
 						<div class="col-lg-4 col-md-4 col-sm-4">
-								<div class="container-live-dj">
-									<div class="Live-Djs">
+							<div class="container-live-dj">
+								<div class="Live-Djs">
 
-										<a href="#"><img src="assets/img/news/1.jpg" alt="dummy"></a>
+									<a href="#"><img src="assets/img/news/1.jpg" alt="dummy"></a>
 
 
+								</div>
+
+								<div class="Live-Djs-Content">
+
+									<div class="Genre">Bollywood EDM</div>
+									<div class="Dj-name">
+										<a href="#">DJ NYK</a>
 									</div>
+									<div class="stream">
+										<a href="#">DJ NYK Non Stop Podcast 10</a>
+									</div>
+									<div class="stream-description">2 hrs of non-stop
+										Bolloywood EDM!!!</div>
 
-									<div class="Live-Djs-Content">
-
-										<div class="Genre">Bollywood EDM</div>
-										<div class="Dj-name">
-											<a href="#">DJ NYK</a>
-										</div>
-										<div class="stream">
-											<a href="#">DJ NYK Non Stop Podcast 10</a>
-										</div>
-										<div class="stream-description">2 hrs of non-stop
-											Bolloywood EDM!!!</div>
-											
-											<div>
+									<div>
 										<ul>
 											<li class="Live-Djs-userIcon"><span class="fa fa-user">
 													4</span></li>
@@ -328,37 +329,37 @@ Style Sheets
 												Now Live!</li>
 										</ul>
 									</div>
-									</div>
-									
 								</div>
+
 							</div>
+						</div>
 					</div>
 					<div class="row">
 
 						<!--latest events-->
 
 						<div class="col-lg-4 col-md-4 col-sm-4">
-								<div class="container-live-dj">
-									<div class="Live-Djs">
+							<div class="container-live-dj">
+								<div class="Live-Djs">
 
-										<a href="#"><img src="assets/img/news/1.jpg" alt="dummy"></a>
+									<a href="#"><img src="assets/img/news/1.jpg" alt="dummy"></a>
 
 
+								</div>
+
+								<div class="Live-Djs-Content">
+
+									<div class="Genre">Bollywood EDM</div>
+									<div class="Dj-name">
+										<a href="#">DJ NYK</a>
 									</div>
+									<div class="stream">
+										<a href="#">DJ NYK Non Stop Podcast 10</a>
+									</div>
+									<div class="stream-description">2 hrs of non-stop
+										Bolloywood EDM!!!</div>
 
-									<div class="Live-Djs-Content">
-
-										<div class="Genre">Bollywood EDM</div>
-										<div class="Dj-name">
-											<a href="#">DJ NYK</a>
-										</div>
-										<div class="stream">
-											<a href="#">DJ NYK Non Stop Podcast 10</a>
-										</div>
-										<div class="stream-description">2 hrs of non-stop
-											Bolloywood EDM!!!</div>
-											
-											<div>
+									<div>
 										<ul>
 											<li class="Live-Djs-userIcon"><span class="fa fa-user">
 													4</span></li>
@@ -366,34 +367,34 @@ Style Sheets
 												Now Live!</li>
 										</ul>
 									</div>
-									</div>
-									
 								</div>
+
 							</div>
+						</div>
 						<!--\\latest news-->
 
 						<div class="col-lg-4 col-md-4 col-sm-4">
-								<div class="container-live-dj">
-									<div class="Live-Djs">
+							<div class="container-live-dj">
+								<div class="Live-Djs">
 
-										<a href="#"><img src="assets/img/news/1.jpg" alt="dummy"></a>
+									<a href="#"><img src="assets/img/news/1.jpg" alt="dummy"></a>
 
 
+								</div>
+
+								<div class="Live-Djs-Content">
+
+									<div class="Genre">Bollywood EDM</div>
+									<div class="Dj-name">
+										<a href="#">DJ NYK</a>
 									</div>
+									<div class="stream">
+										<a href="#">DJ NYK Non Stop Podcast 10</a>
+									</div>
+									<div class="stream-description">2 hrs of non-stop
+										Bolloywood EDM!!!</div>
 
-									<div class="Live-Djs-Content">
-
-										<div class="Genre">Bollywood EDM</div>
-										<div class="Dj-name">
-											<a href="#">DJ NYK</a>
-										</div>
-										<div class="stream">
-											<a href="#">DJ NYK Non Stop Podcast 10</a>
-										</div>
-										<div class="stream-description">2 hrs of non-stop
-											Bolloywood EDM!!!</div>
-											
-											<div>
+									<div>
 										<ul>
 											<li class="Live-Djs-userIcon"><span class="fa fa-user">
 													4</span></li>
@@ -401,10 +402,10 @@ Style Sheets
 												Now Live!</li>
 										</ul>
 									</div>
-									</div>
-									
 								</div>
+
 							</div>
+						</div>
 					</div>
 					<!-- row ends -->
 				</div>
@@ -437,31 +438,7 @@ Style Sheets
 	Footer
 	=================================-->
 	<footer id="footer">
-<%@include file="footer.jsp" %>
-</footer>
-	<!--=================================
-Script Source
-=================================-->
-<!-- 
-	<script defer src="assets/js/bootstrap.min.js"></script>
-	<script defer src="assets/js/jquery.easing-1.3.pack.js"></script>
-	<script defer src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
-	<script defer src="assets/js/jquery.mousewheel.min.js"></script>
-	<script defer src="assets/js/jflickrfeed.min.js"></script>
-	<script defer src="assets/js/jquery.flexslider-min.js"></script>
-	<script defer src="assets/js/jquery.carouFredSel-6.2.1-packed.js"></script>
-	<script defer src="assets/js/tweetie.min.js"></script>
-	<script defer src="assets/js/jquery.prettyPhoto.js"></script>
-	<script defer src="assets/jPlayer/jquery.jplayer.min.js"></script>
-	<script defer src="assets/jPlayer/add-on/jplayer.playlist.min.js"></script>
-	<script defer src="assets/js/jquery.vegas.min.js"></script>
-	<script defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-	<script defer src="assets/js/jquery.calendar-widget.js"></script>
-	<script defer src="assets/js/isotope.js"></script>
-	<script defer src="assets/js/main.js"></script>
-    <script defer src="assets/js/jquery.cookie.js"></script>
-	<script>/*Place Your Google Analytics code here*/</script>
-
- -->
- </body>
+		<%@include file="footer.jsp"%>
+	</footer>
+</body>
 </html>

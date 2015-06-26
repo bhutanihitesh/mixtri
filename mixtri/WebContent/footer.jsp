@@ -96,7 +96,7 @@ Meta tags
 <!--=================================
 Script Source
 =================================-->
-	<script defer src="assets/js/main.js"></script>
+	
 
 	<script>/*Place Your Google Analytics code here*/</script>
 

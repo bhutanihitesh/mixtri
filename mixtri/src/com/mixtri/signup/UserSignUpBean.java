@@ -2,12 +2,21 @@ package com.mixtri.signup;
 
 public class UserSignUpBean {
 	
-	private String username;
 	private String emailId;
-	private int    contact;
+	private String contact;
 	private String password;
 	private String salt;
+	private boolean isUsercreated;
+	private String guid;
+	private String displayName;
 	
+	
+	public String getDisplayName() {
+		return displayName;
+	}
+	public void setDisplayName(String displayName) {
+		this.displayName = displayName;
+	}
 	public String getSalt() {
 		return salt;
 	}
@@ -20,31 +29,23 @@ public class UserSignUpBean {
 	public void setGuid(String guid) {
 		this.guid = guid;
 	}
-	private boolean isUsercreated;
-	private String guid;
-	
 	public boolean isUsercreated() {
 		return isUsercreated;
 	}
 	public void setUsercreated(boolean isUsercreated) {
 		this.isUsercreated = isUsercreated;
 	}
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
+	
 	public String getEmailId() {
 		return emailId;
 	}
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
 	}
-	public int getContact() {
+	public String getContact() {
 		return contact;
 	}
-	public void setContact(int contact) {
+	public void setContact(String contact) {
 		this.contact = contact;
 	}
 	public String getPassword() {

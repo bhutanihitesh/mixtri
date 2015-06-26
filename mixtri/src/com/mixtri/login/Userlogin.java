@@ -32,34 +32,27 @@ public class Userlogin{
 	 */
 	private static final long serialVersionUID = 1L;
 	static Logger log = Logger.getLogger(Userlogin.class.getName());
-	//private WebServiceContext wsContext;
+	
 @Context private HttpServletRequest request;	
 //@Resource	
 @POST
 @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 @Path("/login")
-public String authenticate(@FormParam("username") String username, @FormParam("password")String password) {
-	
-	/*MessageContext mc = wsContext.getMessageContext();    // Step 3
-    HttpSession session = ((javax.servlet.http.HttpServletRequest)mc.get(MessageContext.SERVLET_REQUEST)).getSession();
-    if (session == null)
-       throw new WebServiceException("No HTTP Session found");*/ 
-	
-	  //TODO: Encrypt password, Login Form Validations if the JS is turned off.
+public String authenticate(@FormParam("emailId") String emailId, @FormParam("password")String password) {
 	  
 	  UserLoginBean userLoginBean = new UserLoginBean();
 	  String serverResponse=null;
 	  HttpSession session = request.getSession(true);
 	 try{ 
-	  userLoginBean.setUsername(username);
+	  userLoginBean.setEmailId(emailId);
 	  userLoginBean.setPassword(password);
 	  
 	  MixtriDAO mixtriDAO = new MixtriDAO();
 	  userLoginBean = mixtriDAO.retriveLoginInfo(userLoginBean);
 	  
-	  if(userLoginBean.isUsernameAuthenticated()){
+	  if(!userLoginBean.getEmailId().isEmpty() && userLoginBean.isUsernameAuthenticated()){
 	  
-		  if(userLoginBean.isPasswordAuthenticated()){
+		  if(!userLoginBean.getPassword().isEmpty() && userLoginBean.isPasswordAuthenticated()){
 			  serverResponse = userLoginBean.getDisplayName();
 			  session.setAttribute("displayname",serverResponse);
 		  }
@@ -71,7 +64,7 @@ public String authenticate(@FormParam("username") String username, @FormParam("p
 			  
 			}  
 	  }else{
-		    serverResponse = "wrong username";
+		    serverResponse = "wrong emailId";
 		  	  		  
 	  }
 	}catch(SQLException sqlExp){

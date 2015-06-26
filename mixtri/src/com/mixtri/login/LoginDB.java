@@ -22,7 +22,7 @@ public class LoginDB {
 		
 		//rs.getString(1);
 		
-		
+		System.out.println("Login Successful");
 		return rs;
 	
    }

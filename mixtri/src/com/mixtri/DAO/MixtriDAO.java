@@ -28,7 +28,7 @@ public class MixtriDAO {
 		  String usernameDB = "mixtri@gmail.com";
 		  String passwordDB = "admin123";
 		  
-		  if(userLoginBean.getUsername().equalsIgnoreCase(usernameDB)){
+		  if(userLoginBean.getEmailId().equalsIgnoreCase(usernameDB)){
 			  
 			  if(userLoginBean.getPassword().equals(passwordDB)){
 				  userLoginBean.setUsernameAuthenticated(true);
@@ -56,7 +56,7 @@ public class MixtriDAO {
 		m.setAccessible(true);
 		String hashedPassword = (String) m.invoke(saltedMD5, pwdFromUI,salt);
 
-		if(rs!=null && userLoginBean.getUsername().equalsIgnoreCase(usernameDB)){
+		if(rs!=null && userLoginBean.getEmailId().equalsIgnoreCase(usernameDB)){
 
 			userLoginBean.setUsernameAuthenticated(true);
 			log.debug("Username Authenticated: "+usernameDB);
@@ -79,7 +79,7 @@ public class MixtriDAO {
 		rs = signUpDB.createNewUser(userSignUpBean);
 
 		//If a valid GUID is return then setUsercreated = true; 		
-		if(rs!=null){
+		if(rs==null){
 			userSignUpBean.setUsercreated(true);
 			log.debug("User created Successfully");
 		}	

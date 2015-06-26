@@ -132,11 +132,11 @@
 //	jQuery('#ajaxArea').ajaxify({requestDelay:2000,forms: false});
 
 	$(window).on('pronto.render', function(event, eventInfo){
-	werockApp();
-	$('#ajaxArea').removeClass('loading');
+		werockApp();
+		$('#ajaxArea').removeClass('loading');
 	});
 	$(window).on('pronto.request', function(event, eventInfo){
-	$('#ajaxArea').addClass('loading');
+		$('#ajaxArea').addClass('loading');
 	})
 
 	werockApp();
@@ -416,65 +416,72 @@
 		}	
 	}
 
+})(jQuery);
+
+$(document).ready(function(){
+//	Session Cookie Maintainence	
+	if( typeof $.cookie('displayName') != 'undefined'){
+		$("#welcomeUser").removeClass('hidden');
+		$('#loginUser').addClass('hidden');
+		$('a#displayname').html($.cookie('displayName'));
+
+
+	}
+	//end Session Cookie Maintainence
+
+	//Login Functionality
 	$('#loginform').submit(function(e){
-		
-		var username = $('#loginform').find('input[id="username"]').val();
+
+		var emailId = $('#loginform').find('input[id="emailId"]').val();
 		var password = $('#loginform').find('input[id="password"]').val();
-        
+
 		$.ajax({
 			url: '/mixtri/rest/login',
 			method: 'POST',
 			contentType: "application/x-www-form-urlencoded",
 			data: {
-				username: username,
+				emailId: emailId,
 				password: password
 
 			},
- 
+
 			success: function (data, textStatus, jqXHR) {
-				
+
 				if(jqXHR.status=='200'){
-					
-					
-					if(data=='wrong username'){
-						
-						 var wrongUsername ='Hey!!! Thats not the email id. Please try again'
-						 
-						  
-						  $('#loginform').show();
-						  $('#login-alert').show();
-	           			  $('#login-alert').html(wrongUsername);
-					}else if(data=='wrong password'){
-						var wrongPassword ='This password does not match with the one we have. Please try again'
-							
+
+
+					if(data=='wrong emailId'){
+
+						var wrongEmailId ='Hey!!! Thats not your correct email id. Please try again'
+
+
 							$('#loginform').show();
-						  	$('#login-alert').show();
-						  	$('#login-alert').html(wrongPassword);
-													
+						$('#login-alert').show();
+						$('#login-alert').html(wrongEmailId);
+					}else if(data=='wrong password'){
+						var wrongPassword ='Thats an incorrect password. Please try again'
+
+							$('#loginform').show();
+						$('#login-alert').show();
+						$('#login-alert').html(wrongPassword);
+
 					}else{
-					   
-						$.cookie("displayName", data,{ path: '/'});
-						
-						//If the user has logged in successfully and is on error page then direct him to index.jsp 
-						if(document.URL.indexOf("error.jsp") >= 0){
-                            window.location.href  = "index.jsp";
-						}else{
-							//window.location.href = document.URL;
-							window.location.reload();
-						}
-						
-						$('#loginbox').hide();
-						$('#loginUser').hide();
-						$('.modal-backdrop').remove();
-						$('#welcomeUser').removeClass('hidden');
-						$('a#displayname').html($.cookie('displayName'));
-						
+
+						setUserSession(data);
 					}
 
+				}else{
+
+					$('#loginbox').hide();
+					window.location.href = "error.jsp";
 				}		    	  
 			},
 
-			
+			complete: function(){
+               if(document.URL.indexOf("error.jsp") >= 0 && $.cookie('displayName')!=null){
+					window.location.href  = "index.jsp";
+				}
+			},
 			error: function (data, textStatus, jqXHR){
 				$('#loginbox').hide();
 				window.location.href = "error.jsp";
@@ -483,26 +490,148 @@
 
 
 	});
-	
+
+	//end login functionality
+
+	//Logout functionality  
 	$('#logout').click(function(){
 		$.removeCookie('displayName', { path: '/' });
 		$("#welcomeUser").addClass('hidden');
 		$('#loginUser').show();
 		window.location.href = document.URL;
-		
+
 	});
 
-})(jQuery);
+	//End Logout
 
-$(document).ready(function(){
+
+//	Signup Functionality	
+
+	$('#signupform').submit(function(e){
+		$("#signupform").unbind('submit');
+        //return false;
+		/*var emailId = $('#loginform').find('input[id="emailId"]').val();
+		var password = $('#loginform').find('input[id="password"]').val();*/
+
+		var displayName = $("#signupform input[id=displayName]").val();
+		var emailId = $("#signupform input[id=emailId]").val();
+		var contact = $("#signupform input[id=contact]").val();
+		var Signup_password = document.getElementById("Signup_password").value;
+		var confirm_password = document.getElementById("confirm_password").value;
+		
+        validatePassword();
+
+        $.ajax({
+			url: '/mixtri/rest/signup',
+			method: 'POST',
+			contentType: "application/x-www-form-urlencoded",
+			data: {
+				displayName: displayName,
+				emailId: emailId,
+				contact: contact,
+				Signup_password: Signup_password,
+				confirm_password: confirm_password
+
+			},
+
+			success: function(data,textStatus,jqXHR){
+
+				validateSignupResponse(data,textStatus,jqXHR);
+			},
+
+			complete: function(){
+
+				if(document.URL.indexOf("error.jsp") >= 0 && $.cookie('displayName')!=null){
+					window.location.href  = "index.jsp";
+				}
+			},
+
+			error: function (data, textStatus, jqXHR){
+				$('#signupbox').hide();
+				window.location.href = "error.jsp";
+			}
+		});
+
+	});
 	
-   if( typeof $.cookie('displayName') != 'undefined'){
-		$("#welcomeUser").removeClass('hidden');
-		$('#loginUser').addClass('hidden');
-		$('a#displayname').html($.cookie('displayName'));
+	document.getElementById("Signup_password").onchange = validatePassword;
+	document.getElementById("confirm_password").onchange = validatePassword;
+
+	function validatePassword(){
+
+		var Signup_password = document.getElementById("Signup_password").value;
+		var confirm_password = document.getElementById("confirm_password").value;
+		
+		if(Signup_password != confirm_password) {
+			document.getElementById("confirm_password").setCustomValidity("Passwords Don't Match");
+		    return false;
+		  } else {
+		       document.getElementById("confirm_password").setCustomValidity('');
+
+		  }
+
+	}
+
+	function validateSignupResponse(data,textStatus,jqXHR){
+
+		var serverResponse="";
+
+		if(jqXHR.status=='200'){
+
+			if(data=='Empty Field'){
+				serverResponse +="You cannot have an empty field. Please provide some value";
+			}else if(data == 'wrong contact'){
+
+				serverResponse +='Invalid phone number';
+
+			}else if(data == 'password mismatch'){
+
+				serverResponse += "Passwords don't match"; 
+
+			}else if(data == 'wrong emailId'){
+
+				serverResponse += 'Please give a valid email id';
+			}else{
+
+				setUserSession(data);
+			}
+
+		}else{
+
+			$('#signupbox').hide();
+			window.location.href = "error.jsp";
+		}
+
 
 
 	}
+
+
+
+	//Helper method which sets users session
+
+	function setUserSession(data){
+
+
+		$.cookie("displayName", data,{ path: '/'});
+
+		//If the user has logged in successfully and is on error page then direct him to index.jsp 
+		/*if(document.URL.indexOf("error.jsp") >= 0){
+			window.location.href  = "index.jsp";
+			location.reload();
+		}*/
+
+		$('#loginbox').hide();
+		$('#signupbox').hide();
+		$('#loginUser').hide();
+		$('.modal-backdrop').remove();
+		$('#welcomeUser').removeClass('hidden');
+		$('a#displayname').html($.cookie('displayName'));
+
+	}
+
+	//end
+
 });
 
 

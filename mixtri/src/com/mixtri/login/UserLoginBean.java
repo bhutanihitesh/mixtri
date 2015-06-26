@@ -2,7 +2,7 @@ package com.mixtri.login;
 
 public class UserLoginBean {
    
-	private String username;
+	private String emailId;
     private String password;
 	private boolean isUsernameAuthenticated;
 	private boolean isPasswordAuthenticated;
@@ -40,11 +40,11 @@ public class UserLoginBean {
 	public void setPassword(String password) {
 		this.password = password;
 	}    
-	public String getUsername() {
-    	return username;
+	public String getEmailId() {
+		return emailId;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
 	}
 	
 	

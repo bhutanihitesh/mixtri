@@ -105,15 +105,14 @@ Meta tags
             <div class="panel panel-info" >
                     <div class="panel-heading">
                     
-                               <button
-									type="button" class="close" data-dismiss="modal"
-									aria-label="Close" onClick="$('#loginbox').hide();">
-									<span aria-hidden="true">x—</span>
-								</button>
+                               <button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick="$('#loginbox').hide();">
+                               <span style="size: 10px;">x</span>
+                               </button>
+								
                        <div class="panel-title">Log in</div>
 								<div style="float:right; font-size: 80%; position: relative; top:-10px">
-								<button type="button"  onClick="$('#loginbox').hide(); $('#signupbox').show()" style="color: greenyellow; border: none; background: none;">
-								Sign in</button></div>                        
+								<button type="button"  onClick="$('#loginbox').hide(); $('#signupbox').show()" style="color: greenyellow; font-size: medium; border: none; background: none;">
+								Sign Up</button></div>                        
                     </div>     
 
                     <div style="padding-top:30px" class="panel-body" >
@@ -125,7 +124,7 @@ Meta tags
                             <div style="margin-bottom: 25px" class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
                                         <div class="col-md-9" style="padding-left: 0px;">
-                                        <input id="username" type="email" class="form-control" name="username" value="" placeholder="Email" required style="width: 403px;" required/>
+                                        <input id="emailId" type="email" class="form-control" name="emailId" value="" placeholder="Email" required style="width: 403px;" required/>
                                         </div>                                         
                                </div>
                               </div>      
@@ -174,14 +173,10 @@ Meta tags
         <div id="signupbox" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
                     <div class="panel panel-info">
                         <div class="panel-heading">
-                        <button
-									type="button" class="close" data-dismiss="modal"
-									aria-label="Close" onClick="$('#signupbox').hide();">
-									<span aria-hidden="true">x—</span>
-						</button>
-                            <div class="panel-title">Get in your party shoes!</div>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick="$('#signupbox').hide();"><span style="size: 10px;">x</span></button>
+                            <div class="panel-title">Time for a party!!!</div>
                             <div style="float:right; font-size: 85%; position: relative; top:-10px;">
-                            <button id="signinlink" onclick="$('#signupbox').hide(); $('#loginbox').show()" style=" color: greenyellow; font-size: small; border: none; background: none;">Log in</button></div>
+                            <button id="signinlink" onclick="$('#signupbox').hide(); $('#loginbox').show()" style=" color: greenyellow; font-size: medium; border: none; background: none;">Log in</button></div>
                         </div>  
                         <div class="panel-body" >
                             <form id="signupform" class="form-horizontal" role="form">
@@ -191,49 +186,60 @@ Meta tags
                                     <span></span>
                                 </div>
                                     
+                              <div class="form-group" style="margin-left: 20px;">
                                 
-                                  
-                                <div class="form-group">
-                                    <label for="name" class="col-md-1 control-label">Name*</label>
-                                    <div class="col-md-5" style="padding-left: 25px;">
-                                        <input type="text" class="form-control" name="name" placeholder="Dj Name...">
+                                <div style="margin-bottom: 5px" class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                        <div class="col-md-6" style="padding-left: 0px;">
+                                        <input type="text" id="displayName" class="form-control" name="name" placeholder="Dj's Display Name..." required/>
+                                      </div>                                         
+                               </div>
                                     </div>
                                     
-                                </div>
-                                <div class="form-group">
+                               <div class="form-group" style="margin-left: 20px;">
                                 
-                                <label for="email" class="col-md-1 control-label">Email*</label>
-                                    <div class="col-md-5" style="padding-left: 25px;">
-                                        <input type="text" class="form-control" name="email" placeholder="Email Address">
-                                    </div>
-                                </div>
+                                <div style="margin-bottom: 5px" class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                        <div class="col-md-6" style="padding-left: 0px;">
+                                        <input id="emailId" class="form-control" name="email" placeholder="Email Address" type="email" required/>
+                                      </div>                                         
+                               </div>
+                              </div>
+                              
+                              <div class="form-group" style="margin-left: 20px;">
                                 
-                                <div class="form-group">
-                                    <label for="contact" class="col-md-1 control-label">Contact*</label>
-                                    <div class="col-md-5" style="padding-left: 25px;">
-                                        <input type="text" class="form-control" name="contact" placeholder="Fans may contact you to hire..." 
-                                        data-toggle="tooltip" title="Fans may contact you to hire...">
+                                <div style="margin-bottom: 5px" class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-mobile-phone"></i></span>
+                                        <div class="col-md-6" style="padding-left: 0px;">
+                                        <input id="contact" type="tel" pattern='[\+]\d{2}[\-]\d{10}' class="form-control" name="contact" placeholder="Fans can contact you for bookings" 
+                                        data-toggle="tooltip" title="Please enter a valid phone number (Eg Format: +91-9999999999)" required/>
+                                        
+                                  </div>
+                               </div>
+                               <label>Please enter in this format: +91-9999999999</label>
+                              </div>
+                              
+                              
+                              
+                              <div class="form-group" style="padding-top: 20px;padding-left: 35px;">
+                                
+                                <div style="margin-bottom: 5px" class="input-group">
+                                     <span class="input-group-addon"><i class="fa fa-lock"></i></span>  
+                                    <div class="col-md-11" style="padding-left: 0px;">
+                                        <input id="Signup_password" type="password" class="form-control" name="Signup_password" placeholder="Password" minlength=3 required/>
                                     </div>
+                                 
                                     
-                                </div>
-                                
-                                <div class="form-group" style="padding-top: 5px;">
-                                
-                                    <div>
-                                    <label for="password" class="col-md-0 control-label" style="padding-left: 20px;">Password*</label>
-                                    <label for="re-enter password" class="col-md-0 control-label" style="padding-left: 190px;">Re-enter password*</label>
-                                    </div> 
-                                    <div class="col-md-5">
-                                        <input type="text" class="form-control" name="password" placeholder="Password">
+                                     <span class="input-group-addon"><i class="fa fa-lock"></i></span>  
+                                    <div class="col-md-11" style="padding-left: 0px;">
+                                        <input id="confirm_password" type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" minlength=3 required/>
                                     </div>
-                                    <div class="col-md-5">
-                                        <input type="text" class="form-control" name="re-enter password" placeholder="Re-enter password">
-                                    </div>
+                                 </div>
                                 </div>
                                 
                                 <div class="form-group">
                                     <div class="col-md-offset-3 col-md-9">
-                                        <button id="btn-signup" type="button" class="btn btn-info" style="margin-left: 50px;"><i class="icon-hand-right"></i> &nbsp Create account</button>
+                                       <input type="submit" id="btn-signup" value="Create account" class="btn btn-info" style="margin-left: 50px; size: 50px;">
                                     </div>
                                 </div>
                                 
@@ -268,7 +274,8 @@ Meta tags
 
 
     <script async src="assets/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-    <script src="assets/js/jquery-1.11.1.min.js"></script>
+    <!-- <script src="assets/js/jquery-1.11.1.min.js"></script> -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js"></script> -->
     <script defer src="assets/js/jquery.mobile-1.4.5.min.js"></script>
 	<script defer src="assets/js/ajaxify.min.js"></script>
