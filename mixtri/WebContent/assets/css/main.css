@@ -3317,8 +3317,8 @@ transition: opacity .25s ease-in-out;
 	display: inline-block;
 	padding: 2.5px;
 }
-.login li:hover a {
-	color: #eb5c75;
+.login a:hover {
+	color: #f192a3;
 }
 
 .djSignUpMsg {

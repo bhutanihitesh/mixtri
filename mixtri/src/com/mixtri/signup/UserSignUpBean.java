@@ -1,5 +1,7 @@
 package com.mixtri.signup;
 
+import java.sql.Date;
+
 public class UserSignUpBean {
 	
 	private String emailId;
@@ -9,8 +11,16 @@ public class UserSignUpBean {
 	private boolean isUsercreated;
 	private String guid;
 	private String displayName;
+	private Date createDate;
 	
 	
+	
+	public Date getCreateDate() {
+		return createDate;
+	}
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
 	public String getDisplayName() {
 		return displayName;
 	}

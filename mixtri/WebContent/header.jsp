@@ -44,18 +44,17 @@ Meta tags
 		                     <li><a href="livestream.jsp"><span class="fa fa-calendar"></span> Live Stream!</a></li>
 		                     <li><a href="#"><span class="fa fa-upload"></span> Upload</a></li>
 		                     <li>
-		                     
-		                     <!-- <a id="displayname" href="#"></a> -->
-
 						<div class="dropdown">
-							<a id="displayname" data-target="#" data-toggle="dropdown" role="button"
-								aria-haspopup="true" aria-expanded="false"><span class="caret"></span>
+							<a data-target="#" data-toggle="dropdown" role="button">
+							<!-- <button id="displayname" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
+								<span id="displayname"></span><span class="caret"></span>
 							</a>
 							<ul class="profile-dropdown dropdown-menu" aria-labelledby="dLabel">
 							<li><a id="yourProfile" class="trackable" href=#><span class="fa fa-user"></span> Your Profile</a></li>
 							<li><a id="streamManager" class="trackable" href=#><span class="fa fa-calendar"></span> Live Stream Manager</a></li>
 							<li><a id="uploadManager" class="trackable" href=#><span class="fa fa-upload"></span> Upload Manager</a></li>
 							<li><a id="editProfile" class="trackable" href=#><span class="fa fa-edit"></span> Edit Profile</a></li>
+							<li><a id="editProfile" class="trackable" href=#><span class="fa fa-wrench"></span> Account Settings</a></li>
 							<li><a id="logout" class="trackable" href=#> Logout</a></li>
 							
 							</ul>
@@ -255,7 +254,7 @@ Meta tags
                                 
                                 <div class="form-group">
                                     <div class="col-md-offset-3 col-md-9">
-                                       <input id="btn-signup" value="Create account" class="btn btn-info" style="margin-left: 50px; size: 50px;">
+                                       <input type="submit" id="btn-signup" value="Create account" class="btn btn-info" style="margin-left: 50px; size: 50px;">
                                     </div>
                                 </div>
                                 

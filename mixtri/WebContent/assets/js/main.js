@@ -423,7 +423,7 @@ $(document).ready(function(){
 	if( typeof $.cookie('displayName') != 'undefined'){
 		$("#welcomeUser").removeClass('hidden');
 		$('#loginUser').addClass('hidden');
-		$('a#displayname').html($.cookie('displayName'));
+		$('span#displayname').html($.cookie('displayName'));
 
 
 	}
@@ -455,13 +455,13 @@ $(document).ready(function(){
 						var wrongEmailId ='Hey!!! Thats not your correct email id. Please try again'
 
 
-							$('#loginform').show();
+						$('#loginform').show();
 						$('#login-alert').show();
 						$('#login-alert').html(wrongEmailId);
 					}else if(data=='wrong password'){
 						var wrongPassword ='Thats an incorrect password. Please try again'
 
-							$('#loginform').show();
+						$('#loginform').show();
 						$('#login-alert').show();
 						$('#login-alert').html(wrongPassword);
 
@@ -473,6 +473,7 @@ $(document).ready(function(){
 				}else{
 
 					$('#loginbox').hide();
+					$('.modal-backdrop').remove();
 					window.location.href = "error.jsp";
 				}		    	  
 			},
@@ -484,7 +485,9 @@ $(document).ready(function(){
 			},*/
 			error: function (data, textStatus, jqXHR){
 				$('#loginbox').hide();
+				$('.modal-backdrop').remove();
 				window.location.href = "error.jsp";
+				
 			}
 		});
 
@@ -547,6 +550,7 @@ $(document).ready(function(){
 
 			error: function (data, textStatus, jqXHR){
 				$('#signupbox').hide();
+				$('.modal-backdrop').remove();
 				window.location.href = "error.jsp";
 			}
 		});
@@ -602,6 +606,7 @@ $(document).ready(function(){
 		}else{
 
 			$('#signupbox').hide();
+			$('.modal-backdrop').remove();
 			window.location.href = "error.jsp";
 		}
 
@@ -628,7 +633,7 @@ $(document).ready(function(){
 		$('#loginUser').hide();
 		$('.modal-backdrop').remove();
 		$('#welcomeUser').removeClass('hidden');
-		$('a#displayname').html($.cookie('displayName'));
+		$('span#displayname').html($.cookie('displayName'));
 
 	}
 
