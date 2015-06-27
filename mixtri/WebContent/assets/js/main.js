@@ -477,11 +477,11 @@ $(document).ready(function(){
 				}		    	  
 			},
 
-			complete: function(){
-               if(document.URL.indexOf("error.jsp") >= 0 && $.cookie('displayName')!=null){
+			/*complete: function(){
+				if(document.URL.indexOf("error.jsp") >= 0 && $.cookie('displayName')!=null){
 					window.location.href  = "index.jsp";
 				}
-			},
+			},*/
 			error: function (data, textStatus, jqXHR){
 				$('#loginbox').hide();
 				window.location.href = "error.jsp";
@@ -508,23 +508,22 @@ $(document).ready(function(){
 //	Signup Functionality	
 
 	$('#signupform').submit(function(e){
-		$("#signupform").unbind('submit');
-        //return false;
-		/*var emailId = $('#loginform').find('input[id="emailId"]').val();
-		var password = $('#loginform').find('input[id="password"]').val();*/
+		//$("#signupform").unbind('submit');
 
 		var displayName = $("#signupform input[id=displayName]").val();
 		var emailId = $("#signupform input[id=emailId]").val();
 		var contact = $("#signupform input[id=contact]").val();
 		var Signup_password = document.getElementById("Signup_password").value;
 		var confirm_password = document.getElementById("confirm_password").value;
-		
-        validatePassword();
 
-        $.ajax({
+		validatePassword();
+
+		$.ajax({
 			url: '/mixtri/rest/signup',
 			method: 'POST',
-			contentType: "application/x-www-form-urlencoded",
+			//contentType: "application/x-www-form-urlencoded",
+			dataType: "json",
+			//contentType: "application/json; charset=utf-8",
 			data: {
 				displayName: displayName,
 				emailId: emailId,
@@ -539,12 +538,12 @@ $(document).ready(function(){
 				validateSignupResponse(data,textStatus,jqXHR);
 			},
 
-			complete: function(){
+			/*complete: function(){
 
 				if(document.URL.indexOf("error.jsp") >= 0 && $.cookie('displayName')!=null){
 					window.location.href  = "index.jsp";
 				}
-			},
+			},*/
 
 			error: function (data, textStatus, jqXHR){
 				$('#signupbox').hide();
@@ -553,7 +552,7 @@ $(document).ready(function(){
 		});
 
 	});
-	
+
 	document.getElementById("Signup_password").onchange = validatePassword;
 	document.getElementById("confirm_password").onchange = validatePassword;
 
@@ -561,14 +560,14 @@ $(document).ready(function(){
 
 		var Signup_password = document.getElementById("Signup_password").value;
 		var confirm_password = document.getElementById("confirm_password").value;
-		
+
 		if(Signup_password != confirm_password) {
 			document.getElementById("confirm_password").setCustomValidity("Passwords Don't Match");
-		    return false;
-		  } else {
-		       document.getElementById("confirm_password").setCustomValidity('');
+			return false;
+		} else {
+			document.getElementById("confirm_password").setCustomValidity('');
 
-		  }
+		}
 
 	}
 
@@ -578,24 +577,28 @@ $(document).ready(function(){
 
 		if(jqXHR.status=='200'){
 
-			if(data=='Empty Field'){
-				serverResponse +="You cannot have an empty field. Please provide some value";
-			}else if(data == 'wrong contact'){
+			if(data['errors']=='true'){
 
-				serverResponse +='Invalid phone number';
+				for(var key in data) {
 
-			}else if(data == 'password mismatch'){
+					if(key=='errors'){
+						continue;
+					}else{
+						serverResponse += data[key]+", ";
+					}
 
-				serverResponse += "Passwords don't match"; 
 
-			}else if(data == 'wrong emailId'){
+				}
+				//Setting the validation error after collecting them in serverResponse string.
+				//Remove last comma and white space from the string.
+				var validationErrors = serverResponse.replace(/,\s*$/, '');
 
-				serverResponse += 'Please give a valid email id';
+				$('#signupalert').show();
+				$('#signupalert').html(validationErrors);
 			}else{
 
-				setUserSession(data);
+				setUserSession(data['displayName']);
 			}
-
 		}else{
 
 			$('#signupbox').hide();
@@ -616,10 +619,9 @@ $(document).ready(function(){
 		$.cookie("displayName", data,{ path: '/'});
 
 		//If the user has logged in successfully and is on error page then direct him to index.jsp 
-		/*if(document.URL.indexOf("error.jsp") >= 0){
+		if(document.URL.indexOf("error.jsp") >= 0){
 			window.location.href  = "index.jsp";
-			location.reload();
-		}*/
+		}
 
 		$('#loginbox').hide();
 		$('#signupbox').hide();

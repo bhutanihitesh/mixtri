@@ -144,7 +144,7 @@ ul.navbar-nav {
 .navbar-default {
 	margin-bottom: 0;
 	border-radius: 0;
-	z-index: 99999;
+	/* z-index: 99999; */
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
 	color: #fff;
@@ -264,7 +264,7 @@ ul.navbar-nav {
 	position: absolute;
 	right: 0;
 	top: 30px;
-	z-index: 9999;
+	z-index: 100;
 	background: #e62948;
 	overflow: hidden;
 	width: 50px;
@@ -3466,6 +3466,22 @@ color: #e62948;
 }
 
 .genre-dropdown{position: relative; margin-top: 80px; margin-left: 120px;}
+
+.profile-dropdown > li > a:hover{
+
+	/* width: 100%;
+	background-color: #999;	 */
+	background-color: rgba(0,0,0,0.8);
+}
+
+ul.profile-dropdown.dropdown-menu{
+	
+	background-color: rgba(15, 14, 14, 0.8);
+}
+
+.trackable a:hover{
+	color: blue;
+}
 
 /*=====================================
            End Custom CSS
