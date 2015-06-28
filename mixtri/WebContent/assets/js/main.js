@@ -92,6 +92,8 @@
 		$('#audio-player').toggleClass('open');
 		return false;
 	});
+	
+	
 
 	if($('#audio-player').length!=0 && !($('#audio-player').hasClass('jsExecuted'))){	
 		$('#audio-player').addClass('jsExecuted');

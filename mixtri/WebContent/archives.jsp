@@ -270,6 +270,8 @@ Style Sheets
 				}).done(function(data){
 					console.log(data);
 					buildHtmlForTracks(data);
+					//JPlayer Bind function here
+					bindJPlayer(data.length);
 				}).fail(function(error){
 					console.log("Error");
 					console.log(error);
@@ -285,7 +287,7 @@ Style Sheets
 				for(var i=0;i<tracks.length;i++){
 					
 					html+='<section id= audio-player'+tracks[i].trackId+' class="archive-audio-player">';
-					html+='<div id="player-instance" class="jp-jplayer">'+'</div>';
+					html+='<div id=player-instance'+tracks[i].trackId+' class="jp-jplayer">'+'</div>';
 					html+='<div class="container-Dj-tracks">';
 					html+='<div class="row">';
 					html+='<div class="Dj-tracks"> <ul> <li>';
@@ -324,6 +326,54 @@ Style Sheets
 				return html;
 			}
 			
+			var bindJPlayer=function(numOfPlayers){
+			
+			//console.log(numOfPlayers);
+			//console.log($('#audio-player1').length);
+			 for(var i=1;i<=numOfPlayers;i++){
+				 
+// 				 $('.playListTrigger > a').click(function(){
+// 						$('#audio-player1').toggleClass('open');
+// 						return false;
+// 				 });
+					
+				
+				 if($('#audio-player'+i).length!=0 && !($('#audio-player'+i).hasClass('jsExecuted'))){	
+						$('#audio-player'+i).addClass('jsExecuted');
+						$("#player-instance"+i).jPlayer({
+							cssSelectorAncestor: "#audio-player"+i,
+						});
+
+						var archivedMix = [],
+						$playlist_audio=$('#mixes li'),
+						playlist_items_length= $playlist_audio.length;
+
+
+						var  new_playlist_item = {};
+						new_playlist_item['title'] = $playlist_audio.attr('data-title');
+						new_playlist_item['artist'] = $playlist_audio.attr('data-artist');
+						new_playlist_item['mp3'] = $playlist_audio.attr('data-mp3');
+						archivedMix.push(new_playlist_item);
+
+
+						werock = new jPlayerPlaylist({
+							jPlayer: "#player-instance"+i,
+							enableRemoveControls:true,
+							cssSelectorAncestor: "#audio-player"+i
+						},archivedMix , {
+							swfPath: "assets/jPlayer/jquery.jplayer.swf",
+							supplied: "mp3",
+							displayTime: 'fast',
+							addTime: 'fast',
+						});
+
+						$("#player-instance"+i).bind($.jPlayer.event.play, function (event) {});		
+				 }
+			 }
+				
+		 }
+			
+
 		
 	})(jQuery);
 	</script>
