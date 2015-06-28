@@ -3479,8 +3479,48 @@ ul.profile-dropdown.dropdown-menu{
 	background-color: rgba(15, 14, 14, 0.8);
 }
 
-.trackable a:hover{
-	color: blue;
+.divided-section-header{
+	
+	margin-top: 20px;
+}
+
+.event-steps{
+	font-size: x-large;
+}
+
+.step-description{
+  font-size: large;
+  color:graytext;
+}
+
+.inputLiveStreamInfo{
+   width: 305px; 
+   height: 30px;
+}
+
+.dateTimePicker{
+	float: left;
+	padding-right: 20px;
+   
+}
+
+.eventTimePicker{
+	width: auto;
+}
+
+.divided-section-header{
+	
+	padding-bottom: 20px;
+}
+
+.form-section{
+	padding-bottom: 20px;
+}
+
+.event-date-time{
+	
+	width: 140px;
+	height: 30px;
 }
 
 /*=====================================

@@ -46,7 +46,7 @@ Meta tags
 		                     <li>
 						<div class="dropdown">
 							<a data-target="#" data-toggle="dropdown" role="button">
-							<!-- <button id="displayname" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
+							    <span class="fa fa-user"></span>
 								<span id="displayname"></span><span class="caret"></span>
 							</a>
 							<ul class="profile-dropdown dropdown-menu" aria-labelledby="dLabel">
@@ -55,7 +55,7 @@ Meta tags
 							<li><a id="uploadManager" class="trackable" href=#><span class="fa fa-upload"></span> Upload Manager</a></li>
 							<li><a id="editProfile" class="trackable" href=#><span class="fa fa-edit"></span> Edit Profile</a></li>
 							<li><a id="editProfile" class="trackable" href=#><span class="fa fa-wrench"></span> Account Settings</a></li>
-							<li><a id="logout" class="trackable" href=#> Logout</a></li>
+							<li><a id="logout" class="trackable" href=#><span class="fa fa-sign-out"></span> Logout</a></li>
 							
 							</ul>
 						</div>
@@ -289,11 +289,9 @@ Meta tags
 
 
     <script async src="assets/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-    <!-- <script src="assets/js/jquery-1.11.1.min.js"></script> -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <!-- <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js"></script> -->
-    <script defer src="assets/js/jquery.mobile-1.4.5.min.js"></script>
-	<script defer src="assets/js/ajaxify.min.js"></script>
+    <script src="assets/js/jquery-1.11.1.min.js"></script>
+   <!--  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+    <script defer src="assets/js/ajaxify.min.js"></script>
     <script defer src="assets/js/bootstrap.min.js"></script>
 	<script defer src="assets/js/jquery.easing-1.3.pack.js"></script>
 	<script defer src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
@@ -309,8 +307,9 @@ Meta tags
 	<script defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 	<script defer src="assets/js/jquery.calendar-widget.js"></script>
 	<script defer src="assets/js/isotope.js"></script>
-	<script defer src="assets/js/main.js"></script>
-    <script defer src="assets/js/jquery.cookie.js"></script>
+	<script defer src="assets/js/jquery.cookie.js"></script>
+    <script defer src="assets/js/jquery-ui.js"></script>
+   	<script defer src="assets/js/main.js"></script>
     <script>
    			 
     </script>

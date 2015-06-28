@@ -48,7 +48,7 @@ Style Sheets
 	Header
 	=================================-->
 	<header id="header">
-	<%@include file="header.jsp" %>
+		<%@include file="header.jsp"%>
 	</header>
 
 
@@ -60,73 +60,116 @@ Style Sheets
 
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-6 col-md-6 col-sm-6">
+					<div class="col-lg-12 col-md-12 col-sm-12">
 						<h1>Archived Mixes</h1>
 					</div>
 
 				</div>
+				
 				<div class="row">
-					<div class="thumb">
-						<span class="play"> <a href="#"> <img
-								src="assets/img/news/1.jpg">
-						</a>
-						</span>
+				
+				<div class="fluid-grid grid9 margin-t10 clearfix">
+				
+				<div class="grid-block visible-desktop">
+	            	
+	            	<img src="assets/img/news/1.jpg">
+	            	
+	                <!-- <div class="block-overlay-hover overlay-btn-play">
+	                    <div class="overlay-ghost-table ghost-more-info center">
+						<div class="overlay-table-cell">
+							<a class="overlay-more-info" href="/gladiator/mix/gladiator-the-house-party" data-analytics-category="MixBlock" data-analytics-action="MoreInfo" data-analytics-label="explore-mixes"><i class="icon-info-sign"> More</i></a>
+							
+						</div>
 					</div>
-					<div class="thumb">
-						<a href="#"> <img src="assets/img/news/1.jpg">
-
-						</a>
-					</div>
-					<div class="thumb">
-						<span class="play"> <a href="#"> <img
-								src="assets/img/news/1.jpg">
-						</a>
-						</span>
-					</div>
-					<div class="thumb">
-						<span class="play"> <a href="#"> <img
-								src="assets/img/news/1.jpg">
-						</a>
-						</span>
-					</div>
-					<div class="thumb">
-						<span class="play"> <a href="#"> <img
-								src="assets/img/news/1.jpg">
-						</a>
-						</span>
-					</div>
-					<div class="thumb">
-						<span class="play"> <a href="#"> <img
-								src="assets/img/news/1.jpg">
-						</a>
-						</span>
-					</div>
-					<div class="thumb">
-						<span class="play"> <a href="#"> <img
-								src="assets/img/news/1.jpg">
-						</a>
-						</span>
-					</div>
-					<div class="thumb">
-						<span class="play"> <a href="#"> <img
-								src="assets/img/news/1.jpg">
-						</a>
-						</span>
-					</div>
-					<div class="thumb">
-						<span class="play"> <a href="#"> <img
-								src="assets/img/news/1.jpg">
-						</a>
-						</span>
-					</div>
-					<div class="thumb">
-						<span class="play"> <a href="#"> <img
-								src="assets/img/news/1.jpg">
-						</a>
-						</span>
-					</div>
-
+					
+					<button class="btn btn-play-large player-play" onclick="javascript:Player.play(this, '18342', 'http://mx-mixes.s3.amazonaws.com/p17uigi1qft9ohd0r651k5unet9.mp3_51412.mp3', 'Mix', true)"><i class="icon-play"></i></button>
+	                    
+	                </div> -->
+	
+					<!-- <div class="block-info glass">
+	                    <p class="no-margin clearfix ellipses">gLAdiator</p>
+	                    <p class="fine-print ellipses">gLAdiator - The House Party</p>
+	                </div> -->
+	                
+	                <img src="assets/img/news/1.jpg">
+	                <img src="assets/img/news/1.jpg">
+	                <img src="assets/img/news/1.jpg">
+	                <img src="assets/img/news/1.jpg">
+	                <img src="assets/img/news/1.jpg">
+	                <img src="assets/img/news/1.jpg">
+	                <img src="assets/img/news/1.jpg">
+	                <img src="assets/img/news/1.jpg">
+	                <img src="assets/img/news/1.jpg">
+	                
+	            </div>
+				
 				</div>
+				
+				</div>
+				
+				<!-- <div class="row">
+
+					<div class="col-xs-6 col-sm-3 col-md-1">
+						<div class="">
+							<a href="#"> <img class="img-rounded" src="assets/img/news/1.jpg">
+							</a>
+						</div>
+					</div>
+					<div class="col-xs-6 col-sm-3 col-md-1">
+						<div class="">
+							<a href="#"> <img class="img-rounded" src="assets/img/news/1.jpg">
+							</a>
+						</div>
+					</div>
+					<div class="col-xs-6 col-sm-3 col-md-1">
+						<div class="">
+							<a href="#"> <img class="img-rounded" src="assets/img/news/1.jpg">
+							</a>
+						</div>
+					</div>
+					<div class="col-xs-6 col-sm-3 col-md-1">
+						<div class="">
+							<a href="#"> <img src="assets/img/news/1.jpg">
+							</a>
+						</div>
+					</div>
+					<div class="col-xs-6 col-sm-3 col-md-1">
+						<div class="">
+							<a href="#"> <img src="assets/img/news/1.jpg">
+							</a>
+						</div>
+					</div>
+					<div class="col-md-1">
+						<div class="">
+							<a href="#"> <img src="assets/img/news/1.jpg">
+							</a>
+						</div>
+					</div>
+					<div class="col-md-1">
+						<div class="">
+							<a href="#"> <img src="assets/img/news/1.jpg">
+							</a>
+						</div>
+					</div>
+					<div class="col-md-1">
+						<div class="">
+							<a href="#"> <img src="assets/img/news/1.jpg">
+							</a>
+						</div>
+					</div>
+					<div class="col-md-1">
+						<div class="">
+							<a href="#"> <img src="assets/img/news/1.jpg">
+							</a>
+						</div>
+					</div>
+					<div class="col-md-1">
+						<div class="">
+							<a href="#"> <img src="assets/img/news/1.jpg">
+							</a>
+						</div>
+					</div>
+				</div> -->
 
 			</div>
 		</section>
@@ -162,9 +205,9 @@ Style Sheets
 								</ul>
 							</div>
 						</div>
-						
 
-						
+
+
 						<!--artist tracks-->
 
 						<div class="news-feed-btn">
@@ -183,7 +226,7 @@ Style Sheets
 						<!--feed btn-->
 
 					</div>
-					
+
 					<div class="djsignup">
 						<div class="col-lg-3 col-md-3 col-sm-3">
 							<ul class="sitemap">
@@ -197,7 +240,7 @@ Style Sheets
 
 						</div>
 					</div>
-					
+
 
 					<!--\\artist col-->
 				</div>
@@ -212,9 +255,9 @@ Style Sheets
 	Footer
 	=================================-->
 	<footer id="footer">
-<%@include file="footer.jsp" %>
-</footer>
-    <script>
+		<%@include file="footer.jsp"%>
+	</footer>
+	<script>
 	(function($){
 			
 			//alert('ready');
