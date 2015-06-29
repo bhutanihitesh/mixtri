@@ -190,29 +190,13 @@ Style Sheets
 						</div>
 
 						<div class="row theHeaders">
-							<div class="archivedTracks">
-								<ul>
-									<li class="track-head clearfix">
-										<div>Artist</div>
-										<div>Listen</div>
-										<div style="padding-left: 30px">popularity</div>
-										<div></div>
-
-
-
-									</li>
-
-								</ul>
-							</div>
+							
 						</div>
-
-
-
-						<!--artist tracks-->
+<!--artist tracks-->
 
 						<div class="news-feed-btn">
 							<ul>
-								<li><a href="#"><b class="fa fa-angle-left"></b></a></li>
+								<li><a href="#" id='previous'><b class="fa fa-angle-left"></b></a></li>
 								<li><a href="#">1</a></li>
 								<li><a href="#">2</a></li>
 								<li><a href="#">3</a></li>
@@ -220,9 +204,12 @@ Style Sheets
 								<li><a href="#">5</a></li>
 								<li><a href="#">...</a></li>
 								<li><a href="#">15</a></li>
-								<li><a href="#"><b class="fa fa-angle-right"></b></a></li>
+								<li><a href="#" id='next'><b class="fa fa-angle-right"></b></a></li>
 							</ul>
 						</div>
+
+
+						
 						<!--feed btn-->
 
 					</div>
@@ -265,11 +252,13 @@ Style Sheets
 				
 				$.ajax({
 					type:"GET",
-					url:"rest/tracks"
+					url:"rest/tracks",
+					dataType:'json'
 					
 				}).done(function(data){
 					console.log(data);
 					buildHtmlForTracks(data);
+					bindPageClick();
 					//JPlayer Bind function here
 					bindJPlayer(data.length);
 				}).fail(function(error){
@@ -284,10 +273,18 @@ Style Sheets
 				
 				var html='';
 				
+				html+='<div class="archivedTracks">';
+				html+='<ul><li class="track-head clearfix">';
+				html+='<div>Artist</div>';
+				html+='<div>Listen</div>';
+				html+='<div style="padding-left: 30px">popularity</div>';
+				html+='<div></div>';
+				html+='</li></ul></div>';
+				
 				for(var i=0;i<tracks.length;i++){
 					
-					html+='<section id= audio-player'+tracks[i].trackId+' class="archive-audio-player">';
-					html+='<div id=player-instance'+tracks[i].trackId+' class="jp-jplayer">'+'</div>';
+					html+='<section id= audio-player'+(i+1)+' class="archive-audio-player">';
+					html+='<div id=player-instance'+(i+1)+' class="jp-jplayer">'+'</div>';
 					html+='<div class="container-Dj-tracks">';
 					html+='<div class="row">';
 					html+='<div class="Dj-tracks"> <ul> <li>';
@@ -328,15 +325,7 @@ Style Sheets
 			
 			var bindJPlayer=function(numOfPlayers){
 			
-			//console.log(numOfPlayers);
-			//console.log($('#audio-player1').length);
 			 for(var i=1;i<=numOfPlayers;i++){
-				 
-// 				 $('.playListTrigger > a').click(function(){
-// 						$('#audio-player1').toggleClass('open');
-// 						return false;
-// 				 });
-					
 				
 				 if($('#audio-player'+i).length!=0 && !($('#audio-player'+i).hasClass('jsExecuted'))){	
 						$('#audio-player'+i).addClass('jsExecuted');
@@ -371,6 +360,41 @@ Style Sheets
 				 }
 			 }
 				
+		 }
+			
+		 var buildHtmlForPages=function(){
+				
+			
+	     }
+		 
+		 var bindPageClick=function(){
+			 
+			 $('.news-feed-btn ul li a').on('click',function(e){
+				 
+				 e.preventDefault();
+				 
+				 $('.theHeaders').empty();
+				 var page=$(this).text();
+				
+				 $.ajax({
+						type:"GET",
+						url:"rest/tracks",
+						dataType:'json',
+						data:{"page":page}
+						
+					}).done(function(data){
+						console.log(data);
+						buildHtmlForTracks(data);
+						//JPlayer Bind function here
+						bindJPlayer(data.length);
+					}).fail(function(error){
+						console.log("Error");
+						console.log(error);
+					});
+				 
+				 //console.log($(this).text());
+				 
+			 });
 		 }
 			
 
