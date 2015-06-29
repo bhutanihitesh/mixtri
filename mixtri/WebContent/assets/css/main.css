@@ -3523,6 +3523,77 @@ ul.profile-dropdown.dropdown-menu{
 	height: 30px;
 }
 
+.eventDropdown{
+	max-width: auto;
+	height: auto;
+	padding-top: 40px;
+	
+}
+
+.divided-section-header{
+	width: 100%;
+}
+
+.uploadImage{
+	
+	/* margin-top: 20px; */
+	width: 194px; 
+	height: 104px;
+	background-color: #333333;
+	margin-right: 10px;
+	float: left;
+}
+
+.btn-default{
+	margin-top: 20px;
+	background: transparent;
+	border-color: #333333;
+	color: white;
+	/* border: #e62948; */
+}
+
+.btn-default:hover{
+	background-color: #333333;
+}
+
+
+/* .left {
+    max-width: 100%;
+    background:red;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    -ms-text-overflow:ellipsis;
+    float: left;
+} */
+.right {
+    
+    float: left;
+}
+
+.streamActive{
+	margin-top: 20px;
+	background-color: #e62948;
+}
+
+.hashTags{
+	
+	width: 95%;
+	height: auto;
+	margin-top: 120px;
+}
+
+.commonButton:hover{
+	background-color: #e62948;
+}
+
+#file-upload{
+    display: none;
+}
+
+
+
+
 /*=====================================
            End Custom CSS
 =======================================*/

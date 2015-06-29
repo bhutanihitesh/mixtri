@@ -191,12 +191,9 @@ Vegas Slider Images
 							</ul>
 						</div>
 						<div class=row>
-							<div class="btnSignUp" id="idBtnSignUp">
-								<p>
-									<a href="#signupbox" data-toggle="modal"><h3 align="center">
-											Sign Up</h3></a>
-								</p>
-							</div>
+							<div class="text-center">
+				        		<button id="btnSignup1" class="btn btn-default commonButton" data-toggle="modal" style="width: 300px;">Sign Up</button>
+				        </div>
 						</div>
 
 					</div>
@@ -284,7 +281,7 @@ Vegas Slider Images
 
 	<section id="whyMitri">
 		<div class="container">
-			<div class="whyMixtri">
+			<div class="whyMixtri" style="margin-bottom: 30px;">
 
 				<div>
 					<h1>Why Mixtri?</h1>
@@ -347,18 +344,12 @@ Vegas Slider Images
 						</div>
 					</div>
 
-					<div class="row">
-						<div class="btnSignUp" id="idBtnSignUp"
-							style="margin-left: 400px;">
-							<p>
-								<a href="#signupbox" data-toggle="modal"><h3 align="center">
-										Sign Up</h3></a>
-							</p>
-						</div>
-					</div>
-
 				</div>
 
+			</div>
+
+			<div class="text-center">
+				<button id="btnSignup2" class="btn btn-default commonButton" data-toggle="modal" style="width: 300px;">Sign Up</button>
 			</div>
 		</div>
 
@@ -370,6 +361,23 @@ Vegas Slider Images
 		<%@include file="footer.jsp"%>
 	</footer>
 	<script>/*Place Your Google Analytics code here*/</script>
+	
+	<script>
+	$(document).ready(function(){
+		
+		if(typeof $.cookie('displayName') != 'undefined'){
+			//$('#btnSignup1').prop('disabled', true);
+			$('#btnSignup1').remove();
+			$('#btnSignup2').remove();
+		
+		}else{
+			
+			$('#btnSignup1').attr('data-target','#signupbox');
+			$('#btnSignup2').attr('data-target','#signupbox');
+		}
+	});
+	
+	</script>
 
 </body>
 </html>

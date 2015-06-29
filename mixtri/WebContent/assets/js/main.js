@@ -431,10 +431,10 @@ $(document).ready(function(){
 	}
 
 	//end Session Cookie Maintainence
-
-	//Login Functionality
+	
+    //Login Functionality
 	$('#loginform').submit(function(e){
-
+        e.preventDefault();
 		var emailId = $('#loginform').find('input[id="emailId"]').val();
 		var password = $('#loginform').find('input[id="password"]').val();
 
@@ -514,7 +514,7 @@ $(document).ready(function(){
 //	Signup Functionality	
 
 	$('#signupform').submit(function(e){
-		//$("#signupform").unbind('submit');
+		e.preventDefault();
 
 		var displayName = $("#signupform input[id=displayName]").val();
 		var emailId = $("#signupform input[id=emailId]").val();
@@ -527,9 +527,7 @@ $(document).ready(function(){
 		$.ajax({
 			url: '/mixtri/rest/signup',
 			method: 'POST',
-			//contentType: "application/x-www-form-urlencoded",
 			dataType: "json",
-			//contentType: "application/json; charset=utf-8",
 			data: {
 				displayName: displayName,
 				emailId: emailId,
@@ -618,7 +616,6 @@ $(document).ready(function(){
 	}
 
 
-
 	//Helper method which sets users session
 
 	function setUserSession(data){
@@ -630,18 +627,19 @@ $(document).ready(function(){
 		if(document.URL.indexOf("error.jsp") >= 0){
 			window.location.href  = "index.jsp";
 		}
-
+		
 		$('#loginbox').hide();
 		$('#signupbox').hide();
 		$('#loginUser').hide();
 		$('.modal-backdrop').remove();
 		$('#welcomeUser').removeClass('hidden');
 		$('span#displayname').html($.cookie('displayName'));
+		location.reload();
+		
 
 	}
 
 	//end
-
 });
 
 

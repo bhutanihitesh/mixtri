@@ -61,10 +61,12 @@ public String authenticate(@FormParam("emailId") String emailId, @FormParam("pas
 			   
 			  
 			  serverResponse = "wrong password";
+			  log.debug("Invalid password");
 			  
 			}  
 	  }else{
 		    serverResponse = "wrong emailId";
+		    log.debug("Invalid emailId:");
 		  	  		  
 	  }
 	}catch(SQLException sqlExp){
@@ -81,23 +83,5 @@ public String authenticate(@FormParam("emailId") String emailId, @FormParam("pas
 	 
 	 return serverResponse;
  }
-	 
-  
-  // This method is called if XML is request
-  /*@POST
-  @Produces(MediaType.TEXT_XML)
-  public String sayXMLHello() {
-	System.out.println("in sayXMLHello");
-    return "true";
-  }
-
-  // This method is called if HTML is request
-  @GET
-  @Produces(MediaType.TEXT_HTML)
-  public String sayHtmlHello() {
-	  System.out.println("In success");
-    return "<html> " + "<title>" + "Hello Jersey" + "</title>"
-        + "<body><h1>" + "Hello World...." + "</body></h1>" + "</html> ";
-  }*/
 
 } 
