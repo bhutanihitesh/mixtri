@@ -256,12 +256,12 @@
 				default:
 					map_theme = [];
 				}
-				contactemaps(selector_map, mapAddress, mapType, zoomLvl, map_theme);
+				//contactemaps(selector_map, mapAddress, mapType, zoomLvl, map_theme);
 
 			});
 		}
 
-		function contactemaps(selector_map, address, type, zoom_lvl, map_theme) {
+		/*function contactemaps(selector_map, address, type, zoom_lvl, map_theme) {
 			var map = new google.maps.Map(document.getElementById(selector_map), {
 				mapTypeId: google.maps.MapTypeId.type,
 				scrollwheel: false,
@@ -278,12 +278,12 @@
 					new google.maps.Marker({
 						position: results[0].geometry.location,
 						map: map,
-						/* icon: map_pin*/
+						 icon: map_pin
 					});
 					map.setCenter(results[0].geometry.location);
 				}
 			});
-		}
+		}*/
 
 
 		/*===========================
@@ -475,7 +475,7 @@ $(document).ready(function(){
 
 				}else{
 
-					$('#loginbox').hide();
+					$('#loginbox').modal('hide');
 					$('.modal-backdrop').remove();
 					window.location.href = "error.jsp";
 				}		    	  
@@ -487,7 +487,7 @@ $(document).ready(function(){
 				}
 			},*/
 			error: function (data, textStatus, jqXHR){
-				$('#loginbox').hide();
+				$('#loginbox').modal('hide');
 				$('.modal-backdrop').remove();
 				window.location.href = "error.jsp";
 				
@@ -541,16 +541,9 @@ $(document).ready(function(){
 
 				validateSignupResponse(data,textStatus,jqXHR);
 			},
-
-			/*complete: function(){
-
-				if(document.URL.indexOf("error.jsp") >= 0 && $.cookie('displayName')!=null){
-					window.location.href  = "index.jsp";
-				}
-			},*/
-
+			
 			error: function (data, textStatus, jqXHR){
-				$('#signupbox').hide();
+				$('#signupbox').modal('hide');
 				$('.modal-backdrop').remove();
 				window.location.href = "error.jsp";
 			}
@@ -606,7 +599,7 @@ $(document).ready(function(){
 			}
 		}else{
 
-			$('#signupbox').hide();
+			$('#signupbox').modal('hide');
 			$('.modal-backdrop').remove();
 			window.location.href = "error.jsp";
 		}
@@ -628,13 +621,13 @@ $(document).ready(function(){
 			window.location.href  = "index.jsp";
 		}
 		
-		$('#loginbox').hide();
-		$('#signupbox').hide();
+		$('#loginbox').modal('hide');
+		$('#signupbox').modal('hide');
 		$('#loginUser').hide();
 		$('.modal-backdrop').remove();
 		$('#welcomeUser').removeClass('hidden');
 		$('span#displayname').html($.cookie('displayName'));
-		location.reload();
+		//location.reload();
 		
 
 	}

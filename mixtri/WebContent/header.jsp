@@ -128,8 +128,9 @@ Meta tags
 		    
 		=================================================== -->
 		
-<div class="modal fade" id="loginbox" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div id="logintab" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+
+<div class="modal fade" id="loginbox" style="position: fixed; align: center;" tabindex="-1" role="dialog" aria-labelledby="loginboxLabel">
+  <div id="logintab" class="mainbox modal-dialog col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
 				<div class="panel panel-info">
 					<div class="panel-heading">
 
@@ -141,11 +142,11 @@ Meta tags
 						<div class="panel-title">Log in</div>
 						<div
 							style="float: right; font-size: 80%; position: relative; top: -10px">
-							<button type="button" id="" onclick="$('#logintab').hide(); $('#signuptab').show();" style="color: greenyellow; font-size: medium; border: none; background: none;">
+							<button type="button" id="" onclick="$('#loginbox').modal('hide'); $('#signupbox').modal('show');" style="color: greenyellow; font-size: medium; border: none; background: none;">
 								Sign Up
 							</button>
 							
-							<!-- <a href="javascript:void(0)" id="btnSignupBoxtab" data-href="#signuptab" data-toggle="tab" style="color: greenyellow; text-decoration: none; font-size: medium; border: none; background: none;">
+							 <!-- <a href="#signuptab" data-toggle="tab" style="color: greenyellow; text-decoration: none; font-size: medium; border: none; background: none;">
 								Sign Up
 							</a> -->
 							
@@ -165,19 +166,20 @@ Meta tags
 										class="fa fa-envelope"></i></span>
 									<div class="col-md-9" style="padding-left: 0px;">
 										<input id="emailId" type="email" class="form-control"
-											name="emailId" placeholder="Email" required
-											style="width: 403px;" required />
+											name="emailId" placeholder="Email" autocomplete="email"
+											required />
 									</div>
 								</div>
 							</div>
 
-							<div style="margin-bottom: 25px" class="input-group">
-
-								<span class="input-group-addon"><i class="fa fa-lock"></i></span>
-								<div class="col-md-9" style="padding-left: 0px;">
-									<input id="password" type="password" class="form-control"
-										name="password" placeholder="password" required minlength=3
-										maxlength=15 />
+							<div class="form-group" style="margin-left: 2px;">
+								<div style="margin-bottom: 25px" class="input-group">
+									<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+									<div class="col-md-9" style="padding-left: 0px;">
+										<input id="password" type="password" class="form-control"
+											name="password" placeholder="password" required minlength=3
+											maxlength=15 />
+									</div>
 								</div>
 							</div>
 
@@ -191,7 +193,7 @@ Meta tags
 							</div>
 
 							<div>
-								<a href="#" style="color: #2a6496;">Forgot password?</a>
+								<a href="#" style="color: #2a6496; margin-left: 150px;">Forgot password?</a>
 							</div>
 
 
@@ -234,29 +236,29 @@ Meta tags
 		
 		<!-- Start Signup Modal -->
 		
-		<div class="modal fade" id="signupbox" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal fade"  style="position: fixed;" id="signupbox" tabindex="-1" role="dialog" aria-labelledby="signupboxLabel">
 		
-		<div id="signuptab" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+		<div id="signuptab" class="mainbox modal-dialog col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
 			<div class="panel panel-info">
 				<div class="panel-heading">
 					<button type="button" class="close" data-dismiss="modal"
 						aria-label="Close" onclick="$('#signupbox').hide();">
 						<span style="size: 10px;">x</span>
 					</button>
-					<div class="panel-title">Time for a party!!!</div>
+					<div class="panel-title">Time to rock your fans!</div>
 					<div
 						style="float: right; font-size: 85%; position: relative; top: -10px;">
-						<button id="signinlink"
-							onclick="$('#signuptab').hide(); $('#logintab').show();"
+						 <button id="signinlink"
+							onclick="$('#signupbox').modal('hide'); $('#loginbox').modal('show');"
 							style="color: greenyellow; font-size: medium; border: none; background: none;">Log in</button>
 							
-							<!-- <a href="javascript:void(0)" id="btnLoginBoxtab" data-href="#logintab" data-toggle="tab" 
+							 <!-- <a href="#logintab" data-toggle="tab" 
 							 style="color: greenyellow; text-decoration: none; font-size: medium; border: none; background: none;">
 								Log in
 							</a> -->
 					</div>
 				</div>
-				<div class="panel-body">
+				<div class="modal-body">
 					<form id="signupform" class="form-horizontal" role="form">
 
 						<div id="signupalert" style="display: none"
@@ -265,34 +267,31 @@ Meta tags
 							<span></span>
 						</div>
 
-						<div class="form-group" style="margin-left: 20px;">
-
-							<div style="margin-bottom: 5px" class="input-group">
+						<div class="form-group" style="margin-left: 20px; padding-top: 0px;">
+							<div style="margin-bottom: 10px" class="input-group">
 								<span class="input-group-addon"><i class="fa fa-user"></i></span>
-								<div class="col-md-6" style="padding-left: 0px;">
+								<div class="col-md-9" style="padding-left: 0px;">
 									<input type="text" id="displayName" class="form-control"
 										name="name" placeholder="Dj's Display Name..." required />
 								</div>
 							</div>
 						</div>
 
-						<div class="form-group" style="margin-left: 20px;">
-
-							<div style="margin-bottom: 5px" class="input-group">
+						<div class="form-group" style="margin-left: 20px; padding-top: 0px;">
+							<div style="margin-bottom: 10px" class="input-group">
 								<span class="input-group-addon"><i class="fa fa-user"></i></span>
-								<div class="col-md-6" style="padding-left: 0px;">
+								<div class="col-md-9" style="padding-left: 0px;">
 									<input id="emailId" class="form-control" name="email"
 										placeholder="Email Address" type="email" required />
 								</div>
 							</div>
 						</div>
 
-						<div class="form-group" style="margin-left: 20px;">
-
-							<div style="margin-bottom: 5px" class="input-group">
+						<div class="form-group" style="margin-left: 20px; padding-top: 0px;">
+							<div style="margin-bottom: 10px" class="input-group">
 								<span class="input-group-addon"><i
 									class="fa fa-mobile-phone"></i></span>
-								<div class="col-md-6" style="padding-left: 0px;">
+								<div class="col-md-9" style="padding-left: 0px;">
 									<input id="contact" type="tel" pattern='[\+]\d{2}[\-]\d{10}'
 										class="form-control" name="contact"
 										placeholder="Fans can contact you for bookings"
@@ -307,10 +306,8 @@ Meta tags
 
 
 
-						<div class="form-group"
-							style="padding-top: 20px; padding-left: 35px;">
-
-							<div style="margin-bottom: 5px" class="input-group">
+						<div class="form-group" style="margin-left: 20px; padding-top: 0px;">
+							<div style="margin-bottom: 10px;" class="input-group">
 								<span class="input-group-addon"><i class="fa fa-lock"></i></span>
 								<div class="col-md-11" style="padding-left: 0px;">
 									<input id="Signup_password" type="password"
@@ -328,17 +325,17 @@ Meta tags
 							</div>
 						</div>
 
-						<div class="form-group">
+						<div class="form-group" style="padding-top: 0px;">
 							<div class="col-md-offset-3 col-md-9">
 								<input type="submit" id="btn-signup" value="Create account"
 									class="btn btn-info" style="margin-left: 50px; size: 50px;">
 							</div>
 						</div>
 
-						<div style="border-top: 1px solid #999; padding-top: 20px"
+						<div style="border-top: 1px solid #999; padding-top: 10px"
 							class="form-group">
 
-							<div class="col-md-offset-3 col-md-9"
+							<div class="col-md-offset-2 col-md-9"
 								style="padding-left: 0px; padding-right: 0px;">
 								<button id="btn-fbsignup" style="margin-bottom: 10px;"
 									type="button" class="btn btn-primary">
@@ -349,14 +346,13 @@ Meta tags
 									<i class="icon-facebook"></i>Sign Up with Google
 								</button>
 							</div>
-
-							<div style="padding-left: 150px;">
+						</div>
+						
+						<div class="text-center" style="padding-top: 0px;">
 								By signing in, you accept our <a href="#"
 									style="color: #2a6496;">Terms of Use</a> and <a
 									href="aboutus.jsp" style="color: #2a6496;">Privacy Policy</a>
 							</div>
-
-						</div>
 
 
 
