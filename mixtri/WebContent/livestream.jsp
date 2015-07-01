@@ -67,181 +67,329 @@ Style Sheets
 			<!-- Start Step 1 -->
 			<form id="event-form" role="form">
 
- 				<div class="divided-section-header">
-								<span class="event-steps">Step 1:</span>&nbsp;<span
-									class="step-description">Enter Live Stream Info:</span>
-			   </div>
- 				
+				<div class="divided-section-header">
+					<span class="event-steps">Step 1:</span>&nbsp;<span
+						class="step-description">Enter Live Stream Info:</span>
+				</div>
+
 				<div class="row">
-				  <div class="col-xs-12 col-sm-12 col-md-4">
-						<div class="divided-section">
-							<div class="form-components">
-
-								<div class="form-group">
-									<label>Live Stream Info<span style="color: #e62948">*</span></label>
-									<input type="text" class="form-control inputLiveStreamInfo"
-										id="streamInfo" required />
+					<div class="form-components">
+						<div class="col-xs-12 col-sm-12 col-md-4">
+							<!-- <div class="divided-section"> -->
+							<div class="form-group">
+								<label>Live Stream Info<span style="color: #e62948">*</span></label>
+								<input type="text" class="form-control inputLiveStreamInfo"
+									id="streamInfo" required />
+							</div>
+							<div class="form-group">
+								<div class="dateTimePicker">
+									<label>Date:<span style="color: #e62948">*</span></label> <input
+										id="eventDatePicker" type="text"
+										class="form-control event-date-time" name="eventDate" value=""
+										required />
 								</div>
-								<div class="form-group">
-									<div class="dateTimePicker">
-										<label>Date:<span style="color: #e62948">*</span></label> <input
-											id="eventDatePicker" type="text"
-											class="form-control event-date-time" name="eventDate"
-											value="" required />
-									</div>
-									<div class="dateTimePicker">
-										<label>Event Start Time:<span style="color: #e62948">*</span></label>
-										<input id="eventTimePicker" type="time"
-											class="form-control event-date-time" name="eventTime"
-											required />
-
-									</div>
-
+								<div class="dateTimePicker">
+									<label>Event Start Time:<span style="color: #e62948">*</span></label>
+									<input id="eventTimePicker" type="time"
+										class="form-control event-date-time" name="eventTime" required />
 
 								</div>
+
+
+							</div>
+							<div class="form-group">
+								<div class="eventDropdown">
+									<br> <label>Time Zone:<span style="color: #e62948">*</span></label>
+									<select class="form-control">
+										<option value="-12">(GMT -12:00) Eniwetok, Kwajalein</option>
+										<option value="-11">(GMT -11:00) Midway Island, Samoa</option>
+										<option value="-10">(GMT -10:00) Hawaii</option>
+										<option value="-9">(GMT -9:00) Alaska</option>
+										<option value="-8">(GMT -8:00) Pacific Time (US &amp;
+											Canada)</option>
+										<option value="-7">(GMT -7:00) Mountain Time (US
+											&amp; Canada)</option>
+										<option value="-6">(GMT -6:00) Central Time (US &amp;
+											Canada), Mexico City</option>
+										<option value="-5">(GMT -5:00) Eastern Time (US &amp;
+											Canada), Bogota, Lima</option>
+										<option value="-4.5">(GMT -4:30) Caracas</option>
+										<option value="-4">(GMT -4:00) Atlantic Time
+											(Canada), La Paz, Santiago</option>
+										<option value="-3.5">(GMT -3:30) Newfoundland</option>
+										<option value="-3">(GMT -3:00) Brazil, Buenos Aires,
+											Georgetown</option>
+										<option value="-2">(GMT -2:00) Mid-Atlantic</option>
+										<option value="-1">(GMT -1:00 hour) Azores, Cape
+											Verde Islands</option>
+										<option value="0">(GMT) Western Europe Time, London,
+											Lisbon, Casablanca, Greenwich</option>
+										<option value="1">(GMT +1:00 hour) Brussels,
+											Copenhagen, Madrid, Paris</option>
+										<option value="2">(GMT +2:00) Kaliningrad, South
+											Africa, Cairo</option>
+										<option value="3">(GMT +3:00) Baghdad, Riyadh,
+											Moscow, St. Petersburg</option>
+										<option value="3.5">(GMT +3:30) Tehran</option>
+										<option value="4">(GMT +4:00) Abu Dhabi, Muscat,
+											Yerevan, Baku, Tbilisi</option>
+										<option value="4.5">(GMT +4:30) Kabul</option>
+										<option value="5">(GMT +5:00) Ekaterinburg,
+											Islamabad, Karachi, Tashkent</option>
+										<option value="5.5" selected="selected">(GMT +5:30)
+											Mumbai, Kolkata, Chennai, New Delhi</option>
+										<option value="5.75">(GMT +5:45) Kathmandu</option>
+										<option value="6">(GMT +6:00) Almaty, Dhaka, Colombo</option>
+										<option value="6.5">(GMT +6:30) Yangon, Cocos Islands</option>
+										<option value="7">(GMT +7:00) Bangkok, Hanoi, Jakarta</option>
+										<option value="8">(GMT +8:00) Beijing, Perth,
+											Singapore, Hong Kong</option>
+										<option value="9">(GMT +9:00) Tokyo, Seoul, Osaka,
+											Sapporo, Yakutsk</option>
+										<option value="9.5">(GMT +9:30) Adelaide, Darwin</option>
+										<option value="10">(GMT +10:00) Eastern Australia,
+											Guam, Vladivostok</option>
+										<option value="11">(GMT +11:00) Magadan, Solomon
+											Islands, New Caledonia</option>
+										<option value="12">(GMT +12:00) Auckland, Wellington,
+											Fiji, Kamchatka</option>
+									</select>
+
+								</div>
+							</div>
+
+							<!-- End Dropdown -->
+
+							<div id="streamButton">
+								<button id="goLive" type="button" class="btn streamActive"
+									onClick="publicRoom()">Go Live!</button>
+								<button id="testStream" type="button" class="btn btn-default"
+									onClick="privateRoom()">Test Stream</button>
+								<label
+									style="font-size: small; color: graytext; margin-top: 10px;">*
+									Select Test Stream to test your connection before live</label>
+							</div>
+
+							<!-- </div> -->
+							<!-- </div> -->
+						</div>
+						<!-- First Column Finished -->
+
+						<div class="col-xs-12 col-sm-12 col-md-4">
+							<div class="form-group">
+								<label for="comment">Event Description:</label>
+								<textarea class="form-control" rows="5" id="eventDescription"
+									placeholder="Something catchy to attract fans for your event!!!"></textarea>
+							</div>
+
+							<div>
+								<div>
+									<br> <label>Genre:</label> <select class="form-control">
+										<option>Select Something...</option>
+									</select>
+								</div>
+							</div>
+
+
+						</div>
+
+						<!-- Second Column Finished -->
+
+						<div class="col-xs-12 col-sm-12 col-md-4">
+							<div class="form-group">
+								<div>
+									<label>Image<span style="color: #e62948">*</span></label>
+								</div>
+								<div class="uploadImage">
+									<img id="profile-pic" style="width: 194px; height: 104px;" />
+								</div>
+								<div class="right">
+									<button id="btnUploadImage"
+										class="btn btn-default commonButton">Upload Image</button>
+									<input id="image-upload" type="file" accept="image/*" />
+								</div>
+							</div>
+
+							<div class="hashTags">
 								<div class="form-group">
-									<div class="eventDropdown">
-										<br> <label>Time Zone:<span style="color: #e62948">*</span></label> <select class="form-control">
-											<option value="-12">(GMT -12:00) Eniwetok, Kwajalein</option>
-											<option value="-11">(GMT -11:00) Midway Island,
-												Samoa</option>
-											<option value="-10">(GMT -10:00) Hawaii</option>
-											<option value="-9">(GMT -9:00) Alaska</option>
-											<option value="-8">(GMT -8:00) Pacific Time (US
-												&amp; Canada)</option>
-											<option value="-7">(GMT -7:00) Mountain Time (US
-												&amp; Canada)</option>
-											<option value="-6">(GMT -6:00) Central Time (US
-												&amp; Canada), Mexico City</option>
-											<option value="-5">(GMT -5:00) Eastern Time (US
-												&amp; Canada), Bogota, Lima</option>
-											<option value="-4.5">(GMT -4:30) Caracas</option>
-											<option value="-4">(GMT -4:00) Atlantic Time
-												(Canada), La Paz, Santiago</option>
-											<option value="-3.5">(GMT -3:30) Newfoundland</option>
-											<option value="-3">(GMT -3:00) Brazil, Buenos Aires,
-												Georgetown</option>
-											<option value="-2">(GMT -2:00) Mid-Atlantic</option>
-											<option value="-1">(GMT -1:00 hour) Azores, Cape
-												Verde Islands</option>
-											<option value="0">(GMT) Western Europe Time, London,
-												Lisbon, Casablanca, Greenwich</option>
-											<option value="1">(GMT +1:00 hour) Brussels,
-												Copenhagen, Madrid, Paris</option>
-											<option value="2">(GMT +2:00) Kaliningrad, South
-												Africa, Cairo</option>
-											<option value="3">(GMT +3:00) Baghdad, Riyadh,
-												Moscow, St. Petersburg</option>
-											<option value="3.5">(GMT +3:30) Tehran</option>
-											<option value="4">(GMT +4:00) Abu Dhabi, Muscat,
-												Yerevan, Baku, Tbilisi</option>
-											<option value="4.5">(GMT +4:30) Kabul</option>
-											<option value="5">(GMT +5:00) Ekaterinburg,
-												Islamabad, Karachi, Tashkent</option>
-											<option value="5.5" selected="selected">(GMT +5:30)
-												Mumbai, Kolkata, Chennai, New Delhi</option>
-											<option value="5.75">(GMT +5:45) Kathmandu</option>
-											<option value="6">(GMT +6:00) Almaty, Dhaka, Colombo</option>
-											<option value="6.5">(GMT +6:30) Yangon, Cocos
-												Islands</option>
-											<option value="7">(GMT +7:00) Bangkok, Hanoi,
-												Jakarta</option>
-											<option value="8">(GMT +8:00) Beijing, Perth,
-												Singapore, Hong Kong</option>
-											<option value="9">(GMT +9:00) Tokyo, Seoul, Osaka,
-												Sapporo, Yakutsk</option>
-											<option value="9.5">(GMT +9:30) Adelaide, Darwin</option>
-											<option value="10">(GMT +10:00) Eastern Australia,
-												Guam, Vladivostok</option>
-											<option value="11">(GMT +11:00) Magadan, Solomon
-												Islands, New Caledonia</option>
-											<option value="12">(GMT +12:00) Auckland,
-												Wellington, Fiji, Kamchatka</option>
+									<label style="padding-top: 20px;">#HashTags/Keywords</label> <input
+										type="text" class="form-control"
+										placeholder="#Bollywood Electronic, #English, #Trance etc...">
+								</div>
+							</div>
+
+						</div>
+
+						<!-- Third Coloumn finished -->
+					</div>
+				</div>
+				<!-- row finished -->
+			</form>
+
+			<!-- This puts a border and divides a page -->
+			<div class="djSignUpMsg"></div>
+			<!-- Step 2 starts -->
+			<div class="divided-section-header">
+				<span class="event-steps">Step 2:</span>&nbsp;<span
+					class="step-description">Pick a streaming option:</span>
+			</div>
+			<!-- Streaming Option Col-1 -->
+			<div id="panelrow" class="row">
+				<!-- Streaming options column1 -->
+				<div class="col-xs-12 col-sm-12 col-md-5">
+					<div class="panel-group">
+						<div id="panel-icecast"
+							class="panel panel-primary pointer-cursor selected">
+							<div class="panel-heading">
+								<strong>ICECAST: </strong>Best streaming option for live audio
+							</div>
+							<div class="panel-body">
+								<img class="panel-logo"
+									src="assets/img/djsignup/icecast_logo.png">
+								<p>
+									Easiest of all; Icecast lets you stream live audio in minutes &
+									can be used directly with <span class="wordMixtri">Traktor</span>
+									and <span class="wordMixtri">VirtualDJ</span> or any other
+									Icecast compatible DJ software. <a href="#">Learn how ></a>
+								<p>
+							</div>
+
+						</div>
+
+						<label></label>
+
+						<div id="panel-recorded-mixes"
+							class="panel panel-info pointer-cursor">
+							<div class="panel-heading">
+								<strong>RECORDED MIXES</strong>
+							</div>
+							<div class="panel-body">
+								<img class="panel-logo" src="assets/img/djsignup/Music_logo.png">
+								Wanna sit back and relax and yet want your fans to listen to
+								your mixes? Just upload a recorded set and stream it live.
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<!-- Streaming options column 1 Ends -->
+
+				<!-- Streaming options Column 2 Starts-->
+
+				<div class="col-xs-12 col-sm-12 col-md-5" style="left: 100px">
+					<div class="panel-group">
+
+						<div id="panel-directinput"
+							class="panel panel-info pointer-cursor">
+							<div class="panel-heading">
+								<strong>DIRECT INPUT</strong>
+							</div>
+							<div class="panel-body">
+								<img src="assets/img/djsignup/DirectInput_logo.png"
+									style="height: 100px; width: 70px; float: left;">
+								Directly plugin your mixer's/hardware sound output to your
+								computer's microphone input and you are done. <a href="#">Learn
+									how ></a>
+							</div>
+
+						</div>
+						<label></label>
+						<div id="panel-flash-media"
+							class="panel panel-info pointer-cursor">
+							<div class="panel-heading">
+								<strong>FLASH MEDIA LIVE ENCODER</strong>
+							</div>
+							<div class="panel-body">
+								<img class="panel-logo"
+									src="assets/img/djsignup/flash_Media_logo.png"> Wanna get
+								more close to your fans? Now you can stream your live video at
+								multiple angles synced up with your audio using flash media
+								encoder. <br>
+								<a href="#">Learn how ></a>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<!-- Streaming options Col 2 ends -->
+			</div>
+			<!--  Streaming Option row Ends -->
+			<div id="uploadedMixes">
+				<div class="djSignUpMsg"></div>
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-5">
+
+						<div id="panel-past-mixes" class="panel panel-default">
+							<div class="panel-heading">
+								<strong>CHOOSE FROM PAST RECORDED MIXES</strong>
+							</div>
+							<div class="panel-body"
+								style="max-height: 10%; overflow-y: scroll;">
+
+								<div class="panel-body-content">Dj NYK - Podcast 10</div>
+								<div class="panel-body-content">Dj NYK - Podcast 10</div>
+								<div class="panel-body-content">Dj NYK - Podcast 10</div>
+								<div class="panel-body-content">Dj NYK - Podcast 10</div>
+								<div class="panel-body-content">Dj NYK - Podcast 10</div>
+								<div class="panel-body-content">Dj NYK - Podcast 10</div>
+								<div class="panel-body-content">Dj NYK - Podcast 10</div>
+								<div class="panel-body-content">Dj NYK - Podcast 10</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-5">
+
+						<h4 class="text-center">Upload A Recorded Mix!</h4>
+						<div class="section-recorded-mixes" style="float: right;">
+							<form id="recorded-mixes-form" role="form">
+								<div class="form-component">
+									<div class="form-group">
+
+										<label>Mix Title<span style="color: #e62948">*</span></label>
+										<input type="text" class="form-control inputLiveStreamInfo"
+											id="mix-title" required />
+									</div>
+
+									<div>
+										<label>Genre:</label> <select class="form-control">
+											<option>Select Something...</option>
 										</select>
 
 									</div>
+
+									<div>
+									
+										<button id="btnUploadMix"
+											class="btn btn-default commonButton">Choose Mix</button>
+										<input id="file-upload" type="file" accept="audio/*" required/>
+										<label>&nbsp;Upload Mix<span style="color: #e62948">*</span></label>
+										<label style="color: graytext;">Max size 140 MB, only .mp3</label>
+
+									</div>
+
 								</div>
+							</form>
 
-								<!-- End Dropdown -->
-
-							 <div id="streamButton">
-						        <button id="goLive" type="button" class="btn streamActive" onClick="publicRoom()">Go Live!</button>
-								<button id="testStream" type="button" class="btn btn-default" onClick="privateRoom()">Test Stream</button>
-								<label style="font-size: small; color: graytext; margin-top: 10px;">* Select Test Stream to test your connection before live</label>
-							</div>
-
-							</div>
 						</div>
-					</div>
-					<!-- First Column Finished -->
-
-					<div class="col-xs-12 col-sm-12 col-md-4">
-						<div class="form-group">
-							<label for="comment">Event Description:</label>
-							<textarea class="form-control" rows="5" id="eventDescription" placeholder="Something catchy to attract fans for your event!!!"></textarea>
-						</div>
-
-						<div>
-							<div>
-								<br> <label>Genre:</label>
-								<select class="form-control">
-								<option>Select Something...</option>
-								</select>
-							</div>
-						</div>
-
 
 					</div>
-					
-					<!-- Second Column Finished -->
 
-					<div class="col-xs-12 col-sm-12 col-md-4">
-						<div class="form-group">
-							<div>
-								<label>Image<span
-									style="color: #e62948">*</span></label>
-							</div>
-							<div class="uploadImage">
-								<img id="profile-pic" style="width: 194px; height: 104px;"/>
-							</div>
-							<div class="right">
-								<button id="btnUploadImage" class="btn btn-default commonButton">Upload Image</button>
-								<input id="file-upload" type="file" accept="image/*"/>
-							</div>
-						</div>
-						
-						<div class="hashTags">
-						<div class="form-group">
-							<label style="padding-top: 20px;">#HashTags/Keywords</label>
-							<input type="text" class="form-control" placeholder="#Bollywood Electronic, #English, #Trance etc...">
-						</div>
-					</div>	
-						
-					</div>
-					
-					<!-- Third Coloumn finished -->
-                    
 				</div>
-			
-			<!-- This puts a border and divides a page -->
-			<div class="djSignUpMsg"></div>	
-			<!-- Step 2 starts -->
-				<div class="divided-section-header">
-								<span class="event-steps">Step 2:</span>&nbsp;<span
-									class="step-description">Pick a streaming option:</span>
-			   </div>
-				
-				        <div class="text-center">
-				        		<button id="btnLiveStream" class="btn btn-default commonButton" style="width: 300px;">Setup Live Stream</button>
-				        </div>
+				<div class="text-center">
+					<button id="btnLiveStream" class="btn btn-default commonButton"
+						style="width: 300px;">Setup Live Stream</button>
+				</div>
+			</div>
 
-			</form>
 		</div>
 
-	</div>
 
-
-	<!--=================================
+		<!--=================================
 	Footer
 	=================================-->
 	<footer id="footer">
@@ -253,7 +401,7 @@ Style Sheets
  
 		$(document).ready(function() {
 			
-			//Go Live and Test Stream
+			//Go Live and Test Stream buttons
 			
 			$('#testStream').click(function(e){
 				e.preventDefault();
@@ -291,9 +439,9 @@ Style Sheets
 								e.preventDefault();
 								
 								//clicks file upload input on click of the button.
-								$("#file-upload").click();
+								$("#image-upload").click();
 								
-								$("#file-upload").on('change', function() {
+								$("#image-upload").on('change', function() {
 									readURL(this);
 								});
 
@@ -314,11 +462,37 @@ Style Sheets
 								}
 
 				  });
+					
+					
+			//Upload Recorded Mix button
+			
+			$('#btnUploadMix').on('click',function(e){
+				
+				e.preventDefault();
+				$("#file-upload").click();
+				//alert('Inside Upload set');
+			});
+					
+		 //Select Streaming option panels as buttons
+		
+		 $('.pointer-cursor').on('click',function(e){
+			
+			 var alreadySelectedPanel = $('.selected');
+			 $(alreadySelectedPanel).removeClass('panel panel-primary pointer-cursor selected');
+			 $(alreadySelectedPanel).addClass('panel panel-info pointer-cursor');
+			 
+			 //this is the current object user clicked on
+			 $(this).removeClass('panel panel-info pointer-cursor');
+			 $(this).addClass('panel panel-primary pointer-cursor selected');
+			 
+		 });
+		 
 
-				});
+		});
 	</script>
 	<script>
 		/*Place Your Google Analytics code here*/
 	</script>
+	</div>
 </body>
 </html>

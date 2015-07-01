@@ -193,7 +193,7 @@ Meta tags
 							</div>
 
 							<div>
-								<a href="#" style="color: #2a6496; margin-left: 150px;">Forgot password?</a>
+								<a href="#" style="margin-left: 150px;">Forgot password?</a>
 							</div>
 
 
@@ -215,9 +215,8 @@ Meta tags
 								</div>
 
 								<div style="padding-left: 130px;">
-									By signing in, you accept our <a href="#"
-										style="color: #2a6496;">Terms of Use</a> and <a
-										href="aboutus.jsp" style="color: #2a6496;">Privacy Policy</a>
+									By signing in, you accept our <a href="#">Terms of Use</a> and 
+									<a href="aboutus.jsp">Privacy Policy</a>
 								</div>
 
 							</div>
@@ -252,10 +251,6 @@ Meta tags
 							onclick="$('#signupbox').modal('hide'); $('#loginbox').modal('show');"
 							style="color: greenyellow; font-size: medium; border: none; background: none;">Log in</button>
 							
-							 <!-- <a href="#logintab" data-toggle="tab" 
-							 style="color: greenyellow; text-decoration: none; font-size: medium; border: none; background: none;">
-								Log in
-							</a> -->
 					</div>
 				</div>
 				<div class="modal-body">
@@ -349,9 +344,8 @@ Meta tags
 						</div>
 						
 						<div class="text-center" style="padding-top: 0px;">
-								By signing in, you accept our <a href="#"
-									style="color: #2a6496;">Terms of Use</a> and <a
-									href="aboutus.jsp" style="color: #2a6496;">Privacy Policy</a>
+								By signing in, you accept our <a href="#">Terms of Use</a> and 
+								<a href="aboutus.jsp">Privacy Policy</a>
 							</div>
 
 
@@ -365,238 +359,6 @@ Meta tags
 		
 		</div>
 		<!--  End Signup Modal -->
-		
-		<!-- <div id=loginModal>
-			<div id="loginbox" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-				<div class="panel panel-info">
-					<div class="panel-heading">
-
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close" onclick="$('#loginbox').hide();">
-							<span style="size: 10px;">x</span>
-						</button>
-						
-						<div class="panel-title">Log in</div>
-						<div
-							style="float: right; font-size: 80%; position: relative; top: -10px">
-							<button type="button" id="" onclick="$('#loginbox').hide(); $('#signupbox').show();" style="color: greenyellow; font-size: medium; border: none; background: none;">
-								Sign Up
-							</button>
-							
-							<a href="javascript:void(0)" id="btnSignupBoxtab" data-href="#signupbox" data-toggle="tab" style="color: greenyellow; text-decoration: none; font-size: medium; border: none; background: none;">
-								Sign Up
-							</a>
-							
-						</div>
-					</div>
-
-					<div style="padding-top: 30px" class="panel-body">
-
-						<div style="display: none" id="login-alert"
-							class="alert alert-danger col-sm-12"></div>
-
-						<form id="loginform" class="form-horizontal" role="form">
-
-							<div class="form-group" style="margin-left: 2px;">
-								<div style="margin-bottom: 25px" class="input-group">
-									<span class="input-group-addon"><i
-										class="fa fa-envelope"></i></span>
-									<div class="col-md-9" style="padding-left: 0px;">
-										<input id="emailId" type="email" class="form-control"
-											name="emailId" placeholder="Email" required
-											style="width: 403px;" required />
-									</div>
-								</div>
-							</div>
-
-							<div style="margin-bottom: 25px" class="input-group">
-
-								<span class="input-group-addon"><i class="fa fa-lock"></i></span>
-								<div class="col-md-9" style="padding-left: 0px;">
-									<input id="password" type="password" class="form-control"
-										name="password" placeholder="password" required minlength=3
-										maxlength=15 />
-								</div>
-							</div>
-
-							<div class="form-group">
-								<div class="col-md-offset-3 col-md-9">
-									<input type="submit" id="btnlogin" value="Login"
-										class="btn btn-info"
-										style="width: 141px; padding-right: 20px;">
-
-								</div>
-							</div>
-
-							<div>
-								<a href="#" style="color: #2a6496;">Forgot password?</a>
-							</div>
-
-
-
-
-							<div style="border-top: 1px solid #999; padding-top: 30px"
-								class="form-group">
-
-								<div class="col-md-offset-3 col-md-9"
-									style="padding-left: 0px; padding-right: 0px;">
-									<button id="btn-fbsignup" style="margin-bottom: 10px;"
-										type="button" class="btn btn-primary">
-										<i class="icon-facebook"></i>Log in with Facebook
-									</button>
-									<button id="btn-fbsignup" style="margin-bottom: 10px;"
-										type="button" class="btn btn-danger">
-										<i class="icon-facebook"></i>Log in with Google
-									</button>
-								</div>
-
-								<div style="padding-left: 130px;">
-									By signing in, you accept our <a href="#"
-										style="color: #2a6496;">Terms of Use</a> and <a
-										href="aboutus.jsp" style="color: #2a6496;">Privacy Policy</a>
-								</div>
-
-							</div>
-
-						</form>
-
-					</div>
-
-
-
-				</div>
-			</div>
-		</div>
-		<div id="signupbox" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-			<div class="panel panel-info">
-				<div class="panel-heading">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close" onclick="$('#signupbox').hide();">
-						<span style="size: 10px;">x</span>
-					</button>
-					<div class="panel-title">Time for a party!!!</div>
-					<div
-						style="float: right; font-size: 85%; position: relative; top: -10px;">
-						<button id="signinlink"
-							onclick="$('#signupbox').hide(); $('#loginbox').show();"
-							style="color: greenyellow; font-size: medium; border: none; background: none;">Log in</button>
-							
-							<a href="javascript:void(0)" id="btnLoginBoxtab" data-href="" data-toggle="tab" 
-							 style="color: greenyellow; text-decoration: none; font-size: medium; border: none; background: none;">
-								Log in
-							</a>
-					</div>
-				</div>
-				<div class="panel-body">
-					<form id="signupform" class="form-horizontal" role="form">
-
-						<div id="signupalert" style="display: none"
-							class="alert alert-danger">
-							<p>Error:</p>
-							<span></span>
-						</div>
-
-						<div class="form-group" style="margin-left: 20px;">
-
-							<div style="margin-bottom: 5px" class="input-group">
-								<span class="input-group-addon"><i class="fa fa-user"></i></span>
-								<div class="col-md-6" style="padding-left: 0px;">
-									<input type="text" id="displayName" class="form-control"
-										name="name" placeholder="Dj's Display Name..." required />
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group" style="margin-left: 20px;">
-
-							<div style="margin-bottom: 5px" class="input-group">
-								<span class="input-group-addon"><i class="fa fa-user"></i></span>
-								<div class="col-md-6" style="padding-left: 0px;">
-									<input id="emailId" class="form-control" name="email"
-										placeholder="Email Address" type="email" required />
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group" style="margin-left: 20px;">
-
-							<div style="margin-bottom: 5px" class="input-group">
-								<span class="input-group-addon"><i
-									class="fa fa-mobile-phone"></i></span>
-								<div class="col-md-6" style="padding-left: 0px;">
-									<input id="contact" type="tel" pattern='[\+]\d{2}[\-]\d{10}'
-										class="form-control" name="contact"
-										placeholder="Fans can contact you for bookings"
-										data-toggle="tooltip"
-										title="Please enter a valid phone number (Eg Format: +91-9999999999)"
-										required />
-
-								</div>
-							</div>
-							<label>Please enter in this format: +91-9999999999</label>
-						</div>
-
-
-
-						<div class="form-group"
-							style="padding-top: 20px; padding-left: 35px;">
-
-							<div style="margin-bottom: 5px" class="input-group">
-								<span class="input-group-addon"><i class="fa fa-lock"></i></span>
-								<div class="col-md-11" style="padding-left: 0px;">
-									<input id="Signup_password" type="password"
-										class="form-control" name="Signup_password"
-										placeholder="Password" minlength=3 required />
-								</div>
-
-
-								<span class="input-group-addon"><i class="fa fa-lock"></i></span>
-								<div class="col-md-11" style="padding-left: 0px;">
-									<input id="confirm_password" type="password"
-										class="form-control" name="confirm_password"
-										placeholder="Confirm Password" minlength=3 required />
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<div class="col-md-offset-3 col-md-9">
-								<input type="submit" id="btn-signup" value="Create account"
-									class="btn btn-info" style="margin-left: 50px; size: 50px;">
-							</div>
-						</div>
-
-						<div style="border-top: 1px solid #999; padding-top: 20px"
-							class="form-group">
-
-							<div class="col-md-offset-3 col-md-9"
-								style="padding-left: 0px; padding-right: 0px;">
-								<button id="btn-fbsignup" style="margin-bottom: 10px;"
-									type="button" class="btn btn-primary">
-									<i class="icon-facebook"></i>Sign Up with Facebook
-								</button>
-								<button id="btn-fbsignup" style="margin-bottom: 10px;"
-									type="button" class="btn btn-danger">
-									<i class="icon-facebook"></i>Sign Up with Google
-								</button>
-							</div>
-
-							<div style="padding-left: 150px;">
-								By signing in, you accept our <a href="#"
-									style="color: #2a6496;">Terms of Use</a> and <a
-									href="aboutus.jsp" style="color: #2a6496;">Privacy Policy</a>
-							</div>
-
-						</div>
-
-
-
-					</form>
-				</div>
-			</div>
-
-
-		</div> -->
 
 		<!-- =================================================
 		

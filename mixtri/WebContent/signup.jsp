@@ -216,7 +216,7 @@ Vegas Slider Images
 					<div class="col-lg-6 col-md-6 col-sm-6">
 						<div class="aboutus">
 							<img width=99px; height=99px;
-								src="assets/img/djsignup/icecast_logo.png" alt="dummy">
+								src="assets/img/djsignup/icecast_logo.png">
 						</div>
 						<div class="wordMixtri">Icecast</div>
 						<div>
@@ -249,7 +249,7 @@ Vegas Slider Images
 					<div class="col-lg-6 col-md-6 col-sm-6">
 						<div class="aboutus">
 							<img width=99px; height=99px;
-								src="assets/img/djsignup/DirectInput_logo.png" alt="dummy">
+								src="assets/img/djsignup/DirectInput_logo.png">
 							<div class="wordMixtri">Direct Input</div>
 							<div>
 								Wanna broadcast a live show or an audio output from an external
