@@ -3549,13 +3549,7 @@ ul.profile-dropdown.dropdown-menu{
 	background: transparent;
 	border-color: #333333;
 	color: white;
-	/* border: #e62948; */
 }
-
-.btn-default:hover{
-	background-color: #333333;
-}
-
 
 /* .left {
     max-width: 100%;
@@ -3591,8 +3585,35 @@ ul.profile-dropdown.dropdown-menu{
     display: none;
 }
 
+#image-upload{
+	
+	display: none;
+}
+.panel-primary{
+	border-color: #e62948;
+}
+.panel-primary>.panel-heading{
+	
+	color:black;
+	background-color: #e62948;
+}
 
+a {
+    color: #2a6496;
+    text-decoration: none;
+}
 
+.pointer-cursor{
+	
+	cursor: pointer;
+	
+}
+.panel-logo{
+	height: 90px; 
+	width: 85px;; 
+	float: left;
+	padding-right: 5px;
+}
 
 /*=====================================
            End Custom CSS
