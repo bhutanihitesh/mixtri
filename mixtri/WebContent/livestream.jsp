@@ -346,7 +346,7 @@ Style Sheets
 
 						<h4 class="text-center">Upload A Recorded Mix!</h4>
 						<div class="section-recorded-mixes" style="float: right;">
-							<form id="recorded-mixes-form" role="form">
+							<form id="recorded-mixes-form" role="form" action="/mixtri/rest/upload" method="post" enctype="multipart/form-data">
 								<div class="form-component">
 									<div class="form-group">
 
@@ -365,10 +365,15 @@ Style Sheets
 									<div>
 									
 										<button id="btnUploadMix"
-											class="btn btn-default commonButton">Choose Mix</button>
-										<input id="file-upload" type="file" accept="audio/*" required/>
-										<label>&nbsp;Upload Mix<span style="color: #e62948">*</span></label>
+											class="btn btn-default commonButton" onclick="$('#fileupload').click()">Choose Mix</button>
+										<input id="fileupload" type="file" name="uploadFile" accept="audio/*"/>
+										<label>&nbsp;Choose Mix<span style="color: #e62948">*</span></label>
 										<label style="color: graytext;">Max size 140 MB, only .mp3</label>
+
+									   <input id="btn-uploadmix" type="submit"/>
+										<div id="progress">
+											<div class="bar" style="width: 0%;"></div>
+										</div>
 
 									</div>
 
@@ -395,11 +400,13 @@ Style Sheets
 	<footer id="footer">
 		<%@include file="footer.jsp"%>
 	</footer>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="assets/js/jquery.ui.widget.js"></script>
+	<script src="assets/js/jquery.iframe-transport.js"></script>
+	<script src="assets/js/jquery.fileupload.js"></script>
 	<script>
 		
-		
- 
-		$(document).ready(function() {
+$(document).ready(function() {
 			
 			//Go Live and Test Stream buttons
 			
@@ -466,12 +473,71 @@ Style Sheets
 					
 			//Upload Recorded Mix button
 			
-			$('#btnUploadMix').on('click',function(e){
+			/*$('#btnUploadMix').on('click',function(e){
+			$("#fileupload").click();
+			$("#btn-uploadmix").on('click',function(){	
 				
-				e.preventDefault();
-				$("#file-upload").click();
-				//alert('Inside Upload set');
-			});
+				$.ajax({
+					method: 'POST',
+					url: '/mixtri/rest/upload',
+			        contentType: 'multipart/form-data',
+					dataType: 'json',
+					data: {
+						emailId: emailId,
+						password: password
+
+					},
+
+					success: function (data, textStatus, jqXHR) {
+						
+					},
+					
+					
+					error: function(data){
+						
+					}
+					
+					
+				});
+				
+			});		
+				
+				 e.preventDefault();
+				$("#fileupload").click();
+				$("#fileupload").on('change',function(){
+					
+					$('#fileupload').fileupload({
+						method: 'POST',
+						url: '/mixtri/rest/upload',
+				        contentType: 'multipart/form-data',
+						dataType: 'json',
+				        success: function (e, data) {
+				            $.each(data.result.files, function (index, file) {
+				                $('<p/>').text(file.name).appendTo(document.body);
+				            });
+				        },
+					
+				        error: function(data){
+				        	//console.log('This is upload error');
+				        },
+						
+						progressall: function (e, data) {
+					        var progress = parseInt(data.loaded / data.total * 100, 10);
+					        $('#progress .bar').css(
+					            'width',
+					            progress + '%'
+					        );
+					    }
+							
+				    });
+					
+					
+				});
+				
+				
+				
+			}); */
+			
 					
 		 //Select Streaming option panels as buttons
 		
@@ -489,6 +555,33 @@ Style Sheets
 		 
 
 		});
+		
+		/* $(function fileUpload(){
+			alert('In file upload');
+			
+			$('#fileupload').fileupload({
+		        dataType: 'json',
+		        done: function (e, data) {
+		        	alert('Data is there: '+data);
+		            $.each(data.result.files, function (index, file) {
+		                $('<p/>').text(file.name).appendTo(document.body);
+		            });
+		        },
+			
+				
+				progressall: function (e, data) {
+			        var progress = parseInt(data.loaded / data.total * 100, 10);
+			        alert('progess'+progress);
+			        $('#progress .bar').css(
+			            'width',
+			            progress + '%'
+			        );
+			    }
+					
+		    });
+			
+			
+		}); */
 	</script>
 	<script>
 		/*Place Your Google Analytics code here*/
