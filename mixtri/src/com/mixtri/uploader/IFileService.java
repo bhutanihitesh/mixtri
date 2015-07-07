@@ -8,6 +8,6 @@ import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
  
 public interface IFileService {
  
-    public Response downloadZippedFile();
-    public Response uploadZippedFile(InputStream fileInputStream, FormDataContentDisposition fileFormDataContentDisposition);
+    public Response downloadFile();
+    public Response uploadFile(InputStream fileInputStream, FormDataContentDisposition fileFormDataContentDisposition);
 }

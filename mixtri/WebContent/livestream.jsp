@@ -208,8 +208,9 @@ Style Sheets
 										class="btn btn-default commonButton">Upload Image</button>
 									<input id="image-upload" type="file" accept="image/*" />
 								</div>
+								
 							</div>
-
+								
 							<div class="hashTags">
 								<div class="form-group">
 									<label style="padding-top: 20px;">#HashTags/Keywords</label> <input
@@ -217,7 +218,7 @@ Style Sheets
 										placeholder="#Bollywood Electronic, #English, #Trance etc...">
 								</div>
 							</div>
-
+							
 						</div>
 
 						<!-- Third Coloumn finished -->
@@ -316,11 +317,10 @@ Style Sheets
 			</div>
 			<!--  Streaming Option row Ends -->
 			<div id="uploadedMixes">
-				<div class="djSignUpMsg"></div>
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 col-md-5">
 
-						<div id="panel-past-mixes" class="panel panel-default">
+						<div id="panel-past-mixes" class="panel panel-default" style="margin-top: 10px; margin-left: 10px;">
 							<div class="panel-heading">
 								<strong>CHOOSE FROM PAST RECORDED MIXES</strong>
 							</div>
@@ -346,7 +346,7 @@ Style Sheets
 
 						<h4 class="text-center">Upload A Recorded Mix!</h4>
 						<div class="section-recorded-mixes" style="float: right;">
-							<form id="recorded-mixes-form" role="form" action="/mixtri/rest/upload" method="post" enctype="multipart/form-data">
+							<form id="recorded-mixes-form" role="form">
 								<div class="form-component">
 									<div class="form-group">
 
@@ -365,16 +365,28 @@ Style Sheets
 									<div>
 									
 										<button id="btnUploadMix"
-											class="btn btn-default commonButton" onclick="$('#fileupload').click()">Choose Mix</button>
+											class="btn btn-default commonButton" onclick="$('#fileupload').click()">Upload Mix!</button>
 										<input id="fileupload" type="file" name="uploadFile" accept="audio/*"/>
 										<label>&nbsp;Choose Mix<span style="color: #e62948">*</span></label>
 										<label style="color: graytext;">Max size 140 MB, only .mp3</label>
 
-									   <input id="btn-uploadmix" type="submit"/>
-										<div id="progress">
-											<div class="bar" style="width: 0%;"></div>
+										<div id="progress-div">
+										<div id="progress-bar"></div>
+										</div>
+										
+										<div id="maxFileSizeError" class="alert-error hidden">
+												Please upload file less than 140 MB.
+										</div>
+										
+										<div id="invalid-mp3-file" class ="alert-error hidden">
+											  Please upload only mp3 files.
 										</div>
 
+									</div>
+
+									<div style="float: left;">
+										<button id="btnSaveSet" class="btn btn-default commonButton"
+											style="width: 200px;">Save</button>
 									</div>
 
 								</div>
@@ -385,12 +397,15 @@ Style Sheets
 					</div>
 
 				</div>
+				
+				
+			</div>
+			
 				<div class="text-center">
 					<button id="btnLiveStream" class="btn btn-default commonButton"
 						style="width: 300px;">Setup Live Stream</button>
 				</div>
-			</div>
-
+			
 		</div>
 
 
@@ -400,8 +415,8 @@ Style Sheets
 	<footer id="footer">
 		<%@include file="footer.jsp"%>
 	</footer>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<script src="assets/js/jquery.ui.widget.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
+	 <script src="assets/js/jquery.ui.widget.js"></script>
 	<script src="assets/js/jquery.iframe-transport.js"></script>
 	<script src="assets/js/jquery.fileupload.js"></script>
 	<script>
@@ -472,72 +487,59 @@ $(document).ready(function() {
 					
 					
 			//Upload Recorded Mix button
-			
-			/*$('#btnUploadMix').on('click',function(e){
-			$("#fileupload").click();
-			$("#btn-uploadmix").on('click',function(){	
-				
-				$.ajax({
-					method: 'POST',
-					url: '/mixtri/rest/upload',
-			        contentType: 'multipart/form-data',
-					dataType: 'json',
-					data: {
-						emailId: emailId,
-						password: password
-
-					},
-
-					success: function (data, textStatus, jqXHR) {
+			//This code uploads the file using ajax at client side and Jersey upload at the server side.
+				$("#fileupload").on('change',function(e){
+					e.preventDefault();
+					var file = $('input[name="uploadFile"').get(0).files[0];
+					var data = new FormData();
+					data.append('uploadFile', file);
+					
+					if(file.size>140000000){
 						
-					},
-					
-					
-					error: function(data){
+						$('#maxFileSizeError').removeClass('hidden');
+						return false;
 						
 					}
 					
+					if(file.type!='audio/mp3'){
+						$('#invalid-mp3-file').removeClass('hidden');
+						return false;
+					}
 					
-				});
-				
-			});		
-				
-				 e.preventDefault();
-				$("#fileupload").click();
-				$("#fileupload").on('change',function(){
 					
-					$('#fileupload').fileupload({
+					$.ajax({
+						
+						/* uploadProgress: function (event, position, total, percentComplete){
+				        	alert('In Progress function');
+		                    $("#progress-bar").width(percentComplete + '%');
+		                    $("#progress-bar").html('<div id="progress-status">' + percentComplete +' %</div>')
+		                },
+				         */
+						
 						method: 'POST',
 						url: '/mixtri/rest/upload',
-				        contentType: 'multipart/form-data',
-						dataType: 'json',
-				        success: function (e, data) {
-				            $.each(data.result.files, function (index, file) {
-				                $('<p/>').text(file.name).appendTo(document.body);
-				            });
-				        },
+						data: data,
+				       	contentType: false,
+				       	processData: false,
+				        dataType: 'json',
+				        
+ 				        success: function (data,status) {
+ 				        	$('#maxFileSizeError').addClass('hidden');
+ 				        	$('#invalid-mp3-file').addClass('hidden');
+ 				        	/* $.each(data.result.files, function (index, file) {
+ 				                $('<p/>').text(file.name).appendTo(document.body);
+ 				            }); */
+ 				        },
 					
-				        error: function(data){
-				        	//console.log('This is upload error');
-				        },
-						
-						progressall: function (e, data) {
-					        var progress = parseInt(data.loaded / data.total * 100, 10);
-					        $('#progress .bar').css(
-					            'width',
-					            progress + '%'
-					        );
-					    }
-							
+ 				         error: function(data, textStatus, jqXHR){
+ 				        	window.location.href = "error.jsp";
+ 				        },
+ 				    	
 				    });
 					
 					
 				});
 				
-				
-				
-			}); */
-			
 					
 		 //Select Streaming option panels as buttons
 		
@@ -551,37 +553,15 @@ $(document).ready(function() {
 			 $(this).removeClass('panel panel-info pointer-cursor');
 			 $(this).addClass('panel panel-primary pointer-cursor selected');
 			 
-		 });
-		 
-
-		});
-		
-		/* $(function fileUpload(){
-			alert('In file upload');
-			
-			$('#fileupload').fileupload({
-		        dataType: 'json',
-		        done: function (e, data) {
-		        	alert('Data is there: '+data);
-		            $.each(data.result.files, function (index, file) {
-		                $('<p/>').text(file.name).appendTo(document.body);
-		            });
-		        },
-			
+			 if(this.id=='panel-recorded-mixes'){
+					$('#uploadedMixes').slideDown('slow');
+			 }else{
 				
-				progressall: function (e, data) {
-			        var progress = parseInt(data.loaded / data.total * 100, 10);
-			        alert('progess'+progress);
-			        $('#progress .bar').css(
-			            'width',
-			            progress + '%'
-			        );
-			    }
-					
-		    });
-			
-			
-		}); */
+				 $('#uploadedMixes').slideUp('slow');
+			 }
+			 
+		 });
+});
 	</script>
 	<script>
 		/*Place Your Google Analytics code here*/
