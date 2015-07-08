@@ -3645,6 +3645,27 @@ a {
 
 
 }
+
+.audioControls{
+	border: 1px solid #7F7878;
+	padding: 10px;
+	cursor: pointer;
+}
+
+.audioControls:hover {
+
+	background-color: #6e6e6e;
+	color: black;
+}
+
+.pastMix{
+	
+	border: 1px solid #7F7878;
+	padding: 10px;
+	cursor: pointer;
+	background-color: #e62948;
+	color: black;
+}
 /*=====================================
            End Custom CSS
 =======================================*/

@@ -5,7 +5,7 @@
 <!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>Mixtri-Home</title>
+<title>Mixtri-Livestream</title>
 
 <!--=================================
 Meta tags
@@ -322,19 +322,47 @@ Style Sheets
 
 						<div id="panel-past-mixes" class="panel panel-default" style="margin-top: 10px; margin-left: 10px;">
 							<div class="panel-heading">
-								<strong>CHOOSE FROM PAST RECORDED MIXES</strong>
+								<strong>CHOOSE FROM YOUR PREVIOUS RECORDED MIXES</strong>
 							</div>
-							<div class="panel-body"
-								style="max-height: 10%; overflow-y: scroll;">
+							<div class="panel-body" style="max-height: 300px; overflow-y: scroll;">
+								<div id="pastMix-1" class="audioControls">
+									<label>Dj NYK - Podcast 1</label>
+									<audio controls>
+										<source src="assets/audio/2.mp3" type="audio/mpeg">
+									</audio>
+								</div>
+								<div id="pastMix-2" class="audioControls">
+									<label>Dj NYK - Podcast 2</label>
+									<audio controls>
+										<source src="assets/audio/2.mp3" type="audio/mpeg">
+									</audio>
+								</div>
+								<div id="pastMix-3" class="audioControls">
+									<label>Dj NYK - Podcast 3</label>
+									<audio controls>
+										<source src="assets/audio/2.mp3" type="audio/mpeg">
+									</audio>
+								</div>
+								<div id="pastMix-4" class="audioControls">
+									<label>Dj NYK - Podcast 4</label>
+									<audio controls>
+										<source src="assets/audio/2.mp3" type="audio/mpeg">
+									</audio>
+								</div>
+								<div id="pastMix-5" class="audioControls">
+									<label>Dj NYK - Podcast 5</label>
+									<audio controls>
+										<source src="assets/audio/2.mp3" type="audio/mpeg">
+									</audio>
+								</div>
+								<div id="pastMix-6" class="audioControls">
+									<label>Dj NYK - Podcast 6</label>
+									<audio controls>
+										<source src="assets/audio/2.mp3" type="audio/mpeg">
+									</audio>
+								</div>
+								
 
-								<div class="panel-body-content">Dj NYK - Podcast 10</div>
-								<div class="panel-body-content">Dj NYK - Podcast 10</div>
-								<div class="panel-body-content">Dj NYK - Podcast 10</div>
-								<div class="panel-body-content">Dj NYK - Podcast 10</div>
-								<div class="panel-body-content">Dj NYK - Podcast 10</div>
-								<div class="panel-body-content">Dj NYK - Podcast 10</div>
-								<div class="panel-body-content">Dj NYK - Podcast 10</div>
-								<div class="panel-body-content">Dj NYK - Podcast 10</div>
 
 							</div>
 
@@ -343,9 +371,11 @@ Style Sheets
 					</div>
 
 					<div class="col-xs-12 col-sm-12 col-md-5">
-
-						<h4 class="text-center">Upload A Recorded Mix!</h4>
+													
+							<div><h4 class="text-center">Upload A Recorded Mix!</h4></div>
+						
 						<div class="section-recorded-mixes" style="float: right;">
+						<div style="color: #e62948;"><h4 id="selectedMixName">Selected Mix: None</h4></div>
 							<form id="recorded-mixes-form" role="form">
 								<div class="form-component">
 									<div class="form-group">
@@ -415,10 +445,10 @@ Style Sheets
 	<footer id="footer">
 		<%@include file="footer.jsp"%>
 	</footer>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> 
 	 <script src="assets/js/jquery.ui.widget.js"></script>
 	<script src="assets/js/jquery.iframe-transport.js"></script>
-	<script src="assets/js/jquery.fileupload.js"></script>
+	<script src="assets/js/jquery.fileupload.js"></script> -->
 	<script>
 		
 $(document).ready(function() {
@@ -559,6 +589,27 @@ $(document).ready(function() {
 				
 				 $('#uploadedMixes').slideUp('slow');
 			 }
+			 
+		 });
+		 
+		 
+		 //Select from your past Mix option and when clicked on that div select that div
+		 
+		 $('.audioControls').on('click',function(e){
+			 
+			 var alreadySelectedMix = $('.pastMix');
+			 
+			 if(alreadySelectedMix.length>0){
+				alreadySelectedMix.removeClass('pastMix selected');
+				alreadySelectedMix.addClass('audioControls');
+			 }
+			 
+			 $(this).removeClass('audioControls');
+			 $(this).addClass('pastMix selected');
+			 
+			 var selectedMixName = $(this).context.innerText;
+			 
+			 $('#selectedMixName').html("Selected Mix: "+selectedMixName);
 			 
 		 });
 });
