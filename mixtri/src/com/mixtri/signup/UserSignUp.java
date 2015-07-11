@@ -74,10 +74,11 @@ public class UserSignUp{
 
 				MixtriDAO mixtriDAO = new MixtriDAO();
 				userSignUpBean = mixtriDAO.setSignUpInfo(userSignUpBean);
-				isUserCreated = userSignUpBean.isUsercreated();
+				isUserCreated = userSignUpBean.isUsercreated();	
 
 				if(isUserCreated){
 					messages.put("displayName",userSignUpBean.getDisplayName());
+					messages.put("emailId",userSignUpBean.getEmailId());
 					json = gson.toJson(messages);
 					return json;
 

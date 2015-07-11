@@ -33,7 +33,8 @@ Style Sheets
 <link rel="stylesheet" type="text/css"
 	href="assets/css/jquery.mCustomScrollbar.css">
 <link rel="stylesheet" href="assets/css/main.css">
-<link rel="stylesheet" href="assets/css//jquery-ui.css">
+<link rel="stylesheet" href="assets/css/jquery-ui.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <!--<link rel="stylesheet" type="text/css" href="assets/css/blue.css">
 <link rel="stylesheet" type="text/css" href="assets/css/orange.css">
 <link rel="stylesheet" type="text/css" href="assets/css/red.css">
@@ -66,26 +67,27 @@ Style Sheets
 			</div>
 			<!-- Start Step 1 -->
 			<form id="event-form" role="form">
-
+              <div class="form-components">
+              
 				<div class="divided-section-header">
 					<span class="event-steps">Step 1:</span>&nbsp;<span
 						class="step-description">Enter Live Stream Info:</span>
 				</div>
 
 				<div class="row">
-					<div class="form-components">
+					
 						<div class="col-xs-12 col-sm-12 col-md-4">
 							<!-- <div class="divided-section"> -->
 							<div class="form-group">
 								<label>Live Stream Info<span style="color: #e62948">*</span></label>
 								<input type="text" class="form-control inputLiveStreamInfo"
-									id="streamInfo" required />
+									id="streamInfo" name="streamInfo" required />
 							</div>
 							<div class="form-group">
 								<div class="dateTimePicker">
 									<label>Date:<span style="color: #e62948">*</span></label> <input
 										id="eventDatePicker" type="text"
-										class="form-control event-date-time" name="eventDate" value=""
+										class="form-control event-date-time" type ="date" name="eventDate" value=""
 										required />
 								</div>
 								<div class="dateTimePicker">
@@ -105,8 +107,7 @@ Style Sheets
 										<option value="-11">(GMT -11:00) Midway Island, Samoa</option>
 										<option value="-10">(GMT -10:00) Hawaii</option>
 										<option value="-9">(GMT -9:00) Alaska</option>
-										<option value="-8">(GMT -8:00) Pacific Time (US &amp;
-											Canada)</option>
+										<option value="-8">(GMT -8:00) Pacific Time (US &amp;Canada)</option>
 										<option value="-7">(GMT -7:00) Mountain Time (US
 											&amp; Canada)</option>
 										<option value="-6">(GMT -6:00) Central Time (US &amp;
@@ -185,7 +186,22 @@ Style Sheets
 							<div>
 								<div>
 									<br> <label>Genre:</label> <select class="form-control">
-										<option>Select Something...</option>
+										<option value="0">Select Something...</option>
+										<option value="1">Bollywood</option>
+										<option value="2">Punjabi</option>
+										<option value="3">Electronic Dance Music</option>
+										<option value="4">Trance</option>
+										<option value="5">Progressive</option>
+										<option value="6">House</option>
+										<option value="7">RnB</option>
+										<option value="8">Reggae</option>
+										<option value="9">Dubstep</option>
+										<option value="10">Disco</option>
+										<option value="11">Rock</option>
+										<option value="12">Hip Hop/Rap</option>
+										<option value="13">Indi Pop</option>
+										<option value="14">Retro</option>
+										<option value="15">Instrumental</option>
 									</select>
 								</div>
 							</div>
@@ -222,10 +238,9 @@ Style Sheets
 						</div>
 
 						<!-- Third Coloumn finished -->
-					</div>
+					
 				</div>
 				<!-- row finished -->
-			</form>
 
 			<!-- This puts a border and divides a page -->
 			<div class="djSignUpMsg"></div>
@@ -316,6 +331,7 @@ Style Sheets
 				<!-- Streaming options Col 2 ends -->
 			</div>
 			<!--  Streaming Option row Ends -->
+			
 			<div id="uploadedMixes">
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 col-md-5">
@@ -376,21 +392,34 @@ Style Sheets
 						
 						<div class="section-recorded-mixes" style="float: right;">
 						<div style="color: #e62948;"><h4 id="selectedMixName">Selected Mix: None</h4></div>
-							<form id="recorded-mixes-form" role="form">
-								<div class="form-component">
+						<br><h5 class="disk-storage">Storage Space</h5>
+						<div class="storage-space">
+							<div id="disk-space-bar" class="progress-bar"></div>
+							
+						</div>
+						<div id="diskSpace" class="disk-space">
+								<span id="spanDiskSpace">1024 MB Left</span>
+								<span style="float: right;"><a href="#">Need More? Delete Old Records!</a></span>
+						</div>
+						<!-- <div id="diskStorage" class="disk-storage">1024 MB Left</div>
+						<div id="diskStorage" class="disk-storage right">Need More? Delete Old Records!</div> -->
+						
+						
+						
 									<div class="form-group">
 
 										<label>Mix Title<span style="color: #e62948">*</span></label>
 										<input type="text" class="form-control inputLiveStreamInfo"
-											id="mix-title" required />
+											id="mix-title"/>
+											
 									</div>
 
-									<div>
+									<!-- <div>
 										<label>Genre:</label> <select class="form-control">
 											<option>Select Something...</option>
 										</select>
 
-									</div>
+									</div> -->
 
 									<div>
 									
@@ -399,10 +428,11 @@ Style Sheets
 										<input id="fileupload" type="file" name="uploadFile" accept="audio/*"/>
 										<label>&nbsp;Choose Mix<span style="color: #e62948">*</span></label>
 										<label style="color: graytext;">Max size 140 MB, only .mp3</label>
-
-										<div id="progress-div">
-										<div id="progress-bar"></div>
-										</div>
+										
+										
+											<div id="progress-bar" class="progress-bar">&nbsp;</div>
+											<div id="progress-percent" style="color: graytext;"></div>
+										
 										
 										<div id="maxFileSizeError" class="alert-error hidden">
 												Please upload file less than 140 MB.
@@ -413,14 +443,13 @@ Style Sheets
 										</div>
 
 									</div>
-
+									<div>
+										<div id="saveSetErrors" style="color: red;"></div>
+									</div>
 									<div style="float: left;">
 										<button id="btnSaveSet" class="btn btn-default commonButton"
 											style="width: 200px;">Save</button>
 									</div>
-
-								</div>
-							</form>
 
 						</div>
 
@@ -431,10 +460,114 @@ Style Sheets
 				
 			</div>
 			
-				<div class="text-center">
-					<button id="btnLiveStream" class="btn btn-default commonButton"
-						style="width: 300px;">Setup Live Stream</button>
+			
+			<!-- Background Themes -->
+			
+			<div class="djSignUpMsg"></div>
+			<!-- Step 2 starts -->
+			<div class="divided-section-header">
+				<div>
+				<span class="event-steps">Step 3:</span>&nbsp;<span
+					class="step-description">Pick your background theme:</span>
 				</div>
+				<div style="color: #e62948;"><h4 id="selectedTheme">Selected Theme: LUMINATOR</h4></div>
+			</div>
+			<!-- Streaming Option Col-1 -->
+			<div id="panelrow" class="row">
+				<!-- Streaming options column1 -->
+				<div class="col-xs-12 col-sm-12 col-md-5">
+				
+				<div class="panel panel-default" style="margin-top: 10px; margin-left: 10px;">
+							<div class="panel-heading">
+								<strong>CHOOSE YOUR BACKGROUND THEME</strong>
+							</div>
+							<div class="panel-body" style="max-height: 300px; overflow-y: scroll;">
+								<div id="vidTheme-1" class="videoThemes selectedVid selected">
+									<label>LUMINATOR</label>
+									
+								</div>
+								<div id="vidTheme-2" class="videoThemes">
+									<label>PINK VINYL</label>
+									
+								</div>
+								<div id="vidTheme-3" class="videoThemes">
+									<label>BUILDING TUBES</label>
+									
+								</div>
+								<div id="vidTheme-4" class="videoThemes">
+									<label>PURPCYCLE</label>
+									
+								</div>
+								<div id="vidTheme-5" class="videoThemes">
+									<label>RATATA</label>
+									
+								</div>
+								<div id="vidTheme-6" class="videoThemes">
+									<label>HALLOWEEN</label>								
+								</div>
+								
+
+
+							</div>
+
+						</div>
+				
+				</div>
+				<!-- Background Theme Cols Ends -->
+				
+				<!-- Vidoes Start -->
+				<div class="col-xs-12 col-sm-12 col-md-6">
+					<div id="bgTheme-1" class="responsive-vimeo">
+						<iframe id="iFrameVid-1"
+							src="https://player.vimeo.com/video/31799622"></iframe>
+
+					</div>
+						<div id="bgTheme-2" class="responsive-vimeo hidden">
+							<iframe id="iFrameVid-2"
+								src="https://player.vimeo.com/video/87099002?portrait=0"></iframe>
+						</div>
+						
+						<div id="bgTheme-3" class="responsive-vimeo hidden">
+							<iframe id="iFrameVid-3"
+								src="https://player.vimeo.com/video/81095045?portrait=0"></iframe>
+						</div>
+						
+						<div id="bgTheme-4" class="responsive-vimeo hidden">
+							<iframe id="iFrameVid-4"
+								src="https://player.vimeo.com/video/85265188?portrait=0"></iframe>
+						</div>
+						
+						<div id="bgTheme-5" class="responsive-vimeo hidden">
+							<iframe id="iFrameVid-5"
+								src="https://player.vimeo.com/video/128596505?color=ffffff&byline=0&portrait=0"></iframe>
+						</div>
+						
+						<div id="bgTheme-6" class="responsive-vimeo hidden">
+							<iframe id="iFrameVid-6"
+								src="https://player.vimeo.com/video/78075993"></iframe>
+						</div>
+					
+				</div>
+				
+				<!-- Videos Ends -->
+
+			</div>
+			<!-- Background theme rows ends -->
+
+			<!-- Validation Errors shown here -->
+			<div class="form-group">
+				<div class="col-xs-9 col-xs-offset-3">
+					<div id="messages" style="color: red;"></div>
+				</div>
+			</div>
+
+			<div class="text-center">
+					<button id="btnLiveStream" class="btn btn-default commonButton"
+						style="width: 300px;" type="submit">Setup Live Stream</button>
+		  </div>
+		     </div>
+		     <!-- form-component ended -->
+		  </form>
 			
 		</div>
 
@@ -445,10 +578,6 @@ Style Sheets
 	<footer id="footer">
 		<%@include file="footer.jsp"%>
 	</footer>
-	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> 
-	 <script src="assets/js/jquery.ui.widget.js"></script>
-	<script src="assets/js/jquery.iframe-transport.js"></script>
-	<script src="assets/js/jquery.fileupload.js"></script> -->
 	<script>
 		
 $(document).ready(function() {
@@ -476,13 +605,11 @@ $(document).ready(function() {
 			        //Sets event time as 10 mins from system time
 					var dt = new Date();
 					var time = dt.getHours() + ":" + (dt.getMinutes() + 10);
-					var currentTime = String(time);
-					$('#eventTimePicker').val(currentTime);
+					var advancedTime = String(time);
+					$('#eventTimePicker').val(advancedTime);
+					$("#eventDatePicker" ).datepicker({ minDate: 0}); //This disables the past dates in calendar
+					
 					$("#eventDatePicker").datepicker().datepicker("setDate",new Date());
-					$("#eventDatePicker").datepicker({
-						minDate : -20,
-						maxDate : "+1M +10D"
-					});
 					
 					
  	
@@ -523,6 +650,7 @@ $(document).ready(function() {
 					var file = $('input[name="uploadFile"').get(0).files[0];
 					var data = new FormData();
 					data.append('uploadFile', file);
+					data.append('emailId', $.cookie("emailId"));
 					
 					if(file.size>140000000){
 						
@@ -539,26 +667,53 @@ $(document).ready(function() {
 					
 					$.ajax({
 						
-						/* uploadProgress: function (event, position, total, percentComplete){
-				        	alert('In Progress function');
-		                    $("#progress-bar").width(percentComplete + '%');
-		                    $("#progress-bar").html('<div id="progress-status">' + percentComplete +' %</div>')
-		                },
-				         */
-						
-						method: 'POST',
+						type: 'POST',
 						url: '/mixtri/rest/upload',
 						data: data,
 				       	contentType: false,
 				       	processData: false,
 				        dataType: 'json',
 				        
+				        xhr: function() {
+				            var xhr = $.ajaxSettings.xhr();
+				           	if (xhr.upload) {
+				                xhr.upload.addEventListener('progress', function(evt) {
+				                    var percent = (evt.loaded / evt.total) * 100;
+				                    $('#progress-bar').width(String(percent)+'%');
+				                    $('#progress-percent').html(percent+'%');
+				                }, false);
+				            }
+				            return xhr;
+				        },
+				        
  				        success: function (data,status) {
+ 				        	$('#progress-percent').html(data);
  				        	$('#maxFileSizeError').addClass('hidden');
  				        	$('#invalid-mp3-file').addClass('hidden');
- 				        	/* $.each(data.result.files, function (index, file) {
- 				                $('<p/>').text(file.name).appendTo(document.body);
- 				            }); */
+ 				        	
+ 				        	//On Success Increase the disk-space bar size
+ 				        	
+ 				        	$.ajax({
+ 								url: '/mixtri/rest/diskspace',
+ 								type: 'GET',
+ 								data: {
+ 									emailId: $.cookie("emailId")
+ 								},
+
+ 								success: function (data, textStatus, jqXHR) {
+ 									$('#spanDiskSpace').html(data+" MB Left");
+ 									var oneGB = 1024;
+ 									var percentSpaceUsed = (oneGB - data)/1024*100;
+ 									$('#disk-space-bar').width(percentSpaceUsed+'%');
+ 									
+ 								},
+ 								
+ 								error: function(data){
+ 								  window.location.href = "error.jsp";
+ 								}
+ 								
+ 							});
+ 				        	
  				        },
 					
  				         error: function(data, textStatus, jqXHR){
@@ -612,6 +767,147 @@ $(document).ready(function() {
 			 $('#selectedMixName').html("Selected Mix: "+selectedMixName);
 			 
 		 });
+		 
+		 //Background Theme Videos
+		 $('.videoThemes').on('click',function(e){
+			
+			 var alreadySelectedMix = $('.selectedVid');
+			 
+			 if(alreadySelectedMix.length>0){
+					alreadySelectedMix.removeClass('selectedVid selected');
+					alreadySelectedMix.addClass('videoThemes');
+				}
+			 	 var vidThemeId = this.id;
+				 $(this).removeClass('videoThemes');
+				 $(this).addClass('selectedVid selected');
+				 
+				 //Substringing the number from the selected theme id and then displaying the corresponding Video
+				 var strArr = [];
+				 strArr = vidThemeId.split("-");
+				 //Add the hidden class to the already selected video
+				 $('.responsive-vimeo').addClass('hidden');
+				 $('#bgTheme-'+strArr[1]).removeClass('hidden');
+				 
+				 var iframe = document.getElementById('iFrameVid-'+strArr[1]);
+				 iframe.contentWindow.postMessage('{"method":"setVolume", "value":0}','*');
+				 $('#selectedTheme').html("Selected Theme: "+$(this).context.innerText);
+			 
+		 });
+		 
+		 
+		 //Live Stream Setup Form Validations:
+	     //Image Validation
+	     $('#event-form').on('submit',function(){
+	    	 var profileImage = $('#profile-pic');
+		     
+	    	 if($('#profile-pic').attr('src')==null){
+		    	 $('#messages').html('ERROR: Please upload an image for your event for your fans to see!');
+		    	 return false;
+	    		 
+		     }
+	    	 
+	    	 //Validates if the user has setup the event time atleast 5 mins more than the system time.
+	    	 var date = new Date();
+	    	 var currentSystemTime = getTimeInMins( date.getHours() + ":" + (date.getMinutes()) );
+	    	 var eventSetupTime = getTimeInMins($('#eventTimePicker').val());
+	    		
+	    	    var isTodaysDate = compareWithSystemDate();
+				
+	    	 	/*This function converts date into DD/MM/YY Format. Currently not calling this function but will be decided later if required for India std date*/	
+				function compareWithSystemDate(){
+					
+					var setDate = $("#eventDatePicker").val();
+					var arr = setDate.split("/");
+					var eventDate = arr[1]+"/"+arr[0]+"/"+arr[2];
+					var systemDate = getSystemDate();
+					
+					if(systemDate == eventDate)
+						return true;
+				}
+				
+				function getSystemDate(){
+					
+					var d = new Date();
+
+					var month = d.getMonth()+1;
+					var day = d.getDate();
+					var output = ((''+day).length<2 ? '0' : '') + day + '/' +
+				    			 ((''+month).length<2 ? '0' : '') + month + '/' +
+				    			 d.getFullYear();
+					    
+					    return output;
+				}
+	    	 
+	    	//This condition checks If the Event Setup time is atleast 5 mins more than the system on today's date. If it is future date then it won't check this condition. 
+	    	 if(isTodaysDate && !((eventSetupTime - currentSystemTime)>= 5) ){
+	    		 $('#messages').html('ERROR: Please set your event time atleast 5 mins more than the current time on your computer clock right now!');
+	    		 return false;
+	    	 }
+	    	 
+	    	 
+	    	 function getTimeInMins(time){
+	    		
+	    		 var a = time.split(':'); // split it at the colons
+				 //converting the current time to minutes
+		    	 var timeInMinutes = (+a[0]) * 60  + (+a[1]); 
+				 return timeInMinutes;
+	    	 }
+	    	 
+	    	 
+	    	
+	     
+	     }); /*End Event form submit Validations on Setup Live Stream button click*/
+	     
+	     
+	   //Upload Recorded Set Valdiation and Save Set
+		 $('#btnSaveSet').on('click',function(e){
+			e.preventDefault();
+			
+			if($('#mix-title').val()==""){
+				
+				$('#saveSetErrors').html('Please give a title for your new uploaded mix!');
+				
+			}
+			 
+		 });
+		 
+		 
+		//On btnUploadMix click prevent its default behavior
+		$('#btnUploadMix').on('click',function(e){
+			e.preventDefault();
+		});
+		
+		
+		/**
+			This function gets called on document.ready ie on load and then fetches the diskspace for the user by checking the folder side value.
+		**/
+		getDiskSpace();
+		
+		function getDiskSpace(){	
+			$.ajax({
+				url: '/mixtri/rest/diskspace',
+				type: 'GET',
+				data: {
+					emailId: $.cookie("emailId")
+				},
+
+				success: function (data, textStatus, jqXHR) {
+					$('#spanDiskSpace').html(data+" MB Left");
+					var oneGB = 1024;
+					var percentSpaceUsed = (oneGB - data)/1024*100;
+					$('#disk-space-bar').width(percentSpaceUsed+'%');
+					
+				},
+				
+				error: function(data){
+				  window.location.href = "error.jsp";
+				}
+			
+			});
+			
+		}
+		 
+	     
 });
 	</script>
 	<script>

@@ -453,7 +453,7 @@ $(document).ready(function(){
 				if(jqXHR.status=='200'){
 
 
-					if(data=='wrong emailId'){
+					if(data['error']=='wrong emailId'){
 
 						var wrongEmailId ='Hey!!! Thats not your correct email id. Please try again'
 
@@ -461,7 +461,7 @@ $(document).ready(function(){
 						$('#loginform').show();
 						$('#login-alert').show();
 						$('#login-alert').html(wrongEmailId);
-					}else if(data=='wrong password'){
+					}else if(data['error']=='wrong password'){
 						var wrongPassword ='Thats an incorrect password. Please try again'
 
 						$('#loginform').show();
@@ -595,7 +595,7 @@ $(document).ready(function(){
 				$('#signupalert').html(validationErrors);
 			}else{
 
-				setUserSession(data['displayName']);
+				setUserSession(data);
 			}
 		}else{
 
@@ -614,8 +614,9 @@ $(document).ready(function(){
 	function setUserSession(data){
 
 
-		$.cookie("displayName", data,{ path: '/'});
-
+		$.cookie("displayName", data['displayName'],{ path: '/'});
+		$.cookie("emailId", data['emailId'],{ path: '/'});
+		
 		//If the user has logged in successfully and is on error page then direct him to index.jsp 
 		if(document.URL.indexOf("error.jsp") >= 0){
 			window.location.href  = "index.jsp";
@@ -627,7 +628,7 @@ $(document).ready(function(){
 		$('.modal-backdrop').remove();
 		$('#welcomeUser').removeClass('hidden');
 		$('span#displayname').html($.cookie('displayName'));
-		//location.reload();
+		
 		
 
 	}

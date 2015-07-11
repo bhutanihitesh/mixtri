@@ -3650,9 +3650,23 @@ a {
 	border: 1px solid #7F7878;
 	padding: 10px;
 	cursor: pointer;
+	margin-bottom: 10px;
 }
 
 .audioControls:hover {
+
+	background-color: #6e6e6e;
+	color: black;
+}
+
+.videoThemes{
+	border: 1px solid #7F7878;
+	padding: 10px;
+	cursor: pointer;
+	margin-bottom: 10px;
+}
+
+.videoThemes:hover {
 
 	background-color: #6e6e6e;
 	color: black;
@@ -3665,7 +3679,36 @@ a {
 	cursor: pointer;
 	background-color: #e62948;
 	color: black;
+	margin-bottom: 10px;
 }
+
+.selectedVid{
+	
+	border: 1px solid #7F7878;
+	padding: 10px;
+	cursor: pointer;
+	background-color: #e62948;
+	color: black;
+	margin-bottom: 10px;
+}
+
+.progress-bar{
+	width:0%;
+	background-color: green;
+	border-radius: 5px;
+	
+}
+
+ .storage-space{
+	
+	width:100%;
+	height: 25px;
+	border-radius: 5px;
+	border: 2px solid #7F7878;
+	padding: 5px;
+}
+
+
 /*=====================================
            End Custom CSS
 =======================================*/
