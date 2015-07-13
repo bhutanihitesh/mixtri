@@ -370,7 +370,7 @@ Meta tags
 
 	<script async src="assets/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 	<script src="assets/js/jquery-1.11.1.min.js"></script>
-	<!--  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+	<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
 	<script defer src="assets/js/ajaxify.min.js"></script>
 	<script defer src="assets/js/bootstrap.min.js"></script>
 	<script defer src="assets/js/jquery.easing-1.3.pack.js"></script>
@@ -384,8 +384,7 @@ Meta tags
 	<script defer src="assets/jPlayer/jquery.jplayer.min.js"></script>
 	<script defer src="assets/jPlayer/add-on/jplayer.playlist.min.js"></script>
 	<script defer src="assets/js/jquery.vegas.min.js"></script>
-	<script defer
-		src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+	<script defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 	<script defer src="assets/js/jquery.calendar-widget.js"></script>
 	<script defer src="assets/js/isotope.js"></script>
 	<script defer src="assets/js/jquery.cookie.js"></script>

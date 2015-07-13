@@ -3,11 +3,13 @@ import java.sql.SQLException;
 
 import com.google.gson.Gson;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 import javax.jws.WebService;
+import javax.rmi.CORBA.UtilDelegate;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -71,6 +73,9 @@ public class UserSignUp{
 				userSignUpBean.setEmailId(emailId);
 				userSignUpBean.setPassword(hashedPassword);
 				userSignUpBean.setContact(contact);
+				Date utilDate = new Date();
+				java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+				userSignUpBean.setCreateDate(sqlDate);
 
 				MixtriDAO mixtriDAO = new MixtriDAO();
 				userSignUpBean = mixtriDAO.setSignUpInfo(userSignUpBean);

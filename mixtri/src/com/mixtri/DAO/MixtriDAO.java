@@ -1,9 +1,11 @@
 package com.mixtri.DAO;
 
-import java.lang.reflect.Method;
+import java.io.File;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 
@@ -13,6 +15,7 @@ import com.mixtri.signup.SignUpDB;
 import com.mixtri.signup.UserSignUpBean;
 import com.mixtri.tracks.TrackBean;
 import com.mixtri.tracks.TrackDB;
+import com.mixtri.uploader.UploaderDB;
 
 
 public class MixtriDAO {
@@ -98,6 +101,16 @@ public class MixtriDAO {
 		TrackDB trackdb=new TrackDB();
 		return trackdb.getAllTracks();
 		
+	}
+	
+	public Map<String,String> getUserPastTracksInfo(Map <String, File[]>filesList){
+		Map<String,String> mapOrgNames;
+		UploaderDB uploaderDB = new UploaderDB();
+		log.debug("Get userPastTrackInfo");
+		mapOrgNames = uploaderDB.getPastUploadedTracks(filesList);
+		
+		
+		return mapOrgNames;
 	}
 
 }

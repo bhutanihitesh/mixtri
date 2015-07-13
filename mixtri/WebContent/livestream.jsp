@@ -340,46 +340,7 @@ Style Sheets
 							<div class="panel-heading">
 								<strong>CHOOSE FROM YOUR PREVIOUS RECORDED MIXES</strong>
 							</div>
-							<div class="panel-body" style="max-height: 300px; overflow-y: scroll;">
-								<div id="pastMix-1" class="audioControls">
-									<label>Dj NYK - Podcast 1</label>
-									<audio controls>
-										<source src="assets/audio/2.mp3" type="audio/mpeg">
-									</audio>
-								</div>
-								<div id="pastMix-2" class="audioControls">
-									<label>Dj NYK - Podcast 2</label>
-									<audio controls>
-										<source src="assets/audio/2.mp3" type="audio/mpeg">
-									</audio>
-								</div>
-								<div id="pastMix-3" class="audioControls">
-									<label>Dj NYK - Podcast 3</label>
-									<audio controls>
-										<source src="assets/audio/2.mp3" type="audio/mpeg">
-									</audio>
-								</div>
-								<div id="pastMix-4" class="audioControls">
-									<label>Dj NYK - Podcast 4</label>
-									<audio controls>
-										<source src="assets/audio/2.mp3" type="audio/mpeg">
-									</audio>
-								</div>
-								<div id="pastMix-5" class="audioControls">
-									<label>Dj NYK - Podcast 5</label>
-									<audio controls>
-										<source src="assets/audio/2.mp3" type="audio/mpeg">
-									</audio>
-								</div>
-								<div id="pastMix-6" class="audioControls">
-									<label>Dj NYK - Podcast 6</label>
-									<audio controls>
-										<source src="assets/audio/2.mp3" type="audio/mpeg">
-									</audio>
-								</div>
-								
-
-
+							<div id="uploaded-past-mixes" class="panel-body">
 							</div>
 
 						</div>
@@ -410,7 +371,7 @@ Style Sheets
 
 										<label>Mix Title<span style="color: #e62948">*</span></label>
 										<input type="text" class="form-control inputLiveStreamInfo"
-											id="mix-title"/>
+											id="mix-title" placeholder="Eg: Non-Stop Bollywood Mix"/>
 											
 									</div>
 
@@ -445,6 +406,7 @@ Style Sheets
 									</div>
 									<div>
 										<div id="saveSetErrors" style="color: red;"></div>
+										<div id="saveSetSuccess" style="color: green;"></div>
 									</div>
 									<div style="float: left;">
 										<button id="btnSaveSet" class="btn btn-default commonButton"
@@ -579,7 +541,11 @@ Style Sheets
 		<%@include file="footer.jsp"%>
 	</footer>
 	<script>
-		
+//Gloabal Variables
+
+var uploadedTrackId;
+var	uploadedTrackPath;
+
 $(document).ready(function() {
 			
 			//Go Live and Test Stream buttons
@@ -645,86 +611,85 @@ $(document).ready(function() {
 					
 			//Upload Recorded Mix button
 			//This code uploads the file using ajax at client side and Jersey upload at the server side.
-				$("#fileupload").on('change',function(e){
-					e.preventDefault();
-					var file = $('input[name="uploadFile"').get(0).files[0];
-					var data = new FormData();
-					data.append('uploadFile', file);
-					data.append('emailId', $.cookie("emailId"));
+				
+			$("#fileupload").on('change',function(e){
+				e.preventDefault();
+				//Clear any validation errors if any
+	        	
+				$('#saveSetErrors').empty();
+				var file = $('input[name="uploadFile"').get(0).files[0];
+				var data = new FormData();
+				data.append('uploadFile', file);
+				data.append('emailId', $.cookie("emailId"));
+				
+				if(file.size>140000000){
 					
-					if(file.size>140000000){
-						
-						$('#maxFileSizeError').removeClass('hidden');
-						return false;
-						
-					}
+					$('#maxFileSizeError').removeClass('hidden');
+					return false;
 					
-					if(file.type!='audio/mp3'){
-						$('#invalid-mp3-file').removeClass('hidden');
-						return false;
-					}
+				}
+				
+				if(file.type!='audio/mp3'){
+					$('#invalid-mp3-file').removeClass('hidden');
+					return false;
+				}
+				
+				
+				$.ajax({
 					
-					
-					$.ajax({
-						
-						type: 'POST',
-						url: '/mixtri/rest/upload',
-						data: data,
-				       	contentType: false,
-				       	processData: false,
-				        dataType: 'json',
+					type: 'POST',
+					url: '/mixtri/rest/upload',
+					data: data,
+				    contentType: false,
+				    processData: false,
+				    dataType: 'json',
 				        
 				        xhr: function() {
-				            var xhr = $.ajaxSettings.xhr();
-				           	if (xhr.upload) {
-				                xhr.upload.addEventListener('progress', function(evt) {
-				                    var percent = (evt.loaded / evt.total) * 100;
-				                    $('#progress-bar').width(String(percent)+'%');
-				                    $('#progress-percent').html(percent+'%');
-				                }, false);
-				            }
-				            return xhr;
-				        },
+				        var xhr = $.ajaxSettings.xhr();	
 				        
- 				        success: function (data,status) {
- 				        	$('#progress-percent').html(data);
+				        if(xhr.upload){
+			                xhr.upload.addEventListener('progress', function(evt) {
+			                	var percent = (evt.loaded / evt.total) * 100;
+			                    $('#progress-bar').width(String(percent)+'%');
+			                    $('#progress-percent').html(percent+'%');
+			                }, false);
+			             }
+			            
+			            
+			            return xhr;
+				        
+				        },
+				    
+				        success: function (data,status) {
+ 				        	if(data.success!=null){
+ 				        		//$('#progress-bar').load(document.URL +  ' #progress-bar');
+ 				        		$('#progress-percent').css('color',"graytext");
+ 				        		$('#progress-percent').html(data.success);
+ 				        		//These are the global variables containing id/path for the recently uploaded track.
+ 				        		uploadedTrackId = data.id;
+ 				        		uploadedTrackPath = data.path;
+ 				        		$('#saveSetSuccess').empty();
+ 				        		
+ 				        	}else if(data.error!=null){
+ 				        		$('#progress-bar').width('0%');
+ 				        		$('#progress-percent').css('color',"red");
+ 				        		$('#progress-percent').html(data.error);			        		
+ 				        	}	
  				        	$('#maxFileSizeError').addClass('hidden');
  				        	$('#invalid-mp3-file').addClass('hidden');
  				        	
  				        	//On Success Increase the disk-space bar size
  				        	
- 				        	$.ajax({
- 								url: '/mixtri/rest/diskspace',
- 								type: 'GET',
- 								data: {
- 									emailId: $.cookie("emailId")
- 								},
-
- 								success: function (data, textStatus, jqXHR) {
- 									$('#spanDiskSpace').html(data+" MB Left");
- 									var oneGB = 1024;
- 									var percentSpaceUsed = (oneGB - data)/1024*100;
- 									$('#disk-space-bar').width(percentSpaceUsed+'%');
- 									
- 								},
- 								
- 								error: function(data){
- 								  window.location.href = "error.jsp";
- 								}
- 								
- 							});
+ 				        	getDiskSpace();
  				        	
  				        },
 					
  				         error: function(data, textStatus, jqXHR){
  				        	window.location.href = "error.jsp";
- 				        },
- 				    	
-				    });
-					
-					
+ 				        }  
 				});
 				
+			});	
 					
 		 //Select Streaming option panels as buttons
 		
@@ -748,10 +713,10 @@ $(document).ready(function() {
 		 });
 		 
 		 
-		 //Select from your past Mix option and when clicked on that div select that div
 		 
-		 $('.audioControls').on('click',function(e){
-			 
+		 //This codes selects the newly clicked div when user clicks on a new track and unselects any previously selected div.
+		 //Delegate event to the parent on dynamically generated divs.
+		 $('#uploaded-past-mixes').on('click','.audioControls',function(){
 			 var alreadySelectedMix = $('.pastMix');
 			 
 			 if(alreadySelectedMix.length>0){
@@ -767,6 +732,7 @@ $(document).ready(function() {
 			 $('#selectedMixName').html("Selected Mix: "+selectedMixName);
 			 
 		 });
+		 
 		 
 		 //Background Theme Videos
 		 $('.videoThemes').on('click',function(e){
@@ -862,15 +828,54 @@ $(document).ready(function() {
 	   //Upload Recorded Set Valdiation and Save Set
 		 $('#btnSaveSet').on('click',function(e){
 			e.preventDefault();
+			//Clear any validation errors if any before showing new ones after user has corrected the info.
+			$('#saveSetErrors').empty();
 			
 			if($('#mix-title').val()==""){
-				
-				$('#saveSetErrors').html('Please give a title for your new uploaded mix!');
+				$('#saveSetSuccess').empty();
+				$('#saveSetErrors').html('ERROR: Please give a title for your mix!');
+				return false;
 				
 			}
+			
+			if(uploadedTrackId==null){
+				$('#saveSetSuccess').empty();
+				$('#saveSetErrors').html('ERROR: Either choose from the previous mixes or upload a new mix!');
+				return false;
+			}
+			
+			if($('#pastMix-'+uploadedTrackId).length){
+				$('#saveSetSuccess').empty();
+				$('#saveSetErrors').html('ERROR: This mix is already uploaded. Please upload a new mix');
+				return false;
+			}
+			
+			//Remove Already Selected past mix if any before user uploaded a new set.
+			var alreadySelectedMix = $('.pastMix');
 			 
+			 if(alreadySelectedMix.length>0){
+				alreadySelectedMix.removeClass('pastMix selected');
+				alreadySelectedMix.addClass('audioControls');
+			 }
+			 
+			pastUploadedTracks(uploadedTrackId,$('#mix-title').val(),uploadedTrackPath,"pastMix selected");
+			$('#saveSetSuccess').html($('#mix-title').val()+" saved successfully!");
+			$('#mix-title').val("");			
 		 });
 		 
+	     function pastUploadedTracks(uploadedTrackId,trackName,uploadedTrackPath,divClass){
+	    	    
+	    	    var html='';
+	    	 	html+='<div id="pastMix-'+uploadedTrackId+'" class="'+divClass+'">';
+				html+='<div>'+trackName+'</div>';
+				html+='<audio controls>';
+			    html+='<source src="'+uploadedTrackPath+uploadedTrackId+".mp3"+'" type="audio/mpeg">';
+			    html+='</audio>';
+			    html+='</div>';
+			    $('#uploaded-past-mixes').prepend(html);
+			    $('#selectedMixName').html("Selected Mix: "+trackName);
+	    	 
+	     }
 		 
 		//On btnUploadMix click prevent its default behavior
 		$('#btnUploadMix').on('click',function(e){
@@ -901,12 +906,46 @@ $(document).ready(function() {
 				
 				error: function(data){
 				  window.location.href = "error.jsp";
-				}
+				},
+				
 			
 			});
 			
 		}
-		 
+		
+		/**
+			This function gets the save/uploaded mixes from a given user. 
+		**/
+		getPastMixes();
+		
+		function getPastMixes(){
+			
+			$.ajax({
+				url: '/mixtri/rest/pastmixes',
+				type: 'GET',
+				data: {
+					emailId: $.cookie("emailId")
+				},
+
+				success: function (data, textStatus, jqXHR) {
+					//Fetching all the records;
+					$.each(data, function( key, value ) {
+						  if(key!="path"){
+						  	pastUploadedTracks(key,value,data.path,'audioControls');
+						  }
+				    });
+					
+				},
+				
+				error: function(data){
+				  window.location.href = "error.jsp";
+				},
+				
+			
+			});
+			
+		}
+	 
 	     
 });
 	</script>

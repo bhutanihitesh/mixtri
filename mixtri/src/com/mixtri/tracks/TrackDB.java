@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import com.mixtri.database.DBConnection;
+
 /* This class will interact with the database */
 
 public class TrackDB {
@@ -12,9 +14,12 @@ public class TrackDB {
 	private static Logger log = Logger.getLogger(TrackDB.class.getName());
 	
 	public List<TrackBean> getAllTracks(){
-	//Once the database is set up, actual queries will be placed here	
-		
+	//Once the database is set up, actual queries will be placed here
 		List<TrackBean> trackList=new ArrayList<>();
+		DBConnection dbConnection = new DBConnection();
+		dbConnection = dbConnection.getDBConnection();
+	try{
+		
 		TrackBean tb1=new TrackBean(1,"assets/img/artist/artist1.jpg",7,"Maroon 5 Move Like Jagger 1","4:05","Christina Aguilera","assets/audio/2.mp3");
 		TrackBean tb2=new TrackBean(2,"assets/img/artist/artist1.jpg",5,"Maroon 5 Move Like Jagger 2","4:05","Christina Aguilera 2","assets/audio/2.mp3");
 		TrackBean tb3=new TrackBean(3,"assets/img/artist/artist1.jpg",6,"Maroon 5 Move Like Jagger 3","4:05","Christina Aguilera 3","assets/audio/2.mp3");
@@ -50,6 +55,12 @@ public class TrackDB {
 		trackList.add(tb15);
 		trackList.add(tb16);
 		
+	 }catch(Exception exp){
+		 log.error("Exception Occured in fetching records: "+exp);
+	 }finally{
+		 //TODO: Close DB Connection.
+	 }
+	
 		return trackList;
 	}
 	

@@ -3651,12 +3651,16 @@ a {
 	padding: 10px;
 	cursor: pointer;
 	margin-bottom: 10px;
+	font-size: medium;
+	font-family: inherit;
+	font-weight: bold;
 }
 
 .audioControls:hover {
 
 	background-color: #6e6e6e;
 	color: black;
+
 }
 
 .videoThemes{
@@ -3680,6 +3684,10 @@ a {
 	background-color: #e62948;
 	color: black;
 	margin-bottom: 10px;
+	font-size: medium;
+	font-family: inherit;
+	font-weight: bold;
+	
 }
 
 .selectedVid{
@@ -3708,6 +3716,11 @@ a {
 	padding: 5px;
 }
 
+#uploaded-past-mixes{
+	 max-height: 370px;
+	 height: 370px; 
+	 overflow-y: scroll;
+}
 
 /*=====================================
            End Custom CSS
