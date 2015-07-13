@@ -28,7 +28,7 @@ public class TrackResource {
 	  }
 	  
       MixtriDAO mixtridao=new MixtriDAO();
-      List<TrackBean> tracks= mixtridao.getAllTracks();
+      List<TrackBean> tracks= mixtridao.getAllTracksDAO();
       
       int limitPerPage=5;
       int total=tracks.size();

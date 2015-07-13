@@ -372,16 +372,7 @@ Style Sheets
 										<label>Mix Title<span style="color: #e62948">*</span></label>
 										<input type="text" class="form-control inputLiveStreamInfo"
 											id="mix-title" placeholder="Eg: Non-Stop Bollywood Mix"/>
-											
 									</div>
-
-									<!-- <div>
-										<label>Genre:</label> <select class="form-control">
-											<option>Select Something...</option>
-										</select>
-
-									</div> -->
-
 									<div>
 									
 										<button id="btnUploadMix"

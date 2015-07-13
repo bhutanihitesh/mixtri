@@ -12,7 +12,7 @@ import com.mixtri.database.DBConnection;
 public class UploaderDB {
 	private static Logger log = Logger.getLogger(UploaderDB.class.getName());
 	
-	public Map<String,String> getPastUploadedTracks(Map <String, File[]>filesList){
+	public Map<String,String> getPastUploadedTracksDB(Map <String, File[]>filesList){
 		Map<String,String> mapOrgNames = new HashMap<String,String>();
 		ResultSet rs=null;
 		DBConnection dbConnection = new DBConnection();
@@ -21,7 +21,7 @@ public class UploaderDB {
 			log.debug("Entry: getPastUploadedTracks");
 			//TODO: fetch records from DB by passing guid of tracks from the filesListArray and pass RS to getTracksOriginalNames()
 			
-			mapOrgNames = getTracksOriginalNames(rs);
+			mapOrgNames = getTracksOriginalNamesDB(rs);
 			
 			
 		}catch(Exception exp){
@@ -35,7 +35,7 @@ public class UploaderDB {
 		
 	}
 	
-	public Map<String,String> getTracksOriginalNames(ResultSet rs) throws Exception{
+	public Map<String,String> getTracksOriginalNamesDB(ResultSet rs) throws Exception{
 		Map<String,String> mapOrgNames = new HashMap<String,String>();
 		//TODO: get names from the resultSet and put them in a list and return;
 		mapOrgNames.put("5b5031da2d7d4efb8529d9f904b3b3b1","Bollywood Non-Stop-1");

@@ -10,7 +10,7 @@ import com.mixtri.database.*;
 public class LoginDB {
 
 	static Logger log = Logger.getLogger(LoginDB.class.getName());
-	public ResultSet getLoginInfo(UserLoginBean userLoginBean){
+	public ResultSet getLoginInfoDB(UserLoginBean userLoginBean){
 		
 		DBConnection dbConnection = new DBConnection();
 		dbConnection = dbConnection.getDBConnection();

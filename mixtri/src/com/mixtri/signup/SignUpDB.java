@@ -14,7 +14,7 @@ public class SignUpDB {
 
 	static Logger log = Logger.getLogger(SignUpDB.class.getName());
 
-	public ResultSet createNewUser(UserSignUpBean userSignUpBean){
+	public ResultSet createNewUserDB(UserSignUpBean userSignUpBean){
 
 		DBConnection dbConnection = new DBConnection();
 		dbConnection = dbConnection.getDBConnection();

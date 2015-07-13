@@ -78,7 +78,7 @@ public class UserSignUp{
 				userSignUpBean.setCreateDate(sqlDate);
 
 				MixtriDAO mixtriDAO = new MixtriDAO();
-				userSignUpBean = mixtriDAO.setSignUpInfo(userSignUpBean);
+				userSignUpBean = mixtriDAO.setSignUpInfoDAO(userSignUpBean);
 				isUserCreated = userSignUpBean.isUsercreated();	
 
 				if(isUserCreated){

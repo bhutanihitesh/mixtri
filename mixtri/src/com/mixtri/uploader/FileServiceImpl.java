@@ -116,6 +116,8 @@ public class FileServiceImpl implements IFileService {
 					double spaceLeftBytes = writeToFileServer(bytes, fileName,uploadPath);
 					double spaceLeftMB = spaceLeftBytes/1000000;
 					UploaderBean uploaderBean = setUploaderBean(emailId,spaceLeftMB,fileName,originalFileName,uploadPath);
+					MixtriDAO mxitriDAO = new MixtriDAO();
+					
 					messages.put("success", originalFileName+" Uploaded Successfully!");
 					messages.put("id", uuid);
 					messages.put("path", uploadPath);
@@ -228,7 +230,7 @@ public class FileServiceImpl implements IFileService {
 		File files = new File(uploadPath);
 		if (!files.exists()) {
 			if (files.mkdirs()) {
-				log.info("User Directory Created: "+uploadPath);
+				log.debug("User Directory Created: "+uploadPath);
 				return true;
 			} else {
 				log.error("failed to create user Direcory: "+uploadPath);
@@ -260,7 +262,7 @@ public class FileServiceImpl implements IFileService {
 				fileList.put(emailId, listOfFiles);
 				MixtriDAO mixtriDAO = new MixtriDAO();
 				log.debug("Getting past track info for the user: "+emailId);
-				mapOrgNames = mixtriDAO.getUserPastTracksInfo(fileList);
+				mapOrgNames = mixtriDAO.getUserPastTracksInfoDAO(fileList);
 				mapOrgNames.put("path", uploadPath);
 				pastMixesOrgNames = gson.toJson(mapOrgNames);
 				

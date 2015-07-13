@@ -15,17 +15,18 @@ import com.mixtri.signup.SignUpDB;
 import com.mixtri.signup.UserSignUpBean;
 import com.mixtri.tracks.TrackBean;
 import com.mixtri.tracks.TrackDB;
+import com.mixtri.uploader.UploaderBean;
 import com.mixtri.uploader.UploaderDB;
 
 
 public class MixtriDAO {
 	static Logger log = Logger.getLogger(MixtriDAO.class.getName());
 
-	public UserLoginBean retriveLoginInfo(UserLoginBean userLoginBean) throws SQLException, Exception{
+	public UserLoginBean retriveLoginInfoDAO(UserLoginBean userLoginBean) throws SQLException, Exception{
 
 		LoginDB loginDB = new LoginDB();
 		ResultSet rs = null;
-		rs = loginDB.getLoginInfo(userLoginBean);
+		rs = loginDB.getLoginInfoDB(userLoginBean);
         
 		//*********** For Testing without DB*****************//
 		  String usernameDB = "mixtri@gmail.com";
@@ -75,11 +76,11 @@ public class MixtriDAO {
 		return userLoginBean;
 	}
 
-	public UserSignUpBean setSignUpInfo(UserSignUpBean userSignUpBean) throws SQLException,Exception{
+	public UserSignUpBean setSignUpInfoDAO(UserSignUpBean userSignUpBean) throws SQLException,Exception{
 		SignUpDB signUpDB = new SignUpDB();
 
 		ResultSet rs=null;
-		rs = signUpDB.createNewUser(userSignUpBean);
+		rs = signUpDB.createNewUserDB(userSignUpBean);
 
 		//If a valid GUID is return then setUsercreated = true; 		
 		if(rs==null){
@@ -95,22 +96,31 @@ public class MixtriDAO {
 		return userSignUpBean;
 	}
 	
-	public List<TrackBean> getAllTracks(){
+	public List<TrackBean> getAllTracksDAO(){
 		
 		//Later trackbeans will be set here from the resultset returned by TrackDB class
 		TrackDB trackdb=new TrackDB();
-		return trackdb.getAllTracks();
+		return trackdb.getAllTracksDB();
 		
 	}
 	
-	public Map<String,String> getUserPastTracksInfo(Map <String, File[]>filesList){
+	public Map<String,String> getUserPastTracksInfoDAO(Map <String, File[]>filesList){
 		Map<String,String> mapOrgNames;
 		UploaderDB uploaderDB = new UploaderDB();
 		log.debug("Get userPastTrackInfo");
-		mapOrgNames = uploaderDB.getPastUploadedTracks(filesList);
+		mapOrgNames = uploaderDB.getPastUploadedTracksDB(filesList);
 		
 		
 		return mapOrgNames;
+	}
+	
+	public boolean saveUploadedMixDAO(UploaderBean uploaderBean){
+		boolean isSaved = false;
+		
+		UploaderDB uploaderDB = new UploaderDB();
+	
+		
+		return isSaved;
 	}
 
 }

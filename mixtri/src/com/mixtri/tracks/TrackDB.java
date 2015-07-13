@@ -13,7 +13,7 @@ public class TrackDB {
 
 	private static Logger log = Logger.getLogger(TrackDB.class.getName());
 	
-	public List<TrackBean> getAllTracks(){
+	public List<TrackBean> getAllTracksDB(){
 	//Once the database is set up, actual queries will be placed here
 		List<TrackBean> trackList=new ArrayList<>();
 		DBConnection dbConnection = new DBConnection();

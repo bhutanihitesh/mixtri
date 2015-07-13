@@ -58,7 +58,7 @@ public String authenticate(@FormParam("emailId") String emailId, @FormParam("pas
 	  userLoginBean.setPassword(password);
 	  
 	  MixtriDAO mixtriDAO = new MixtriDAO();
-	  userLoginBean = mixtriDAO.retriveLoginInfo(userLoginBean);
+	  userLoginBean = mixtriDAO.retriveLoginInfoDAO(userLoginBean);
 	  
 	  if(!userLoginBean.getEmailId().isEmpty() && userLoginBean.isUsernameAuthenticated()){
 	  
