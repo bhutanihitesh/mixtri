@@ -376,22 +376,21 @@ Style Sheets
 									<div>
 									
 										<button id="btnUploadMix"
-											class="btn btn-default commonButton" onclick="$('#fileupload').click()">Upload Mix!</button>
+											class="btn btn-default commonButton" onclick="$('#fileupload').click()">Choose File</button>
 										<input id="fileupload" type="file" name="uploadFile" accept="audio/*"/>
 										<label>&nbsp;Choose Mix<span style="color: #e62948">*</span></label>
 										<label style="color: graytext;">Max size 140 MB, only .mp3</label>
+										<div id="selectedFileName" style="color: graytext;"></div><br>
 										
 										
 											<div id="progress-bar" class="progress-bar">&nbsp;</div>
 											<div id="progress-percent" style="color: graytext;"></div>
 										
 										
-										<div id="maxFileSizeError" class="alert-error hidden">
-												Please upload file less than 140 MB.
+										<div id="maxFileSizeError" class="alert-error">
 										</div>
 										
-										<div id="invalid-mp3-file" class ="alert-error hidden">
-											  Please upload only mp3 files.
+										<div id="invalid-mp3-file" class ="alert-error">
 										</div>
 
 									</div>
@@ -534,8 +533,8 @@ Style Sheets
 	<script>
 //Gloabal Variables
 
-var uploadedTrackId;
-var	uploadedTrackPath;
+/* var uploadedTrackId;
+var	uploadedTrackPath; */
 
 $(document).ready(function() {
 			
@@ -600,85 +599,13 @@ $(document).ready(function() {
 				  });
 					
 					
-			//Upload Recorded Mix button
-			//This code uploads the file using ajax at client side and Jersey upload at the server side.
-				
+			/**
+			  This function show the name of the file selected by the user on the UI
+			**/
 			$("#fileupload").on('change',function(e){
 				e.preventDefault();
-				//Clear any validation errors if any
-	        	
-				$('#saveSetErrors').empty();
 				var file = $('input[name="uploadFile"').get(0).files[0];
-				var data = new FormData();
-				data.append('uploadFile', file);
-				data.append('emailId', $.cookie("emailId"));
-				
-				if(file.size>140000000){
-					
-					$('#maxFileSizeError').removeClass('hidden');
-					return false;
-					
-				}
-				
-				if(file.type!='audio/mp3'){
-					$('#invalid-mp3-file').removeClass('hidden');
-					return false;
-				}
-				
-				
-				$.ajax({
-					
-					type: 'POST',
-					url: '/mixtri/rest/upload',
-					data: data,
-				    contentType: false,
-				    processData: false,
-				    dataType: 'json',
-				        
-				        xhr: function() {
-				        var xhr = $.ajaxSettings.xhr();	
-				        
-				        if(xhr.upload){
-			                xhr.upload.addEventListener('progress', function(evt) {
-			                	var percent = (evt.loaded / evt.total) * 100;
-			                    $('#progress-bar').width(String(percent)+'%');
-			                    $('#progress-percent').html(percent+'%');
-			                }, false);
-			             }
-			            
-			            
-			            return xhr;
-				        
-				        },
-				    
-				        success: function (data,status) {
- 				        	if(data.success!=null){
- 				        		//$('#progress-bar').load(document.URL +  ' #progress-bar');
- 				        		$('#progress-percent').css('color',"graytext");
- 				        		$('#progress-percent').html(data.success);
- 				        		//These are the global variables containing id/path for the recently uploaded track.
- 				        		uploadedTrackId = data.id;
- 				        		uploadedTrackPath = data.path;
- 				        		$('#saveSetSuccess').empty();
- 				        		
- 				        	}else if(data.error!=null){
- 				        		$('#progress-bar').width('0%');
- 				        		$('#progress-percent').css('color',"red");
- 				        		$('#progress-percent').html(data.error);			        		
- 				        	}	
- 				        	$('#maxFileSizeError').addClass('hidden');
- 				        	$('#invalid-mp3-file').addClass('hidden');
- 				        	
- 				        	//On Success Increase the disk-space bar size
- 				        	
- 				        	getDiskSpace();
- 				        	
- 				        },
-					
- 				         error: function(data, textStatus, jqXHR){
- 				        	window.location.href = "error.jsp";
- 				        }  
-				});
+				$('#selectedFileName').html('Selected File: '+file.name);
 				
 			});	
 					
@@ -829,30 +756,121 @@ $(document).ready(function() {
 				
 			}
 			
-			if(uploadedTrackId==null){
+			if($('#selectedFileName').is(':empty')){
 				$('#saveSetSuccess').empty();
-				$('#saveSetErrors').html('ERROR: Either choose from the previous mixes or upload a new mix!');
+				$('#saveSetErrors').html('ERROR: Please choose a file to be uploaded!');
 				return false;
+				
 			}
 			
-			if($('#pastMix-'+uploadedTrackId).length){
-				$('#saveSetSuccess').empty();
-				$('#saveSetErrors').html('ERROR: This mix is already uploaded. Please upload a new mix');
-				return false;
-			}
-			
-			//Remove Already Selected past mix if any before user uploaded a new set.
-			var alreadySelectedMix = $('.pastMix');
-			 
-			 if(alreadySelectedMix.length>0){
-				alreadySelectedMix.removeClass('pastMix selected');
-				alreadySelectedMix.addClass('audioControls');
-			 }
-			 
-			pastUploadedTracks(uploadedTrackId,$('#mix-title').val(),uploadedTrackPath,"pastMix selected");
-			$('#saveSetSuccess').html($('#mix-title').val()+" saved successfully!");
-			$('#mix-title').val("");			
+			uploadNewMix();			
 		 });
+	     
+	   /**
+	   		Choose file button
+			This code uploads the file using ajax at client side and Jersey upload at the server side.
+	   **/
+	     function uploadNewMix(){
+	    	 
+	    	//Clear any validation errors if any
+	        	
+				//$('#saveSetErrors').empty();
+				var file = $('input[name="uploadFile"').get(0).files[0];
+				var data = new FormData();
+				data.append('uploadFile', file);
+				data.append('emailId', $.cookie("emailId"));
+				
+				if(file.size>140000000){
+					
+					$('#maxFileSizeError').html('Please upload file less than 140 MB.');
+					return false;
+					
+				}
+				
+				if(file.type!='audio/mp3'){
+					$('#invalid-mp3-file').html('Please upload only mp3 files.');
+					return false;
+				}
+				
+				
+				$.ajax({
+					
+					type: 'POST',
+					url: '/mixtri/rest/upload',
+					data: data,
+				    contentType: false,
+				    processData: false,
+				    dataType: 'json',
+				        
+				        xhr: function() {
+				        var xhr = $.ajaxSettings.xhr();	
+				        
+				        if(xhr.upload){
+			                xhr.upload.addEventListener('progress', function(evt) {
+			                	var percent = (evt.loaded / evt.total) * 100;
+			                    $('#progress-bar').width(String(percent)+'%');
+			                    $('#progress-percent').html(percent+'%');
+			                }, false);
+			             }
+			            
+			            
+			            return xhr;
+				        
+				        },
+				    
+				        success: function (data,status) {
+				        	if(data.success!=null){
+				        		//$('#progress-bar').load(document.URL +  ' #progress-bar');
+				        		$('#progress-percent').css('color',"graytext");
+				        		$('#progress-percent').html(data.success);
+				        		//These are the global variables containing id/path for the recently uploaded track.
+				        		var uploadedTrackId = data.id;
+				        		var uploadedTrackPath = data.path;
+				        		
+				        	}else if(data.error!=null){
+				        		$('#progress-bar').width('0%');
+				        		$('#progress-percent').css('color',"red");
+				        		$('#progress-percent').html(data.error);			        		
+				        	}	
+				        	$('#maxFileSizeError').addClass('hidden');
+				        	$('#invalid-mp3-file').addClass('hidden');
+				        	
+				        	//Remove Already Selected past mix if any after user uploaded a new mix.
+							var alreadySelectedMix = $('.pastMix');
+							 
+							 if(alreadySelectedMix.length>0){
+								alreadySelectedMix.removeClass('pastMix selected');
+								alreadySelectedMix.addClass('audioControls');
+							 }
+							 
+							pastUploadedTracks(uploadedTrackId,$('#mix-title').val(),uploadedTrackPath,"pastMix selected");
+							$('#saveSetSuccess').html($('#mix-title').val()+" saved successfully!");
+							
+				        	
+				        	//On Success Increase the disk-space bar size
+				        	
+				        	getDiskSpace();
+				        	
+				        },
+					
+				        complete: function(){
+				        	
+				        	//Clear the title text field and selectedFileName div after the successful upload of file to prevent user to upload same file again accidently.
+							//If we clear selectedFileName div he will have to choose the file again.
+							//On complete of request clear all validation errors.
+							$('#mix-title').val("");
+							$('#selectedFileName').empty();
+							$('#saveSetSuccess').empty();
+							$('#saveSetErrors').empty();
+							$('#maxFileSizeError').empty();
+							$('#invalid-mp3-file').html();
+				        },
+				         error: function(data, textStatus, jqXHR){
+				        	window.location.href = "error.jsp";
+				        }  
+				});
+	    	 
+	     }
 		 
 	     function pastUploadedTracks(uploadedTrackId,trackName,uploadedTrackPath,divClass){
 	    	    

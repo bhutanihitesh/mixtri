@@ -116,9 +116,9 @@ public class MixtriDAO {
 	
 	public boolean saveUploadedMixDAO(UploaderBean uploaderBean){
 		boolean isSaved = false;
-		
+		log.debug("Inside saveUploadedMixDA: "+uploaderBean);
 		UploaderDB uploaderDB = new UploaderDB();
-	
+		uploaderDB.saveUploadedMixDB(uploaderBean);
 		
 		return isSaved;
 	}

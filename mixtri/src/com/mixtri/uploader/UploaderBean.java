@@ -7,8 +7,8 @@ public class UploaderBean {
 	
 	double fileSize;
 	String emailId;
-	String uniqueFileName;
-	String originalFileName;
+	String id;
+	String title;
 	String filePath;
 	Date dateUploaded;
 	public double getFileSize() {
@@ -23,17 +23,19 @@ public class UploaderBean {
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
 	}
-	public String getUniqueFileName() {
-		return uniqueFileName;
+	
+	public String getId() {
+		return id;
 	}
-	public void setUniqueFileName(String uniqueFileName) {
-		this.uniqueFileName = uniqueFileName;
+	public void setId(String id) {
+		this.id = id;
 	}
-	public String getOriginalFileName() {
-		return originalFileName;
+	
+	public String getTitle() {
+		return title;
 	}
-	public void setOriginalFileName(String originalFileName) {
-		this.originalFileName = originalFileName;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 	public String getFilePath() {
 		return filePath;

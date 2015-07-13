@@ -12,6 +12,25 @@ import com.mixtri.database.DBConnection;
 public class UploaderDB {
 	private static Logger log = Logger.getLogger(UploaderDB.class.getName());
 	
+	
+	public ResultSet saveUploadedMixDB(UploaderBean uploaderBean){
+		ResultSet rs=null;
+		DBConnection dbConnection = new DBConnection();
+		
+		System.out.println("Record inserted: "+uploaderBean.getId()+" "+uploaderBean.getEmailId()+" "+uploaderBean.getTitle()+" "
+		+uploaderBean.getFileSize()+" "+uploaderBean.getFilePath()+" "+uploaderBean.getDateUploaded());
+		try{
+			
+		}catch(Exception exp){
+			log.error("Exception Occured while inserting record: "+exp);
+		}finally{
+			//TODO: Close DB Connection
+		}
+		
+		
+		return rs;
+	}
+	
 	public Map<String,String> getPastUploadedTracksDB(Map <String, File[]>filesList){
 		Map<String,String> mapOrgNames = new HashMap<String,String>();
 		ResultSet rs=null;
@@ -34,6 +53,7 @@ public class UploaderDB {
 		return mapOrgNames;
 		
 	}
+	
 	
 	public Map<String,String> getTracksOriginalNamesDB(ResultSet rs) throws Exception{
 		Map<String,String> mapOrgNames = new HashMap<String,String>();

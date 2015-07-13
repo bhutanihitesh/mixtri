@@ -104,7 +104,7 @@ public class FileServiceImpl implements IFileService {
 				fileName = fileFormDataContentDisposition.getFileName();
 				final String uuid = UUID.randomUUID().toString().replaceAll("-", "");
 				log.debug("Saving file: "+fileName+" as "+uuid);
-				String originalFileName = fileName; 
+				String title = fileName; 
 				fileName = uuid+".mp3";
 				byte[] bytes = IOUtils.toByteArray(fileInputStream);
 				Response usedDiskSpace = getDiskSpace(emailId);
@@ -115,10 +115,10 @@ public class FileServiceImpl implements IFileService {
 				if((usedSpace - bytes.length/1000000)>0){
 					double spaceLeftBytes = writeToFileServer(bytes, fileName,uploadPath);
 					double spaceLeftMB = spaceLeftBytes/1000000;
-					UploaderBean uploaderBean = setUploaderBean(emailId,spaceLeftMB,fileName,originalFileName,uploadPath);
-					MixtriDAO mxitriDAO = new MixtriDAO();
-					
-					messages.put("success", originalFileName+" Uploaded Successfully!");
+					UploaderBean uploaderBean = setUploaderBean(emailId,spaceLeftMB,uuid,title,uploadPath);
+					MixtriDAO mixtriDAO = new MixtriDAO();
+					boolean isSaved = mixtriDAO.saveUploadedMixDAO(uploaderBean);
+					messages.put("success", title+" Uploaded Successfully!");
 					messages.put("id", uuid);
 					messages.put("path", uploadPath);
 					responseOk = gson.toJson(messages);
@@ -144,14 +144,14 @@ public class FileServiceImpl implements IFileService {
 		}       
 	}
 
-	public UploaderBean setUploaderBean(String emailId,double fileSizeMB,String uniqueFileName,String originalFileName,String filePath){
+	public UploaderBean setUploaderBean(String emailId,double fileSizeMB,String id,String title,String filePath){
 
 		UploaderBean uploaderBean = new UploaderBean();
 		uploaderBean.setFileSize(fileSizeMB);
 		uploaderBean.setEmailId(emailId);
-		uploaderBean.setUniqueFileName(uniqueFileName);
-		uploaderBean.setOriginalFileName(originalFileName);
-		uploaderBean.setFilePath(filePath+uniqueFileName);
+		uploaderBean.setId(id);
+		uploaderBean.setTitle(title);
+		uploaderBean.setFilePath(filePath);
 		Date utilDate = new Date();
 		java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
 		uploaderBean.setDateUploaded(sqlDate);
