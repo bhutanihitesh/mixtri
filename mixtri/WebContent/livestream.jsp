@@ -102,7 +102,7 @@ Style Sheets
 							<div class="form-group">
 								<div class="eventDropdown">
 									<br> <label>Time Zone:<span style="color: #e62948">*</span></label>
-									<select class="form-control">
+									<select id="timeZone" class="form-control">
 										<option value="-12">(GMT -12:00) Eniwetok, Kwajalein</option>
 										<option value="-11">(GMT -11:00) Midway Island, Samoa</option>
 										<option value="-10">(GMT -10:00) Hawaii</option>
@@ -166,10 +166,11 @@ Style Sheets
 									onClick="publicRoom()">Go Live!</button>
 								<button id="testStream" type="button" class="btn btn-default"
 									onClick="privateRoom()">Test Stream</button>
-								<label
+							</div>		
+								<div
 									style="font-size: small; color: graytext; margin-top: 10px;">*
-									Select Test Stream to test your connection before live</label>
-							</div>
+									Select Test Stream to test your connection before going live</div>
+							
 
 							<!-- </div> -->
 							<!-- </div> -->
@@ -678,6 +679,29 @@ $(document).ready(function() {
 			 
 		 });
 		 
+		 /**
+		  		This method is called on document.ready to get server date and time
+		 **/
+		 
+		
+		 
+		 function getServerDateTime(){
+			 
+			 $.ajax({
+					
+				 	type: 'GET',
+					url: '/mixtri/rest/timestamp',
+					dataType: 'json',
+					
+					success: function(result){
+						
+					},
+					
+					error: function(){
+						console.log();
+					}
+			 });
+		 }
 		 
 		 //Live Stream Setup Form Validations:
 	     //Image Validation
@@ -685,7 +709,7 @@ $(document).ready(function() {
 	    	 var profileImage = $('#profile-pic');
 		     
 	    	 if($('#profile-pic').attr('src')==null){
-		    	 $('#messages').html('ERROR: Please upload an image for your event for your fans to see!');
+		    	 $('#messages').html('ERROR: Please upload a catchy image for your event for your fans to see. This will attract you fans to your event!');
 		    	 return false;
 	    		 
 		     }
@@ -694,6 +718,7 @@ $(document).ready(function() {
 	    	 var date = new Date();
 	    	 var currentSystemTime = getTimeInMins( date.getHours() + ":" + (date.getMinutes()) );
 	    	 var eventSetupTime = getTimeInMins($('#eventTimePicker').val());
+	    	 
 	    		
 	    	    var isTodaysDate = compareWithSystemDate();
 				
@@ -703,13 +728,14 @@ $(document).ready(function() {
 					var setDate = $("#eventDatePicker").val();
 					var arr = setDate.split("/");
 					var eventDate = arr[1]+"/"+arr[0]+"/"+arr[2];
-					var systemDate = getSystemDate();
+					var selectedTimeZone = $("#timeZone option:selected").val();
+					var systemDate = getSystemDate(selectedTimeZone);
 					
 					if(systemDate == eventDate)
 						return true;
 				}
 				
-				function getSystemDate(){
+				function getSystemDate(selectedTimeZone){
 					
 					var d = new Date();
 
@@ -724,7 +750,7 @@ $(document).ready(function() {
 	    	 
 	    	//This condition checks If the Event Setup time is atleast 5 mins more than the system on today's date. If it is future date then it won't check this condition. 
 	    	 if(isTodaysDate && !((eventSetupTime - currentSystemTime)>= 5) ){
-	    		 $('#messages').html('ERROR: Please set your event time atleast 5 mins more than the current time on your computer clock right now!');
+	    		 $('#messages').html('ERROR: Please set your event time atleast 5 mins in advance. This gives time for you to prepare!');
 	    		 return false;
 	    	 }
 	    	 
@@ -827,6 +853,22 @@ $(document).ready(function() {
 				        		var uploadedTrackId = data.id;
 				        		var uploadedTrackPath = data.path;
 				        		
+				        		//Remove Already Selected past mix if any after user uploaded a new mix.
+								var alreadySelectedMix = $('.pastMix');
+								 
+								 if(alreadySelectedMix.length>0){
+									alreadySelectedMix.removeClass('pastMix selected');
+									alreadySelectedMix.addClass('audioControls');
+								 }
+								 
+								pastUploadedTracks(uploadedTrackId,$('#mix-title').val(),uploadedTrackPath,"pastMix selected");
+								$('#saveSetSuccess').html($('#mix-title').val()+" saved successfully!");
+								
+					        	
+					        	//On Success Increase the disk-space bar size
+					        	
+					        	getDiskSpace();
+				        		
 				        	}else if(data.error!=null){
 				        		$('#progress-bar').width('0%');
 				        		$('#progress-percent').css('color',"red");
@@ -834,22 +876,6 @@ $(document).ready(function() {
 				        	}	
 				        	$('#maxFileSizeError').addClass('hidden');
 				        	$('#invalid-mp3-file').addClass('hidden');
-				        	
-				        	//Remove Already Selected past mix if any after user uploaded a new mix.
-							var alreadySelectedMix = $('.pastMix');
-							 
-							 if(alreadySelectedMix.length>0){
-								alreadySelectedMix.removeClass('pastMix selected');
-								alreadySelectedMix.addClass('audioControls');
-							 }
-							 
-							pastUploadedTracks(uploadedTrackId,$('#mix-title').val(),uploadedTrackPath,"pastMix selected");
-							$('#saveSetSuccess').html($('#mix-title').val()+" saved successfully!");
-							
-				        	
-				        	//On Success Increase the disk-space bar size
-				        	
-				        	getDiskSpace();
 				        	
 				        },
 					
@@ -882,7 +908,7 @@ $(document).ready(function() {
 			    html+='</audio>';
 			    html+='</div>';
 			    $('#uploaded-past-mixes').prepend(html);
-			    $('#selectedMixName').html("Selected Mix: "+trackName);
+			    
 	    	 
 	     }
 		 
@@ -895,8 +921,6 @@ $(document).ready(function() {
 		/**
 			This function gets called on document.ready ie on load and then fetches the diskspace for the user by checking the folder side value.
 		**/
-		getDiskSpace();
-		
 		function getDiskSpace(){	
 			$.ajax({
 				url: '/mixtri/rest/diskspace',
@@ -923,9 +947,9 @@ $(document).ready(function() {
 		}
 		
 		/**
-			This function gets the save/uploaded mixes from a given user. 
+			This method gets called on document.ready ie on laod of the DOM. This function gets the save/uploaded mixes from a given user. 
 		**/
-		getPastMixes();
+		
 		
 		function getPastMixes(){
 			
@@ -939,7 +963,7 @@ $(document).ready(function() {
 				success: function (data, textStatus, jqXHR) {
 					//Fetching all the records;
 					$.each(data, function( key, value ) {
-						  if(key!="path"){
+						  if(key!="path" && key.length>0){
 						  	pastUploadedTracks(key,value,data.path,'audioControls');
 						  }
 				    });
@@ -955,7 +979,11 @@ $(document).ready(function() {
 			
 		}
 	 
-	     
+	   /**These methods gets called on DOM Ready
+	   **/
+		//getServerDateTime();
+		getPastMixes();
+		getDiskSpace();
 });
 	</script>
 	<script>

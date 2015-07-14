@@ -502,6 +502,7 @@ $(document).ready(function(){
 	//Logout functionality  
 	$('#logout').click(function(){
 		$.removeCookie('displayName', { path: '/' });
+		$.removeCookie('emailId', { path: '/' });
 		$("#welcomeUser").addClass('hidden');
 		$('#loginUser').show();
 		window.location.href = document.URL;
@@ -632,7 +633,7 @@ $(document).ready(function(){
 		
 
 	}
-
+	
 	//end
 });
 

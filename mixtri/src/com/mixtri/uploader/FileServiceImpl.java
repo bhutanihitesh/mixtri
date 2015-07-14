@@ -201,7 +201,7 @@ public class FileServiceImpl implements IFileService {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getDiskSpace(@QueryParam("emailId") String emailId){
 
-		String spaceLeft=null;
+		String spaceLeft="";
 		Gson gson = new Gson();
 		String uploadPath = UPLOAD_FILE_SERVER+"/"+emailId+"/tracks/";
 		try{
@@ -246,8 +246,8 @@ public class FileServiceImpl implements IFileService {
 	@Path("/pastmixes")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getPastMixes(@QueryParam("emailId") String emailId){
-		String pastMixesOrgNames=null;
 		
+		String pastMixesOrgNames="";
 		Gson gson = new Gson();
 		String uploadPath = UPLOAD_FILE_SERVER+"/"+emailId+"/tracks/";
 		Map<String,File[]> fileList = new HashMap<String, File[]>();
@@ -266,6 +266,9 @@ public class FileServiceImpl implements IFileService {
 				mapOrgNames.put("path", uploadPath);
 				pastMixesOrgNames = gson.toJson(mapOrgNames);
 				
+			}else{
+				mapOrgNames.put("", "");
+				pastMixesOrgNames = gson.toJson(mapOrgNames);
 			}
 		}catch(Exception exp){
 			
